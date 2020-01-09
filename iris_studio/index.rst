@@ -1,8 +1,6 @@
-iris_studio
+IRIS Studio
 ====================
 
-iris_studio
+IRIS Studio
 
 .. toctree::
-
-    00.rst

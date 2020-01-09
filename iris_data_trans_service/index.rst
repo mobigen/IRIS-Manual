@@ -1,8 +1,4 @@
-iris_data_trans_service
+IRIS Data Trans Service
 ====================
 
 iris_data_trans_service
-
-.. toctree::
-
-    00.rst

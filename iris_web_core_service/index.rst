@@ -1,8 +1,7 @@
-iris_web_core_service
+IRIS Web Core Service
 ====================
 
-iris_web_core_service
+IRIS Web Core Service
 
 .. toctree::
 
-    00.rst
