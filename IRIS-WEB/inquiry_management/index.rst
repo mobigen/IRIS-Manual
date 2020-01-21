@@ -6,7 +6,7 @@
 .. toctree::
 
     docs/00_data_model.rst
-    docs/01_connect_info.rst
-    docs/02_jobs_inquiry.rst
+    connect_info/index.rst
+    jobs_inquiry/index.rst
     
     
