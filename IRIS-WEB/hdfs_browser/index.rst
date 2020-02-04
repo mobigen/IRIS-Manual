@@ -13,7 +13,6 @@ Mount 파일 탐색               사용자별 개인 폴더의 파일들을 탐
 
 
 .. toctree::
-    :numbered:
 
     description.rst
     button.rst

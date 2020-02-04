@@ -16,7 +16,6 @@
 
 
 .. toctree::
-    :numbered:
     
     data_select.rst
     data_processing.rst

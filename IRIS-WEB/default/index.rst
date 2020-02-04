@@ -2,7 +2,6 @@
 ============
 
 .. toctree::
-    :numbered:
 
     language_setting.rst
     menu_management.rst
