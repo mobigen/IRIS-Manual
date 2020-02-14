@@ -39,8 +39,6 @@ CREATE TABLE
 
     column_type : TEXT
                 | REAL
-                | NUMBER
-                | BFILE
                 | INTEGER
 
     column_constraint_list : column_constraint 
