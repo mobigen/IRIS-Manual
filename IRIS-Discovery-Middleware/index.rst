@@ -1,4 +1,4 @@
-IRIS Discovery Middleware
+IRIS Discovery Service
 ===============================
 
 .. toctree::
