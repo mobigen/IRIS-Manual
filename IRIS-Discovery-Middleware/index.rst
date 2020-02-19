@@ -2,7 +2,6 @@ IRIS Discovery Service
 ===============================
 
 .. toctree::
-    :numbered:
 
     overview/index.rst
     architecture/index.rst
