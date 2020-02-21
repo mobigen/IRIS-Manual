@@ -15,7 +15,8 @@
 
 
 .. toctree::
-
+    :hidden:
+    
     user_account.rst
     user_group.rst
     user_registration.rst
