@@ -39,3 +39,49 @@ Upload 버튼을 클릭하여 사용자가 원하는 파일을 로컬에서 Jupy
 .. image:: ./images/004.jupyter_coderesult.png
     :alt: 주피터코드실행결과
 
+
+------------------------------
+IRIS-DB에서 데이터를 읽어오기
+------------------------------
+
+.. code::
+
+    import API.M6 as M6
+
+    # connection
+    conn = M6.Connection("192.168.100.180:5050", "myuser", "mypasswd", Database="myuser")
+    c = conn.Cursor()
+    c.SetFieldSep('|^|')
+    c.SetRecordSep('|^-^|')
+
+    # local table create
+    q = '''
+    CREATE TABLE LOCAL_TEST_TABLE_007 (
+    k         TEXT,
+    p         TEXT,
+    a         TEXT
+    )
+    datascope       LOCAL
+    ramexpire       30
+    diskexpire      34200
+    partitionkey    k
+    partitiondate   p
+    partitionrange  10
+    ;
+    '''
+    print(c.Execute2(q))
+
+    # data insert
+    print(c.Execute2("INSERT INTO LOCAL_TEST_TABLE_007 (k, p, a) VALUES ('k2', '20110616000000', '1');"))
+    print(c.Execute2("INSERT INTO LOCAL_TEST_TABLE_007 (k, p, a) VALUES ('k3', '20110616000000', '1.2');"))
+    print(c.Execute2("INSERT INTO LOCAL_TEST_TABLE_007 (k, p, a) VALUES ('k4', '20110616000000', '0');"))
+
+    # data select
+    q = "select * from LOCAL_TEST_TABLE_007;"
+    c.Execute2(q)
+    for row in c:
+        print(row)
+
+    # close
+    c.Close()
+    conn.close()

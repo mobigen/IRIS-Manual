@@ -91,3 +91,17 @@ IRIS Interpreter 사용 방법
 
    IRIS Interpreter
 
+
+
+IRIS-DB에서 데이터를 읽어오기
+------------------------------
+
+.. code::
+
+    var drv = spark.read.format("iris")
+    .option("host", "192.168.100.180")
+    .option("user", "eva")
+    .option("passwd", "123123")
+    .option("table", "eva.local_test_table")
+    .option("hint", "LOCATION (PARTITION > '00000000000000' AND PARTITION < '99999999999999')")
+    .load()
