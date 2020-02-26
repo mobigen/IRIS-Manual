@@ -49,7 +49,7 @@ IRIS-DB에서 데이터를 읽어오기
     import API.M6 as M6
 
     # connection
-    conn = M6.Connection("192.168.100.180:5050", "eva", "123123", Database="eva")
+    conn = M6.Connection("192.168.100.180:5050", "myuser", "mypasswd", Database="myuser")
     c = conn.Cursor()
     c.SetFieldSep('|^|')
     c.SetRecordSep('|^-^|')

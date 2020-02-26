@@ -56,7 +56,7 @@ IRIS-DB에서 데이터를 읽어오기
                     identifier.quote="`")
 
     # connection
-    conn <- RJDBC::dbConnect(drv, "jdbc:iris://192.168.100.180:5050/eva", "eva", "123123")
+    conn <- RJDBC::dbConnect(drv, "jdbc:iris://192.168.100.180:5050/myuser", "myuser", "mypasswd")
 
     # global table create
     sql_s <-  "CREATE TABLE myiris_global_iris8 (
