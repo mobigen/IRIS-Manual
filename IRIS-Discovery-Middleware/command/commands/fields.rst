@@ -16,30 +16,81 @@ Examples
 ----------------------------------------------------------------------------------------------------
 
 
-* 
-  ``HR`` 그리고 ``PLAYERID`` field만을 출력하는 예제 입니다. 
+* ``HR`` 그리고 ``PLAYERID`` field만을 출력하는 예제 입니다. 
 
-  .. code-block:: none
+.. code-block:: none
 
-     ..| fields +HR, PLAYERID
+   ..| fields +HR, PLAYERID
 
-  .. code-block:: none
+.. code-block:: none
 
-     ..| fields HR, PLAYERID
+   ..| fields HR, PLAYERID
 
-* 
-  전체 필드에서 ``HR``\ 필드 만을 제외한 field를 출력합니다.
+.. list-table::
+   :header-rows: 1
 
-  .. code-block:: none
+   * - HR
+     - PLAYERID
+   * - 2
+     - apple
+   * - ...
+     - ...
 
-     ..| fields -HR
+* 전체 필드에서 ``HR``\ 필드 만을 제외한 field를 출력합니다.
 
-* 
-  ``RAW_`` 로 시작하는 모든 field를 제외한 field를 출력합니다.
+.. code-block:: none
 
-  .. code-block:: none
+   ..| fields -HR
 
-     ..| fields -RAW_*
+.. list-table::
+   :header-rows: 1
+
+   * - TEAMID
+     - PLAYERID
+     - ...
+   * - TOR
+     - apple
+     - ...
+   * - ...
+     - ...
+     - ...
+
+* ``RAW_`` 로 시작하는 모든 field를 제외한 field를 출력합니다.
+
+.. code-block:: none
+
+   ..| fields -RAW_*
+
+.. list-table::
+   :header-rows: 1
+
+   * - TEAMID
+     - PLAYERID
+     - ...
+   * - TOR
+     - apple
+     - ...
+   * - ...
+     - ...
+     - ...
+
+
+* 필드명이 한 단어가 아니라도 필드명 그대로 사용가능합니다. (``,`` 로 필드명을 구분 합니다.)
+
+.. code-block:: none
+
+   .. | fields + 필드 A, 필드 B, 필드_C
+
+.. list-table::
+   :header-rows: 1
+
+   * - 필드 A
+     - 필드 B
+     - 필드_C
+   * - 1
+     - 2
+     - 3
+
 
 Parameters
 ----------------------------------------------------------------------------------------------------
@@ -74,8 +125,11 @@ Parameters BNF
           | MINUS field_list
           | PLUS field_list
 
-   field_list : TOKEN
-              | field_list COMMA TOKEN
+   field_list : tokens
+              | field_list COMMA tokens
+
+   tokens : TOKEN
+          | tokens TOKEN
 
    PLUS : +
    MINUS : -
