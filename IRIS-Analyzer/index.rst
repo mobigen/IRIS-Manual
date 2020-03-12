@@ -15,3 +15,4 @@ IRIS를 활용하여 데이터를 빠르게 탐색하거나 시각화하여 기�
     ad/index.rst
     #studio/index2.rst
     template/index.rst
+    data_model/00_data_model.rst
