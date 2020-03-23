@@ -21,6 +21,7 @@ Algorithms
 각 알고리즘의 사용법은 관련 명령어 문서를 확인해주세요.
 
 - **Spark ML Algorithms**
+
   1. `RandomForest Classification <ml_algorithms/RandomForestClassification.html>`_
   2. `RandomForest Regression <ml_algorithms/RandomForestRegression.html>`_
   3. `Spark DecisionTree Classification <ml_algorithms/SparkDecisionTreeClassification.html>`_
@@ -32,6 +33,7 @@ Algorithms
   9. `logisticRegression <ml_algorithms/logisticregression.html>`_
 
 - **TensroFlow Deep Learning**
+
   1. `TFDeep <ml_algorithms/TFDeep.html>`_ 
 
 Examples
@@ -222,7 +224,7 @@ fit 명령어에 아래와 같이 옵션을 지정하고, 모델명을 지정해
 
 학습결과로 각 epoch 당 정확도(accuracy), 손실률(loss) 과 같은 정보를 반환합니다.
 
-.. list-table:: 반환 결과
+.. list-table:: 학습 결과
    :header-rows: 1
 
    * - epoch
