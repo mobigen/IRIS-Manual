@@ -36,8 +36,11 @@ fit 명령어를 이용해 Tensorflow Deep learning 네트워크를 사용한 �
      - ...
 
 fit 명령어에 아래와 같이 옵션을 지정하고, 모델명을 지정해 줍니다.
+
   batch_size : train 데이터의 배치 사이즈 입니다.
+
   epochs : train 을 반복할 횟수 입니다.
+
   config : 모델 구성 정보, 데이터 정보, 사용 알고리즘, 등 학습을 하기 위한 설정파일 위치 입니다. (minio 데이터소스 사용)
 
 .. code-block:: none
