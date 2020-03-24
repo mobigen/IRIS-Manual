@@ -62,7 +62,9 @@ Tensorflow 2.0
 2. 학습된 tensorflow 모델을 직접 사용해 앞에서 넘어온 test 데이터셋으로 예측 및 평가를 진행 합니다.
 
    label: 원본 데이터 라벨
+
    rate: 예측에 사용될 데이터 비율
+
    repeat: 평가 반복 횟수
 
 .. code-block:: none
