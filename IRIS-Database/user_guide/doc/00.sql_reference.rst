@@ -203,7 +203,7 @@ CREATE INDEX
 있습니다.
 
 따라서 새로 저장되는 데이터부터 인덱스를 생성하는 것이 안전하며, 방법은
-DotCommand인 .table index add 를 사용하면 됩니다.
+DotCommand인 .table index --add 를 사용하면 됩니다.
 
 ::
 
@@ -211,7 +211,8 @@ DotCommand인 .table index add 를 사용하면 됩니다.
     CREATE INDEX LOCAL_TEST_TABLE_IDX ON LOCAL_TEST_TABLE (a desc);
 
     use DotCommand:
-    .table index add LOCAL_TEST_TABLE LOCAL_TEST_TABLE (a desc)
+    .table index --add LOCAL_TEST_TABLE_IDX LOCAL_TEST_TABLE (a desc)
+    .table index --add {index_name} {table_name} ({column_name) [DESC | ASC] {, column_name [DESC | ASC]}})
 
 DROP INDEX
 ~~~~~~~~~~
@@ -230,7 +231,7 @@ DROP INDEX
 있습니다.
 
 따라서 새로 저장되는 데이터부터 인덱스를 삭제하는 것이 안전하며, 방법은
-DotCommand인 .table index del 를 사용하면 됩니다.
+DotCommand인 .table index --del 를 사용하면 됩니다.
 
 ::
 
@@ -238,7 +239,8 @@ DotCommand인 .table index del 를 사용하면 됩니다.
     DROP INDEX LOCAL_TEST_TABLE_IDX;
 
     use DotCommand:
-    .table indexl del LOCAL_TEST_TABLE_IDX
+    .table index --del LOCAL_TEST_TABLE_IDX LOCAL_TEST_TABLE
+    .table index --del {index_name} {table_name} 
 
 ALTER TABLE
 ~~~~~~~~~~~
