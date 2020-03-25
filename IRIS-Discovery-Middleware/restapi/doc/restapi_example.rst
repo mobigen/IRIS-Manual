@@ -17,7 +17,7 @@ Auth API 를 통해 Token 발행
     #!/usr/bin/env python
     # coding=UTF-8
     import json
-    from httplib import HTTPConnection
+    from http.client import HTTPConnection
     import sys
 
     addr = "192.168.100.180"
@@ -64,7 +64,8 @@ Query API 를 통해 seesion id 발행 & 결과 도출
     r = json.load(http_conn.getresponse())
     try :
         sid = r["sid"]
-    except Exception, e:
+    except :
+        print("Unexpected error:", sys.exc_info()[0])
         sys.exit()
 
     http_conn.close()
@@ -84,7 +85,7 @@ Query API 를 통해 seesion id 발행 & 결과 도출
     #    pass
 
     for item in response['results']:
-        print str(item)
+        print(str(item))
 
 예제 코드 UI를 통해 가져오는 방법
 ----------------------------------

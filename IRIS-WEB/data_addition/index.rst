@@ -16,7 +16,8 @@
 
 
 .. toctree::
-    
+    :hidden:
+        
     data_select.rst
     data_processing.rst
     data_target_source.rst

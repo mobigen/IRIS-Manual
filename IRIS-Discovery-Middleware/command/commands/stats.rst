@@ -23,14 +23,71 @@ Examples
 
 .. code-block:: none
 
-   ... | stats count(*), max(YEARID), min(YEARID), avg(mag) BY HR
+   ... | stats count(*), max(YEARID), min(YEARID) BY HR
 
+.. list-table::
+   :header-rows: 1
+
+   * - HR
+     - count(*)
+     - max(YEARID)
+     - min(YEARID)
+   * - 8
+     - 1000
+     - 2015
+     - 1881
+   * - ...
+     - ...
+     - ...
+     - ...
 
 * 팀별, 시간별 HR의 평균을 구합니다
 
 .. code-block:: none
 
    ... | stats avg(HR) by date_group(FTS_PARTITION_TIME, "1H"), TEAMID
+
+.. list-table::
+   :header-rows: 1
+
+   * - dategroup
+     - TEAMID
+     - avg(HR)
+   * - 20160510180000
+     - CHA
+     - 2.91176470588235
+   * - 20160505180000
+     - BSN
+     - 1.08
+   * - ...
+     - ...
+     - ...
+
+* quote 문자를 사용하여 단어가 아닌 필드명도 사용할 수 있습니다.
+
+.. code-block:: none
+
+   ... | stats avg(HR) as '평균(홈런)', count(HR) as '홈런 개수' by date_group(FTS_PARTITION_TIME, "1H"), TEAMID
+
+.. list-table::
+   :header-rows: 1
+
+   * - dategroup
+     - TEAMID
+     - 평균(홈런)
+     - 홈런 개수
+   * - 20160510180000
+     - CHA
+     - 2.91176470588235
+     - 34
+   * - 20160505180000
+     - BSN
+     - 1.08
+     - 125
+   * - ...
+     - ...
+     - ...
+     - ...
 
 Parameters
 ----------------------------------------------------------------------------------------------------

@@ -15,7 +15,8 @@ DB                  IRIS-DB와 관련된 정보를 조회하거나 간단한 제
 
 
 .. toctree::
-
+    :hidden:
+    
     dashboard.rst
     db.rst
     system.rst

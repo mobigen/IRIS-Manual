@@ -4,7 +4,7 @@ Auth API
 개요
 -----
 
-- Data-Discovery-Service 의 API 를 사용하기 위해 ID, Password 를 이용하여 토큰을 발행하기 위한 API
+- IRIS Discovery Service 의 API 를 사용하기 위해 ID, Password 를 이용하여 토큰을 발행하기 위한 API
 
 Generate token
 ---------------

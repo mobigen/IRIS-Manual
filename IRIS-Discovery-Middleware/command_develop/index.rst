@@ -1,7 +1,150 @@
 ﻿명령어 개발 가이드
-==================
+=====================
 
-- 앙고라 명령어를 개발 할 때 규칙 및 참고 사항을 기록한 문서
+
+명령어 개발 환경 구축
+------------------------------
+
+파일 다운로드
+`````````````````````
+
+아래의 파일을 다운로드 받습니다.
+
+http://docs.iris.tools/dist/iris-discovery-service_20200213.tar.gz
+
+다운로드 받은 파일을 임의의 경로에 위치를 시킨 이후 다음과 같이 압축을 해제 합니다.
+
+.. code::
+
+    tar zxvf iris-discovery-service_20200213.tar.gz
+
+압축을 해제하면 다음과 같이 파일이 존재합니다.
+
+.. code-block:: none
+
+    .
+    ├── check.py
+    ├── env.sh
+    ├── example
+    │   ├── anomalies.py
+    │   ├── plaform2_DATE_CNT.csv
+    │   └── test_anomalies.py
+    ├── lib
+    │   └── ANGORA-CORE_4c7a4b9.zip
+    ├── thridpart
+    └── requirements.txt
+
+환경구성
+``````````````````
+- spark 환경 구성
+
+    [[https://archive.apache.org/dist/spark/spark-2.4.4/spark-2.4.4-bin-hadoop2.7.tgz]] 경로에서 spark을 다운 받습니다.
+
+    다운로드한 파일은 `thridpart` 안에 압축을 해지 합니다.
+
+    위의 과정을 거치고 나면 디렉토리는 다음과 같이 구성 됩니다.
+
+    .. code-block:: none
+
+        .
+        ├── check.py
+        ├── env.sh
+        ├── example
+        │   ├── anomalies.py
+        │   ├── plaform2_DATE_CNT.csv
+        │   └── test_anomalies.py
+        ├── lib
+        │   └── ANGORA-CORE_4c7a4b9.zip
+        ├── thridpart
+        │   └── spark-2.4.4-bin-hadoop2.7
+        └── requirements.txt
+
+- env.sh 파일 수정
+
+    JAVA_HOME 등의 경로를 설정하기 위해 `env.sh` 파일을 수정 합니다.
+
+    .. code-block:: none
+
+        export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home
+
+    해당 부분을 수정하여 java의 경로를 설정합니다.
+
+
+- python3.6 버전 설치
+
+    다른 환경과 격리하기 위하여 virtualenv로 python 환경을 구성합니다.
+    만약 이미 설치되어 있는 python을 사용할 경우 해당 항목은 생략이 가능 합니다.
+
+    .. code-block:: none
+
+        $ python -m virtualenv venv
+        $ source venv/bin/activate
+        (venv) $
+
+- python 라이브러리 설치
+
+    .. code-block:: none
+
+        (venv) $ pip install -r requirements.txt
+        Collecting ply==3.11
+        Using cached ply-3.11-py2.py3-none-any.whl (49 kB)
+        Collecting numpy==1.15.2
+        Using cached numpy-1.15.2-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (24.5 MB)
+        Collecting pandas==0.23.4
+        Using cached pandas-0.23.4-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (14.6 MB)
+        Collecting statsmodels==0.9.0
+        Using cached statsmodels-0.9.0-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (9.6 MB)
+        Collecting scipy==1.1.0
+        Using cached scipy-1.1.0-cp36-cp36m-macosx_10_6_intel.macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl (16.7 MB)
+        Collecting pytz>=2011k
+        Using cached pytz-2019.3-py2.py3-none-any.whl (509 kB)
+        Collecting python-dateutil>=2.5.0
+        Using cached python_dateutil-2.8.1-py2.py3-none-any.whl (227 kB)
+        Collecting patsy
+        Using cached patsy-0.5.1-py2.py3-none-any.whl (231 kB)
+        Collecting six>=1.5
+        Using cached six-1.14.0-py2.py3-none-any.whl (10 kB)
+        Installing collected packages: ply, numpy, pytz, six, python-dateutil, pandas, patsy, statsmodels, scipy
+        Successfully installed numpy-1.15.2 pandas-0.23.4 patsy-0.5.1 ply-3.11 python-dateutil-2.8.1 pytz-2019.3 scipy-1.1.0 six-1.14.0 statsmodels-0.9.0
+
+- env 환경 설정
+
+    .. code-block:: none
+
+        (venv) $ source env.sh
+        ANGORA_SDK_HOME=/Users/anhm/Dev/test/iris-discovery-service
+        SPARK_HOME=/Users/anhm/Dev/test/iris-discovery-service/thridpart/spark-2.4.4-bin-hadoop2.7
+        JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home
+
+환경 확인
+``````````````
+
+.. code-block:: none
+
+    (venv) $ python check.py
+    pyspark     2.4.4
+    ply         3.11
+    numpy       1.15.2
+    pandas      0.23.4
+    statsmodels 0.9.0
+
+테스트 진행하기
+````````````````
+
+`example` 디렉토리에 예제로 작성된 명령어와 테스트 코드가 존재합니다.
+
+.. code-block:: none
+
+    (venv) $ cd example
+    (venv) $ ls
+    data.csv     sort.py      test_sort.py
+
+해당 파일은 다음과 같이 실행이 가능 합니다.
+
+.. code-block:: none
+
+    (venv) $ python test_sort.py
+
 
 명령어 인터페이스 [BaseCommand]
 -------------------------------
