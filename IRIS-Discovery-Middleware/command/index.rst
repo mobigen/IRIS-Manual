@@ -33,7 +33,7 @@ Command References
      - 입력의 래코드 건수를 계산합니다.
      -
    * - `eval <commands/eval>`_
-     - 기계학습을 통한 예측 결과의 평가를 실행합니다.
+     - 학습된 모델을 이용해 예측 결과를 반환하는 명령어 입니다.
      -
    * - `fields <commands/fields>`_
      - 검색 결과가 출력 될 field를 설정합니다.
