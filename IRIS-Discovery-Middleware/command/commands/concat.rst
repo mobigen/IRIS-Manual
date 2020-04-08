@@ -4,7 +4,7 @@ concat
 개요
 ----
 
-선택한 컬럼을 이용해 concatenation 을 진행합니다.
+선택한 컬럼을 concatenation 하는 명령어 입니다
 
 설명
 ----
