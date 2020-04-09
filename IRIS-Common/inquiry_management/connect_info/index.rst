@@ -92,6 +92,7 @@ MINIO 연결정보 추가
 - "+ 새 연결 정보" 추가 버튼 클릭하면 연결정보 입력 창이 뜹니다.
 
 .. image:: images/ex21-1.png
+   :scale: 60%
    :alt: MINIO DataSource Connector Info
 
 - **이름** 은 연결정보의 이름이며, 필수 입력 사항입니다. 데이터모델 생성 시 연결정보를 선택할 때 콤보박스 리스트에 보여지는 이름입니다.
