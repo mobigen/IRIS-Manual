@@ -5,6 +5,10 @@
 -----
 - IRIS UI 에서 DSMS 를 사용하는 내용을 기술 한 문서
 
+.. contents::
+    :backlinks: top
+    
+
 연결정보 리스트 보기
 --------------------
 
@@ -72,5 +76,39 @@
 
 .. image:: images/ex4-2.PNG
    :alt: Delete DataSource Connector Info
+
+예시 - MINIO 에 연결정보 생성하기 
+--------------------------------------
+
+새 연결정보로 MinIO 연결정보를 생성하는 예시입니다.
+MINIO 는 `연결정보 리스트 보기 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Common/inquiry_management/connect_info/index.html#id3>`__ 에서 ObjectStorage 로 유형이 나옵니다.
+
+
+MINIO 연결정보 추가
+""""""""""""""""""""""""
+
+- IRIS UI 메뉴에서 [데이터 브라우저 -> 관리 -> 연결 정보] 를 클릭합니다.
+
+- "+ 새 연결 정보" 추가 버튼 클릭하면 연결정보 입력 창이 뜹니다.
+
+.. image:: images/ex21-1.png
+   :alt: MINIO DataSource Connector Info
+
+- **이름** 은 연결정보의 이름이며, 필수 입력 사항입니다. 데이터모델 생성 시 연결정보를 선택할 때 콤보박스 리스트에 보여지는 이름입니다.
+- '설명' 부분은 생성한 연결정보에 대한 유의 사항이나 용도 등 사용시 도움이 되는 정보를 입력합니다.(선택 사항)  
+- **데이터소스 유형** 을 OBJECTSTORAGE 로 선택합니다.
+- **연결 정보** 의 내용을 입력합니다.
+    - host 와 port 는 MinIO를 만들 회사 또는 본인의 서버 접속 정보를 입력합니다.
+    - bucket 은 앞으로 생성되는 object 가 들어갈 일종의 디렉토리 이름입니다. 디렉토리이름으로 적절한 이름을 입력합니다.
+    - access_key, secret_key 를 입력합니다. 나중에 api 를 통해 접속 시 사용되므로, 입력한 정보를 기억해 두세요.
+- '연결 테스트' 를 클릭하여 시험해 봅니다.
+- 저장합니다.
+
+|
+
+- 연결정보 확인
+    - 연결 정보 리스트에서 생성한 것을 확인합니다.
+    - `연결 정보 리스트 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Common/inquiry_management/connect_info/index.html#id3>`__ 보기
+
 
 
