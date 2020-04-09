@@ -80,8 +80,9 @@
 예시 - MINIO 에 연결정보 생성하기 
 --------------------------------------
 
-새 연결정보로 MinIO 연결정보를 생성하는 예시입니다.
-MINIO 는 `연결정보 리스트 보기 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Common/inquiry_management/connect_info/index.html#id3>`__ 에서 ObjectStorage 로 유형이 나옵니다.
+외부 및 내부 MINIO 에 연결 정보를 생성하는 예시입니다.
+
+MINIO 가 설치되어 있는 S3, 서버 정보와 함께 bucket, access_key, secret_key 를 알고 있는 경우에만 연결 정보 만들기가 가능합니다.
 
 
 MINIO 연결정보 추가
@@ -99,10 +100,10 @@ MINIO 연결정보 추가
 - '설명' 부분은 생성한 연결정보에 대한 유의 사항이나 용도 등 사용시 도움이 되는 정보를 입력합니다.(선택 사항)  
 
 - **데이터소스 유형** 을 OBJECTSTORAGE 로 선택합니다.
-- **연결 정보** 의 내용을 입력합니다.
-    - host 와 port 는 MinIO를 만들 회사 또는 본인의 서버 접속 정보를 입력합니다.
-    - bucket 은 앞으로 생성되는 object 가 들어갈 일종의 디렉토리 이름입니다. 디렉토리이름으로 적절한 이름을 입력합니다.
-    - access_key, secret_key 를 입력합니다. 나중에 api 를 통해 접속 시 사용되므로, 입력한 정보를 기억해 두세요.
+- **연결 정보** 의 내용을 입력합니다. 이 정보들은 MINIO 가 설치될 때 입력했던 정보를 그대로 입력합니다.
+    - host 와 port 는 MINIO 가 설치되어 있는 서버(S3) 정보를 입력합니다.
+    - bucket 은 앞으로 생성되는 object 가 들어갈 일종의 디렉토리 이름입니다. MINIO 설치 시 만든 bucket 중 연결하려는 bucket 을 입력합니다.
+    - access_key, secret_key 를 입력합니다. 
     
 - '연결 테스트' 를 클릭하여 시험해 봅니다.
 - 저장합니다.
