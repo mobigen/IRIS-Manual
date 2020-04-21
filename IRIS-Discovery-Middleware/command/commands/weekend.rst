@@ -29,12 +29,25 @@ Examples
 
    ... | weekend False
 
+* 사용자가 설정한 시간 필드를 기준으로 주말에 해당하는 데이터만 선택하는 예제입니다.
+
+.. code-block:: none
+
+   ... | weekend True time_field
+
+
+* 사용자가 설정한 시간 필드를 기준으로 주말에 해당하는 데이터만 선택하는 예제입니다. ( 해당 필드의 포멧을 지정해주는 예제입니다.)
+
+.. code-block:: none
+
+   ... | weekend True time_field FORMAT YYYYMMDDHHmmss
+
 Parameters
 ----------------------------------------------------------------------------------------------------
 
 .. code-block:: none
 
-   ... | weekend (TRUE|FALSE)
+   ... | weekend (TRUE|FALSE) (date field (FORMAT dateFormat)?)?
 
 .. list-table::
    :header-rows: 1
@@ -48,6 +61,33 @@ Parameters
    * - ``FALSE``
      - 데이터 중 주중(weekday, 월 ~ 금) 데이터만 선택합니다.
      - 필수
+   * - date field
+     - 사용자가 선택한 시간 컬럼으로, 날짜 데이터가 string 형식으로 존재하는 컬럼의 컬럼명. 예) timefield = [['20200101010101'], ['20200101010105'], ...] 과 같은 데이터의 컬럼명인 ``timefield``
+     - 옵션
+   * - FORMAT
+     - FORMAT 은 예약어입니다. FORMAT 다음으로 데이터의 모양에 해당하는 포멧을 입력해줍니다. 예) '20200101010101' 과 같은 데이터는 ``YYYYMMDDHHmmss``, '2020/01/01 01:01:01' 과 같은 데이터는 ``YYYY/MM/DD HH:mm:ss`` 로 사용합니다. (기본값 = ``YYYYMMDDHHmmss``)
+     - 옵션
+
+시간 포멧 규칙
+"""""""""""""""""""
+
+.. list-table::
+   :header-rows: 1
+
+   * - 문자
+     - 의미
+   * - YYYY
+     - ``년``
+   * - MM
+     - ``월``
+   * - DD
+     - ``일``
+   * - HH
+     - ``시간``
+   * - mm
+     - ``분``
+   * - ss
+     - ``초``
 
 
 Parameters BNF
@@ -55,4 +95,15 @@ Parameters BNF
 
 .. code-block:: none
 
-   clause : TOKEN
+   func : BOOL
+        | BOOL tokens
+        | BOOL tokens date_format
+
+   date_format : FORMAT TOKEN
+
+   tokens : TOKEN
+          | tokens TOKEN
+
+   TOKEN : [^ ]+
+   BOOL : True | False
+   FORMAT : FORMAT
