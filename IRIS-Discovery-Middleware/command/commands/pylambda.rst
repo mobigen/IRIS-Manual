@@ -58,12 +58,18 @@ Examples
 
    * | fields LEVEL, HOST | pylambda row: [r.replace('info', '****') for r in row] WITH log_level: string, host: string
 
+``re`` 모듈을 임포트 하여 정규식 사용하는 예제
+
+.. code-block:: none
+
+   * | pylambda row: True if re.search('gcs', row[2]) else False import re
+
 Parameters
 ----------------------------------------------------------------------------------------------------
 
 .. code-block:: none
 
-   ... | pylambda lambda_expr [WITH schema]
+   ... | pylambda lambda_expr (WITH schema)? (IMPORT built-in-module(, built-in-module)*)?
 
 .. list-table::
    :header-rows: 1
@@ -76,6 +82,9 @@ Parameters
      - 필수
    * - WITH schema
      - ``WITH`` 는 스키마를 직접 지정하겠음을 지시하는 예약어이며, ``schema``\ 는 schema 표현으로 col_name: *data_type 포맷입니다.\ :raw-html-m2r:`<br />`\ 예 : WITH column1: string, column2: int
+     - 옵션
+   * - IMPORT
+     - ``IMPORT`` 는 예약어, python의 built-in 모듈을 import 하기 위해 사용되는 옵션. 예 : import re, datetime
      - 옵션
 
 
@@ -105,6 +114,7 @@ Parameters BNF
 
    clauses : tokens
            | tokens WITH tokens
+           | clauses IMPORT tokens
 
    tokens : TOKEN
           | tokens TOKEN
