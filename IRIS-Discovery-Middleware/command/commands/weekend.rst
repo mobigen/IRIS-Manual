@@ -154,7 +154,7 @@ Examples
 
 .. code-block:: none
 
-   ... | weekend True DATETIME YYYYMMDDHHmmss
+   ... | weekend True DATETIME FORMAT YYYYMMDDHHmmss
 
 .. list-table::
    :header-rows: 1
@@ -170,7 +170,7 @@ Examples
 
 .. code-block:: none
 
-   ... | weekend False DATETIME YYYYMMDDHHmmss
+   ... | weekend False DATETIME FORMAT YYYYMMDDHHmmss
 
 .. list-table::
    :header-rows: 1
