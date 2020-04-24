@@ -42,7 +42,7 @@ Parameters
    * - group_id
      - 해당 계정의 유져 그룹 아이디를 의미합니다.
      - root
-   * - encryption
+   * - encrypted
      - 비밀번호의 값이 암호화 된 값인지 일반 스트링인지 표시하는 파라미터입니다. boolean 값이 오며, ``True = 암호화 된 값``, ``False = 일반 스트링`` 을 의미합니다.
      - False
 
@@ -57,7 +57,7 @@ Example
         "id" : "root",
         "password" : "password",
         "group_id" : "groupA",
-        "encryption" : false
+        "encrypted" : false
     }'
 
 - Success Response
