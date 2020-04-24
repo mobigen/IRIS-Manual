@@ -20,11 +20,20 @@ Command References
    * - `bimatrix <commands/bimatrix>`_
      - bimatrix에 쓰기를 하는 명령어 입니다.
      -
+   * - `calculate <commands/calculate>`_
+     - 행 or 열 간의 간단한 수식 계산을 합니다.
+     -
+   * - `concat <commands/concat>`_
+     - 선택한 컬럼을 concatenation 하는 명령어 입니다.
+     -
    * - `correlation <commands/correlation>`_
      - correlation을 진행하는 명령어 입니다.
      -
    * - `count <commands/count>`_
      - 입력의 래코드 건수를 계산합니다.
+     -
+   * - `eval <commands/eval>`_
+     - 학습된 모델을 이용해 예측 결과를 반환하는 명령어 입니다.
      -
    * - `fields <commands/fields>`_
      - 검색 결과가 출력 될 field를 설정합니다.
@@ -55,6 +64,9 @@ Command References
      -
    * - `head <commands/head>`_
      - 상위 records를 원하는 갯수 만큼 검색 결과에 출력 합니다.
+     -
+   * - `img2tsv <commands/img2tsv>`_
+     - 이미지 파일을 읽어서 TSV 포멧으로 변환 저장하는 명령어 입니다.
      -
    * - `indexer <commands/indexer>`_
      - 설정한 컬럼의 데이터를 기반으로 indexing하는 명령어 입니다. 컬럼의 데이터가 다를 경우 같은 값이라도 index 결과가 다를 수 있습니다.
@@ -116,8 +128,14 @@ Command References
    * - `search <commands/search>`_
      - 이 명령어는 전문 검색(full-text search)을 하는데 사용 됩니다.
      -
+   * - `serving <commands/serving>`_
+     - Tensorflow Serving을 통해 예측, 모델의 서빙 상태를 확인하는 명령어입니다.
+     -
    * - `sort <commands/sort>`_
      - 이 명령어는 검색 결과를 지정된 필드를 기준으로 정렬합니다.
+     -
+   * - `splitter <commands/splitter>`_
+     - 레코드형 파일(들)을 train/test 로 분리 저장하는 명령어 입니다.
      -
    * - `sql <commands/sql>`_
      - SQL 형태의 질의를 합니다.
