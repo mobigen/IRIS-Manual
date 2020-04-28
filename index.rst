@@ -22,8 +22,3 @@ IRIS Discovery Service           여러 데이터소스에 있는 데이터를 �
     IRIS-Analyzer/index.rst
     IRIS-Discovery-Middleware/index.rst
     #IRIS-Database/index.rst
-
-.. IRIS Database                    IRIS 관리자가 시스템을 효율적으로 운영할 수 있도록 다양한 명령어를 제공하며, 본 문서를 통해 이에 대한 자세한 설명을 확인할 수 있습니다.
-
-
- 
