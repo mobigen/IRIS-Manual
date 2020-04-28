@@ -324,7 +324,7 @@ MOTION | SCATTER | SUMMARY | OUTLIER | WORDCLOUD
    * - 이름
      - 설명
      - 필수/옵션
-   * - MOTION|SCATTER|SUMMARY|OUTLIER|WORDCLOUD
+   * - MOTION or SCATTER or SUMMARY or OUTLIER or WORDCLOUD
      - 차트의 종류를 나타냅니다.
      - 필수
    * - TARGETS
