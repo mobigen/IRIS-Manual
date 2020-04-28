@@ -15,9 +15,9 @@ adv
 
 
 * 기본적으로 ``| adv operation parameters`` 형태입니다. 
-* ``operation`` 은 고급시각화 다이어그램의 종류와 일치합니다. 총 10가지 타입(\ ``keyword``\ )을 지원합니다. ``operation`` 에 맞춰 ``parameters`` 를 구성해야합니다.
+* ``operation`` 은 고급시각화 다이어그램의 종류와 일치합니다. 총 11가지 타입(\ ``keyword``\ )을 지원합니다. ``operation`` 에 맞춰 ``parameters`` 를 구성해야합니다.
 * ``LINE | BAR | HISTOGRAM | PIE | HEATMAP | SANKEY`` 의 6가지 타입은 aggregation 함수와 ``SPLITROW``\ , ``SPLITCOL``\ , ``AS`` 문구를 지원합니다. ``SPLITROW``\ 는 가로축 기반으로 aggregation 하며, ``SPLITCOL``\ 은 세로축 기준으로 데이터를 회전하여 aggregation 합니다. ``AS``\ 는 결과 값의 field의 별칭을 줄 수 있습니다.
-* ``MOTION | SCATTER | SUMMARY | OUTLIER`` 의 4가지 타입은 ``TARGETS`` 문구를 지원합니다. ``TARGETS`` 에 이어지는 컬럼들을 기준으로 ``operation`` 에 따라 aggregation 합니다.
+* ``MOTION | SCATTER | SUMMARY | OUTLIER | WORDCLOUD`` 의 5가지 타입은 ``TARGETS`` 문구를 지원합니다. ``TARGETS`` 에 이어지는 컬럼들을 기준으로 ``operation`` 에 따라 aggregation 합니다.
 
 operation keyword
 ^^^^^^^^^^^^^^^^^
@@ -25,44 +25,6 @@ operation keyword
 .. code-block:: none
 
    operation : [ LINE | BAR | HISTOGRAM | PIE | HEATMAP | SANKEY | MOTION | SCATTER | SUMMARY | OUTLIER ]
-
-Examples
---------
-
-
-* 'SCORE' 의 합계를 'STUDENT' 별로 그룹화하여 'DATETIME'에 따라 1 일 기준으로 피벗 한 ``LINE | BAR | PIE | HEATMAP`` 예입니다. 
-
-.. code-block:: none
-
-   ... | adv (line | bar | pie | heatmap) sum(SCORE) SPLITROW DATETIME SPLITCOL STUDENT
-
-
-* ``SCORE`` 의 평균값 상위 100건에 대해 ``DATETIME``\ , ``REGION``\ , ``STUDENT`` 의 상호관계 흐름을 파악하기 위한 ``sankey`` 예제입니다.
-
-.. code-block:: none
-
-   ... | adv sankey avg(SCORE) HEAD 100 SPLITROW DATETIME,REGION,STUDENT
-
-
-* ``REGION``\ (x축)과 ``STUDENT``\ (y축)에 따른 ``SCORE`` 의 분포를 얻기 위한 ``scatter`` 예제입니다.
-
-.. code-block:: none
-
-   ... | adv scatter TARGETS REGION, STUDENT, SCORE
-
-
-* ``DATETIME`` 의 흐름에 따른 ``SCORE`` 변화량을 얻는 ``motion`` 예제입니다. 그룹핑을 위해 각 ``SCORE`` 의 ``ID``\ , ``TEST_ID``\ , ``STUDENT`` 데이터도 포함합니다.
-
-.. code-block:: none
-
-   ... | adv motion TARGETS DATETIME, ID, TEST_ID, SCORE, STUDENT
-
-
-* ``SCORE`` 필드의 기술통계량(레코드수, 평균, 중간값, 최소값, 최대값, 1Q 사분위수, 3Q 사분위수, \*NA의 수) or 이상치 기술통계량을 얻기 위한 ``summary`` 또는 ``outlier`` 예제입니다. (\*NA : 결측치)
-
-.. code-block:: none
-
-   ... | adv (summary | outlier) TARGETS SCORE
 
 Parameters
 ----------
@@ -349,12 +311,12 @@ aggregation functions list
      - 모든Type 가능
 
 
-MOTION | SCATTER | SUMMARY | OUTLIER
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+MOTION | SCATTER | SUMMARY | OUTLIER | WORDCLOUD
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. code-block:: none
 
-   ... | adv (MOTION | SCATTER | SUMMARY | OUTLIER) TARGETS FIELD_NAME(, FIELD_NAME)*
+   ... | adv (MOTION | SCATTER | SUMMARY | OUTLIER | WORDCLOUD) TARGETS FIELD_NAME(, FIELD_NAME)* (ALGORITHM alg)?
 
 .. list-table::
    :header-rows: 1
@@ -362,120 +324,50 @@ MOTION | SCATTER | SUMMARY | OUTLIER
    * - 이름
      - 설명
      - 필수/옵션
-   * - ``MOTION or SCATTER or SUMMARY or OUTLIER``
+   * - MOTION|SCATTER|SUMMARY|OUTLIER|WORDCLOUD
      - 차트의 종류를 나타냅니다.
      - 필수
-   * - ``TARGETS``
+   * - TARGETS
      - ``TARGETS fieldA, fieldB, fieldC`` 형태로 ``,`` 구분자를 사용합니다. ``fieldA~C`` 는 field 이름을 뜻합니다. 여기 정의 된 필드를 기준으로 aggregation 합니다.
      - 필수
+   * - ALGORITHM
+     - WORDCLOUD 차트에만 해당하는 옵션으로, ALGORITHM 은 예약어 이며, 사용할 수 있는 알고리즘은 현재 3가지 입니다. [mobigen, Mecab, NLTK]. 자세한 내용은 `postagger 문서 <postagger>`_ 확인.
+
+Examples
+--------
 
 
-Parameters BNF
---------------
+* 'SCORE' 의 합계를 'STUDENT' 별로 그룹화하여 'DATETIME'에 따라 1 일 기준으로 피벗 한 ``LINE | BAR | PIE | HEATMAP`` 예입니다. 
 
 .. code-block:: none
 
-   clauses : op funcs
-       | op funcs SPLITROW fields
-       | op funcs SPLITCOL fields
-       | op funcs SPLITROW fields SPLITCOL fields
-       | op funcs FILTER tokens
-       | op funcs SPLITROW fields FILTER tokens
-       | op funcs SPLITCOL fields FILTER tokens
-       | op funcs SPLITROW fields SPLITCOL fields FILTER tokens
-       | op funcs COLSIZE NUMBER
-       | op funcs SPLITROW fields COLSIZE NUMBER
-       | op funcs SPLITCOL fields COLSIZE NUMBER
-       | op funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER
-       | op funcs FILTER tokens COLSIZE NUMBER
-       | op funcs SPLITROW fields FILTER tokens COLSIZE NUMBER
-       | op funcs SPLITCOL fields FILTER tokens COLSIZE NUMBER
-       | op funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER
-       | op funcs SORT order
-       | op funcs SPLITROW fields SORT order
-       | op funcs SPLITCOL fields SORT order
-       | op funcs SPLITROW fields SPLITCOL fields SORT order
-       | op funcs FILTER tokens SORT order
-       | op funcs SPLITROW fields FILTER tokens SORT order
-       | op funcs SPLITCOL fields FILTER tokens SORT order
-       | op funcs SPLITROW fields SPLITCOL fields FILTER tokens SORT order
-       | op funcs COLSIZE NUMBER SORT order
-       | op funcs SPLITROW fields COLSIZE NUMBER SORT order
-       | op funcs SPLITCOL fields COLSIZE NUMBER SORT order
-       | op funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER SORT order
-       | op funcs FILTER tokens COLSIZE NUMBER SORT order
-       | op funcs SPLITROW fields FILTER tokens COLSIZE NUMBER SORT order
-       | op funcs SPLITCOL fields FILTER tokens COLSIZE NUMBER SORT order
-       | op funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER SORT order
-       | op TARGETS fields
-       | op TARGETS fields FILTER tokens
-       | op TARGETS fields FILTER tokens SORT order
-       | op TARGETS fields FILTER tokens COLSIZE NUMBER
-       | op TARGETS fields FILTER tokens COLSIZE NUMBER SORT order
-       | op TARGETS fields COLSIZE NUMBER
-       | op TARGETS fields COLSIZE NUMBER SORT order
-       | op TARGETS fields SORT order
-       | op TARGETS fields RELATIVE_ERROR tokens
-       | op TARGETS fields FILTER tokens RELATIVE_ERROR tokens
-       | op TARGETS fields FILTER tokens SORT order RELATIVE_ERROR tokens
-       | op TARGETS fields FILTER tokens COLSIZE NUMBER RELATIVE_ERROR tokens
-       | op TARGETS fields FILTER tokens COLSIZE NUMBER SORT order RELATIVE_ERROR tokens
-       | op TARGETS fields COLSIZE NUMBER RELATIVE_ERROR tokens
-       | op TARGETS fields COLSIZE NUMBER SORT order RELATIVE_ERROR tokens
-       | op TARGETS fields SORT order RELATIVE_ERROR tokens
+   ... | adv (line | bar | pie | heatmap) sum(SCORE) SPLITROW DATETIME SPLITCOL STUDENT
 
-   fields : field
-          | fields COMMA field
 
-   field : TOKEN
-         | TOKEN AS TOKEN
+* ``SCORE`` 의 평균값 상위 100건에 대해 ``DATETIME``\ , ``REGION``\ , ``STUDENT`` 의 상호관계 흐름을 파악하기 위한 ``sankey`` 예제입니다.
 
-   op : TOKEN
+.. code-block:: none
 
-   funcs : funcs COMMA func
-         | func
+   ... | adv sankey avg(SCORE) HEAD 100 SPLITROW DATETIME,REGION,STUDENT
 
-   func : FUNC
-           | FUNC funcopts
 
-   funcopts : FILLNA fillopt
-           | FILLNA fillopt HEAD NUMBER
-           | FILLNA fillopt TAIL NUMBER
-           | FILLNA fillopt AS TOKEN
-           | FILLNA fillopt HEAD NUMBER AS TOKEN
-           | FILLNA fillopt TAIL NUMBER AS TOKEN
-           | HEAD NUMBER
-           | TAIL NUMBER
-           | HEAD NUMBER AS TOKEN
-           | TAIL NUMBER AS TOKEN
-           | AS TOKEN
+* ``REGION``\ (x축)과 ``STUDENT``\ (y축)에 따른 ``SCORE`` 의 분포를 얻기 위한 ``scatter`` 예제입니다.
 
-   fillopt : LPAREN TOKEN RPAREN
-           | LPAREN TOKEN COMMA TOKEN RPAREN
-           | LPAREN TOKEN COMMA NUMBER RPAREN
+.. code-block:: none
 
-   tokens : TOKEN
-           | tokens TOKEN
-           | NUMBER
-           | tokens NUMBER
-           | LPAREN
-           | tokens LPAREN
-           | RPAREN
-           | tokens RPAREN
+   ... | adv scatter TARGETS REGION, STUDENT, SCORE
 
-   order : DESC
-         | ASC
 
-   TOKEN : [^,|^ |^\|^(|^)|^\'|\"]+
-   COMMA : ,
-   LPAREN : (
-   RPAREN : )
-   FUNC : [^\s\(,]+\([^\s\)]+\)
-   SPLITROW : (?i)SPLITROW
-   SPLITCOL : (?i)SPLITCOL
-   FILTER : (?i)FILTER
-   AS : (?i)AS
-   COLSIZE : (?i)COLSIZE
-   SORT : (?i)SORT
-   ASC : (?i)ASC
-   DESC : (?i)DESC
+* ``DATETIME`` 의 흐름에 따른 ``SCORE`` 변화량을 얻는 ``motion`` 예제입니다. 그룹핑을 위해 각 ``SCORE`` 의 ``ID``\ , ``TEST_ID``\ , ``STUDENT`` 데이터도 포함합니다.
+
+.. code-block:: none
+
+   ... | adv motion TARGETS DATETIME, ID, TEST_ID, SCORE, STUDENT
+
+
+* ``SCORE`` 필드의 기술통계량(레코드수, 평균, 중간값, 최소값, 최대값, 1Q 사분위수, 3Q 사분위수, \*NA의 수) or 이상치 기술통계량을 얻기 위한 ``summary`` 또는 ``outlier`` 예제입니다. (\*NA : 결측치)
+
+.. code-block:: none
+
+   ... | adv (summary | outlier) TARGETS SCORE
+
