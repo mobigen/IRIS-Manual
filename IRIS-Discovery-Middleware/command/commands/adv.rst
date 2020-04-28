@@ -324,14 +324,15 @@ MOTION | SCATTER | SUMMARY | OUTLIER | WORDCLOUD
    * - 이름
      - 설명
      - 필수/옵션
-   * - MOTION or SCATTER or SUMMARY or OUTLIER or WORDCLOUD
+   * - MOTION|SCATTER|SUMMARY|OUTLIER|WORDCLOUD
      - 차트의 종류를 나타냅니다.
      - 필수
    * - TARGETS
-     - TARGETS fieldA, fieldB, fieldC 형태로 ``,`` 구분자를 사용합니다. ``fieldA~C`` 는 field 이름을 뜻합니다. 여기 정의 된 필드를 기준으로 aggregation 합니다.
+     - ``TARGETS fieldA, fieldB, fieldC`` 형태로 ``,`` 구분자를 사용합니다. ``fieldA~C`` 는 field 이름을 뜻합니다. 여기 정의 된 필드를 기준으로 aggregation 합니다.
      - 필수
    * - ALGORITHM
-     - WORDCLOUD 차트에만 해당하는 옵션으로, ALGORITHM 은 예약어 이며, 사용할 수 있는 알고리즘은 현재 3가지 입니다. [mobigen, Mecab, NLTK]. 자세한 내용은 postagger 문서 확인.
+     - WORDCLOUD 차트에만 해당하는 옵션으로, ALGORITHM 은 예약어 이며, 사용할 수 있는 알고리즘은 현재 3가지 입니다. [mobigen, Mecab, NLTK]. 자세한 내용은 `postagger 문서 <postagger>`_ 확인.
+     - 옵션
 
 Examples
 --------
