@@ -107,6 +107,9 @@ Command References
    * - `pivot <commands/pivot>`_
      - 테이블을 여러 컬럼들을 축으로 회전 및 각종 통계 정보를 행과 열 별로 구할 수 있습니다.
      -
+   * - `postagger <commands/postagger>`_
+     - 입력된 컬럼의 문장들을 단어로 쪼개고, 품사를 표기하는 명령어 입니다.
+     -
    * - `predict <commands/predict>`_
      - 이 명령어는 Data-Discovery-Service ML 관련 명령어 이며, 사전에 학습되어 있는 ML 모델을 불러와 넘겨받은 데이터에 적용하는 명령어 입니다.
      -
