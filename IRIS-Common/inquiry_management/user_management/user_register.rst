@@ -1,8 +1,8 @@
-_`회원가입`
+회원가입
 =====================
 IRIS에 회원가입을 신청한 사용자를 관리하기 위한 기능입니다. 회원가입 허가는 super user(일반적으로 root 계정)만 가능합니다.
 
-.. image:: ./images/ko/sign-up-page.png
+.. image:: ./images/ko/sign-up-page-1.png
     :alt: SignUp-Page
 
 .. original이 존재하는 image file입니다.
