@@ -137,6 +137,9 @@ Command References
    * - `sort <commands/sort>`_
      - 이 명령어는 검색 결과를 지정된 필드를 기준으로 정렬합니다.
      -
+   * - `split <commands/split>`_
+     - 선택한 컬럼을 구분자를 통해서 분리하여 새로운 레코드로 만드는 명령어
+     -
    * - `splitter <commands/splitter>`_
      - 레코드형 파일(들)을 train/test 로 분리 저장하는 명령어 입니다.
      -
