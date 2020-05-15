@@ -70,7 +70,7 @@ IRIS UI 메뉴에서 [관리 -> 연결 정보] 를 클릭합니다.
 - 연결정보 화면에 들어가면 연결 정보 목록을 확인 할 수 있습니다.
   (현재 IRIS SaaS 에서는 MinIO를 기본 스토리지로 제공하고 있습니다)
 
-.. image:: images/ex1-2-2.PNG
+.. image:: images/ex1-2-2.png
    :alt: Open DataSource Connector list window
 
 새로운 연결정보 추가
@@ -78,7 +78,7 @@ IRIS UI 메뉴에서 [관리 -> 연결 정보] 를 클릭합니다.
 
 - "+ 새 연결 정보" 추가 버튼 클릭
 
-.. image:: images/ex2-1-1.PNG
+.. image:: images/ex2-1-1.png
    :alt: New DataSource Connector Info
 
 - 연결정보 입력 창 팝업
