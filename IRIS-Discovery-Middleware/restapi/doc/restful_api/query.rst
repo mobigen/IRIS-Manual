@@ -168,7 +168,7 @@ Example
 
 - Response
 
-.. code-block:: json
+.. code-block::
 
     {
         "status": {
@@ -262,7 +262,7 @@ Example
 
 - Response (csv)
 
-.. code-block:: csv
+.. code-block::
 
     fieldA,fieldB
     a,2
