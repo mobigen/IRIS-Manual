@@ -178,7 +178,7 @@ Parameters
 Parameters BNF
 ----------------------------------------------------------------------------------------------------
 
-.. code-block:: python
+.. code-block::
 
    fit_command : alg options
    alg : WORD

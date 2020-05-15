@@ -13,13 +13,9 @@ IRIS의 관리기능에 대해 설명합니다.
 .. toctree::
     :hidden:
 
-    #docs/00_data_model.rst
     connect_info/index.rst
     jobs_inquiry/index.rst
-    #hdfs_browser/index.rst
-    #data_addition/index.rst
     user_management/index.rst
-    #menu/menu_management.rst
 
     
     
