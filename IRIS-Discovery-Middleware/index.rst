@@ -4,9 +4,8 @@ IRIS Discovery Service
 
 **Analysis Middleware**
 
-분석 미들웨어 서비스입니다.
-
-여러 데이터소스에 있는 데이터를 사용자가 동일한 명령어로 검색 및 분석 할 수 있도록 해주는 서비스입니다.
+| 분석 미들웨어 서비스입니다.
+| 여러 데이터소스에 있는 데이터를 사용자가 동일한 명령어로 검색 및 분석 할 수 있도록 해주는 서비스입니다.
 
 **DSL Language**
 
@@ -20,9 +19,8 @@ Ex) ``* | where A = 'abc' | round 3 col=B | count``
 
 **Distributed System**
 
-Data-Discovery-Service는 Spark에서 돌아 갈 수 있도록 설계되어 있습니다.
-
-``|`` 으로 구분되어진 각 명령어는 Dataframe을 input으로 받은 후, Dataframe을 output으로 내보냅니다.
+| Data-Discovery-Service는 Spark에서 돌아 갈 수 있도록 설계되어 있습니다.
+| ``|`` 으로 구분되어진 각 명령어는 Dataframe을 input으로 받은 후, Dataframe을 output으로 내보냅니다.
 
 각 명령어는 transformation을 통해 작업(DAG: Directed Acyclic Graph)을 구성하고(바로 실행되는 것은 아닙니다.), action을 통해 작업을 실제로 실행하여 RDD를 만들고 결과를 반환합니다.
 
@@ -32,9 +30,8 @@ Data-Discovery-Service는사용자로 부터 입력받은 단일 검색 질의�
 
 **RESTful API**
 
-Data-Discovery-Service는 RESTful API를 제공 합니다.
-
-사용자는 IRIS UI 화면에서 검색 쿼리를 입력하면, Data-Discovery-Service의 API를 통해 결과를 받아 볼 수 있습니다.
+| Data-Discovery-Service는 RESTful API를 제공 합니다.
+| 사용자는 IRIS UI 화면에서 검색 쿼리를 입력하면, Data-Discovery-Service의 API를 통해 결과를 받아 볼 수 있습니다.
 
 
 .. toctree::
