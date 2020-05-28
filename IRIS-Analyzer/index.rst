@@ -8,9 +8,9 @@ IRIS를 활용하여 데이터를 빠르게 탐색하거나 시각화하여 기�
     :hidden:
 
     common.rst
-    search/index.rst
-    pivot/index.rst
-    visualization/index.rst
-    ad/index.rst
-    template/index.rst
-    data_model/00_data_model.rst
+    01_search/index.rst
+    02_pivot/index.rst
+    03_visualization/index.rst
+    04_ad/index.rst
+    05_template/index.rst
+    06_data_model/00_data_model.rst
