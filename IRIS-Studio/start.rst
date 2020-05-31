@@ -7,58 +7,58 @@
     :backlinks: top
 
 
------------------------------
+---------------------------------
 보고서 목록
------------------------------
+---------------------------------
 
 | 보고서 메뉴로 진입합니다. 
 
-.. image:: ./images/studio_list/studio_list01.jpg
+.. image:: ./studio/images/studio_list/studio_list01.jpg
     :scale: 50%
     :alt: IRIS메뉴
 
 | 보고서 목록
 
-.. image:: ./images/studio_list/studio_list02.jpg
+.. image:: ./studio/images/studio_list/studio_list02.jpg
     :scale: 50%
     :alt: 보고서목록
 
 
 
-''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''
 내보내기 URL
-''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''
 
 | 해당 보고서의 내보내기 URL을 생성 할 수 있습니다. 
 | 생성된 내보내기 URL은 관리기능을 통하여 복사, 보기(내보내기 URL 보기), 삭제를 할 수 있습니다. 
 
-.. image:: ./images/studio_list/studio_list03.jpg
+.. image:: ./studio/images/studio_list/studio_list03.jpg
     :scale: 100 %
     :alt: 내보내기URL
 
 
 
 
-''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
 편집
-''''''''''''''''''''''''''''''''''
+''''''''''''''''''''''''''''''''''''''''''''''''
 
 | 해당보고서를 편집 할 수 있습니다. 
 | 보고서의 이름 변경, 수정, 복제, 삭제의 기능이 제공됩니다. 
 
-.. image:: ./images/studio_list/studio_list04.jpg
+.. image:: ./studio/images/studio_list/studio_list04.jpg
     :scale: 100 %
     :alt: 편집
 
 
 
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''
 접근권한
-'''''''''''''''''''''''''''''''''''
+'''''''''''''''''''''''''''''''''''''''
 | 해당 보고서의 사용자 권한을 지정 할 수 있습니다. 
 | 사용자 별 권한을 추가 하거나 사용자 그룹 단위의 권한 설정을 할 수 있습니다. 
 
-.. image:: ./images/studio_list/studio_list05.jpg
+.. image:: ./studio/images/studio_list/studio_list05.jpg
     :scale: 100 %
     :alt: 접근권한
 
@@ -67,9 +67,10 @@
 ''''''''''''''''''''''''''''''''
 대시보드
 ''''''''''''''''''''''''''''''''
+
 | 해당 보고서의 대시보드에서의 사용여부를 선택 할 수 있습니다.
  
-.. image:: ./images/studio_list/studio_list06.jpg
+.. image:: ./studio/images/studio_list/studio_list06.jpg
     :scale: 100 %
     :alt: 대시보드
 
@@ -78,9 +79,10 @@
 ''''''''''''''''''''''''''''''''''
 새보고서
 ''''''''''''''''''''''''''''''''''
+
 | 오른쪽 상단 "새보고서" 버튼 클릭 시, 보고서를 생성, 편집 할 수 있는 화면이 출력 됩니다. 
 
-.. image:: ./images/studio_list/studio_list07.jpg
+.. image:: ./studio/images/studio_list/studio_list07.jpg
     :scale: 100 %
     :alt: 새보고서
 
@@ -92,19 +94,20 @@
 
 | 현재 보고서에 적용된 변수 목록을 확인 할 수 있습니다.
 
-.. image:: ./images/studio_list/studio_list08.jpg
+.. image:: ./studio/images/studio_list/studio_list08.jpg
     :scale: 100%
     :alt: 변수명보기
 
 
---------------------------------------------------------------
+--------------------------------------------------------------------------
 적용된 컴포넌트 삭제 및 전체 삭제
---------------------------------------------------------------
+--------------------------------------------------------------------------
+
 | 편집영역에 적용된 컴포넌트 선택 후 Delete 버튼 클릭 시, 해당 컴포넌트가 삭제 됩니다. 
 | 또는 삭제하고자 하는 컴포넌트선택 후 오른쪽 마우스 클릭 시, 컨텍스트메뉴로 삭제 버튼이 출력 됩니다. 삭제 버튼 클릭 시, 적용된 컴포넌트를 삭제 할 수 있습니다.
 | 편집영역 오른쪽 상단의 전체 삭제 버튼 클릭 시, 적용된 컴포넌트를 모두 삭제 할 수 있습니다. 
 
-.. image:: ./images/studio_list/studio_list09.jpg
+.. image:: ./studio/images/studio_list/studio_list09.jpg
     :scale: 100%
     :alt: 삭제
 
@@ -112,32 +115,36 @@
 --------------------------------------------------------------
 보고서 이름 설정
 --------------------------------------------------------------
+
 | 왼쪽 툴바 영역 상단 연필(수정) 버튼 클릭 시, 보고서 명을 수정할 수 있도록 수정 기능이 활성화 됩니다. 
 | 원하는 보고서 명으로 수정 후 체크버튼 클릭 또는 수정 영역외 다른 영역 클릭 시, 변경된 보고서 명이 적용됩니다. 
 
-.. image:: ./images/studio_list/studio_list10.jpg
+.. image:: ../studio/images/studio_list/studio_list10.jpg
     :scale: 100%
     :alt: 보고서 이름 설정
 
-.. image:: ./images/studio_list/studio_list11.jpg
+.. image:: ./studio/images/studio_list/studio_list11.jpg
     :scale: 100%
     :alt: 보고서 이름 설정
+
 
 --------------------------------------------------------------
 보고서 미리보기
 --------------------------------------------------------------
+
 | 보기 버튼 클릭 시, 현재 편집 중인 보고서를 새창으로 미리 보기 할 수 있습니다.
 
-.. image:: ./images/studio_list/studio_list12.jpg
+.. image:: ./studio/images/studio_list/studio_list12.jpg
     :scale: 100%
     :alt: 보고서 미리보기
 
 --------------------------------------------------------------
 보고서 저장
 --------------------------------------------------------------
+
 | 저장 버튼 클릭 시, 현재 작성 중인 보고서를 저장 할 수 있습니다. 
 
-.. image:: ./images/studio_list/studio_list12.jpg
+.. image:: ./studio/images/studio_list/studio_list12.jpg
     :scale: 100%
     :alt: 보고서 저장
 
@@ -165,7 +172,7 @@
 
 **캔버스 색상**
 
-.. image:: images/canvas/canvas_01.png
+.. image:: ./studio/images/canvas/canvas_01.png
     :width: 300
     :alt: 캔버스 색상
 
@@ -179,7 +186,7 @@
 
 | 보고서의 Global 변수를 설정하고 외부 보고서 및 내부에서 사용할 수 있습니다.
 
-.. image:: images/canvas/canvas_02.png
+.. image:: ./studio/images/canvas/canvas_02.png
     :width: 300
     :alt: 변수 설정
 
