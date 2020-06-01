@@ -75,13 +75,13 @@
 | 해당 보고서의 대시보드에서의 사용여부를 선택 할 수 있습니다.
  
 .. image:: ./studio/images/studio_list/studio_list06.jpg
-    :scale: 100 %
+    :scale: 100%
     :alt: 대시보드
 
 | 대시보드를 선택하면 메인 메뉴의 "대시보드" 에서 리스트에 추가됩니다.
 
 .. image:: ./studio/images/studio_list/new_studio_list11.png
-    :scale: 100 %
+    :scale: 60%
     :alt: 대시보드
 
 
