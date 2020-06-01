@@ -463,8 +463,8 @@ RESTful API(REST ful API)
 | RESTful API의  Method, URI, Header Body를 설정합니다.
 
 .. image:: ./studio/images/rest_api/rest_api_01.png
-  :width: 270
-  :alt: RESTful API 데이터 설정
+    :width: 270
+    :alt: RESTful API 데이터 설정
 
 .. csv-table::
     :header: "항목", "설명"

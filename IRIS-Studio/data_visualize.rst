@@ -13,7 +13,7 @@
 챠트 (chart)
 ------------------------------------------
 
-.. image:: images/canvas/studio-chart.png
+.. image:: ./studio/images/canvas/studio-chart.png
 
 차트 객체는 요청한 데이터로 각종 차트를 구성하여 시각화할 수 있습니다.
 
@@ -35,7 +35,7 @@
 
 **객체에 따라 특정 데이터 유형은 지원하지 않을 수도 있습니다.**
 
-.. image:: ./images/common/data_tab_01.png
+.. image:: ./studio//images/common/data_tab_01.png
     :scale: 100 %
     :alt: 데이터 유형
 
@@ -283,7 +283,7 @@ REST API
 | 데이터로 Rest 를 사용할 수 있습니다.
 | 보고서에 생성된 Restful API 객체를 선택할 수 있으며 별도의 화면이 제공됩니다.
 | 트리거 설정 버튼을 이용하여 Restful API 객체를 선택/삭제 할 수 있습니다.
-| 해당 객체의 사용법은 `RESTful API(REST ful API)`_ 을 참조하세요
+| 해당 객체의 사용법은 `RESTful API <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/special_etc.html#restful-api-rest-ful-api>`_ 을 참조하세요
 
 .. image:: ./studio/images/common/data_tab_14.png
     :scale: 100 %
