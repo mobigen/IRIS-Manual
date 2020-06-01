@@ -82,7 +82,8 @@
 객체
 ''''''''''''''''
 
-| 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하세요
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+
 
 
 
@@ -152,7 +153,9 @@ Text Area에 읽기만 가능하도록 설정합니다.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 객체 설정
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-| 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17`__ 을 참고하세요.
+
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+
 
 
 
