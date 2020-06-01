@@ -8,7 +8,6 @@
 
 .. contents::
     :backlinks: top
-    :maxdepth: 2
 
 
 
