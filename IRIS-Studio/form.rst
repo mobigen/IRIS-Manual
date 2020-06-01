@@ -16,7 +16,7 @@
 
 | 텍스트 입력 객체는 Input Box에 사용자가 입력하거나 외부로부터 값을 받아 화면에 보여 줍니다.(타입: text, password, number)
 
-.. image:: ./images/input/button-text.png
+.. image:: ./studio/images/input/button-text.png
 
 '''''''''''''''''''''''''''
 데이터 
@@ -28,7 +28,7 @@
 
 | 다른 객체로 부터 받을 데이터의 변수를 설정합니다.
 
-.. image:: images/input/input_01.png
+.. image:: ./studio/images/input/input_01.png
     :width: 300
     :alt: 설정할 변수/값
 
@@ -48,7 +48,7 @@
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
     변수 명, 해당 객체를 사용하기 위한 변수명으로 사용자가 지정할 수 있습니다.
 
-.. image:: ./images/common/event_01.png
+.. image:: ./studio/images/common/event_01.png
     :scale: 100 %
     :alt: 이벤트값 전달 설정
 
@@ -57,13 +57,13 @@
 
 | Input Box의 타입 및 읽기만 가능하도록 설정합니다.
 
-.. image:: images/input/input_02.png
+.. image:: ./studio/images/input/input_02.png
     :width: 300
     :alt: 유형 설정
 
 **디폴트 값 선택**
 
-.. image:: images/input/input_03.png
+.. image:: ./studio/images/input/input_03.png
     :width: 300
     :alt: 디폴트 값 선택
 
@@ -89,7 +89,7 @@
 ----------------------------
 
 
-.. image:: ./images/textarea/button-textarea.png
+.. image:: ./studio/images/textarea/button-textarea.png
 
 | 텍스트 상자 객체는 Text Area에 사용자가 입력하거나 외부로부터 값을 받아 화면에 보여 줍니다.
 
@@ -102,7 +102,7 @@
 
 다른 객체로 부터 받을 데이터의 변수를 설정합니다.
 
-.. image:: images/textarea/textarea_01.png
+.. image:: ./studio/images/textarea/textarea_01.png
     :width: 300
     :alt: 설정할 변수/값
 
@@ -130,13 +130,13 @@
 
 Text Area에 읽기만 가능하도록 설정합니다.
 
-.. image:: images/textarea/textarea_02.png
+.. image:: ./studio/images/textarea/textarea_02.png
     :width: 300
     :alt: 유형 설정
 
 **디폴트 값 선택**
 
-.. image:: images/textarea/textarea_03.png
+.. image:: ./studio/images/textarea/textarea_03.png
     :width: 300
     :alt: 디폴트 값 선택
 
@@ -159,7 +159,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 콤보박스 (Combo Box)
 ----------------------------
 
-.. image:: ./images/combo/button-combobox.png
+.. image:: ./studio/images/combo/button-combobox.png
 
 | 사용자가 드롭다운 목록에서 한 항목을 선택할 수 있고, 목록은 '데이터' 탭과 '사용자 정의'로 설정할 수 있습니다.
 | 항목 탭을 사용하여, 변수명을 통해 콤보박스 목록에서 변수명에 정의된 값을 이벤트 트리거 옵션에 의해 원하는 항목을 자동 선택할 수 있습니다.
@@ -181,7 +181,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 사용자 정의 데이터 목록을 작성 할 수 있고, 1개 이상의 목록을 작성 할 경우, 추가 버튼을 클릭하여 데이터를 추가 할 수 있습니다.
 
-.. image:: images/combo/combo_01.png
+.. image:: ./studio/images/combo/combo_01.png
   :width: 270
   :alt: 콤보박스 사용자 정의
 
@@ -208,7 +208,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
     변수 명, 해당 객체를 사용하기 위한 변수명으로 사용자가 지정할 수 있습니다.
 
-.. image:: ./images/common/event_01.png
+.. image:: ./studio/images/common/event_01.png
     :scale: 100 %
     :alt: 이벤트값 전달 설정
 
@@ -219,7 +219,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 콤보박스를 선택하여 목록 필드 입력 검색 기능 입니다. (사용: 입력 검색, 미사용: 입력 불가)
 
-.. image:: images/combo/combo_02.png
+.. image:: ./studio/images/combo/combo_02.png
   :width: 270
   :alt: 콤보박스 에디터 기능
 
@@ -237,7 +237,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 | 조회된 목록 중에 디폴트 값을 설정 할 수 있습니다.
 
 
-.. image:: images/combo/combo_05.png
+.. image:: ./studio/images/combo/combo_05.png
   :width: 270
   :alt: 디폴트 값 선택
 
@@ -255,7 +255,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 | 항목으로 설정할 변수명을 입력하여 설정합니다.
 
 
-.. image:: images/combo/combo_06.png
+.. image:: ./studio/images/combo/combo_06.png
   :width: 270
   :alt: 항목 설정 변수
 
@@ -273,7 +273,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 체크박스/라디오버튼 (Check Box / Radio Button)
 -----------------------------------------------------------------
 
-.. image:: ./images/check_radio/button-checkbox.png
+.. image:: ./studio/images/check_radio/button-checkbox.png
 
 | 체크박스/라디오버튼 객체로 전환 설정 가능합니다.
 | 유형을 선택하여, 객체의 속성을 변경할 수 있고, 체크박스가 기본값 입니다.
@@ -297,7 +297,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 사용자 정의 데이터를 설정 할 수 있습니다.
 
-.. image:: images/check_radio/check_radio_01.png
+.. image:: ./studio/images/check_radio/check_radio_01.png
   :width: 270
   :alt: 데이터 사용자 정의
 
@@ -327,7 +327,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 체크박스/라디오버튼 유형을 선택 합니다.
 
-.. image:: images/check_radio/check_radio_02.png
+.. image:: ./studio/images/check_radio/check_radio_02.png
   :width: 270
   :alt: 체크박스/라디오버튼 유형 선택
 
@@ -355,7 +355,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 체크박스/라디오버튼 배열 방향을 설정합니다.
 
-.. image:: images/check_radio/check_radio_04.png
+.. image:: ./studio/images/check_radio/check_radio_04.png
   :width: 270
   :alt: 체크박스/라디오버튼 배열 방향
 
@@ -391,7 +391,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 조회된 목록 중에 디폴트 값을 설정 할 수 있습니다.
 
-.. image:: images/check_radio/check_radio_03.png
+.. image:: ./studio/images/check_radio/check_radio_03.png
   :width: 270
   :alt: 체크박스/라디오버튼 디폴트 값 선택
 
@@ -416,7 +416,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 ---------------------------------------------
 
 
-.. image:: ./images/date_picker/button-date.png
+.. image:: ./studio/images/date_picker/button-date.png
 
 날짜 선택 시 달력으로 시작/종료/현재 날짜를 설정할 수 있고, 시간 선택 시 시작 시간 & 시간 간격을 설정 할 수 있습니다.
 
@@ -425,7 +425,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 '''''''''''''''''''
 
 
-.. image:: images/date_picker/studio_date_picker_07.png
+.. image:: ./studio/images/date_picker/studio_date_picker_07.png
   :scale: 60%
   :alt: studio_date_picker_07.png
 
@@ -443,7 +443,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 날짜/시간에 대한 유형선택으로 시각화 옵션이 달라 집니다.
 
-.. image:: images/date_picker/date_picker_01.png
+.. image:: ./studio/images/date_picker/date_picker_01.png
   :width: 270
   :alt: 날짜/시간 유형 선택
 
@@ -459,7 +459,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 날짜 유형을 선택한 경우에만 활성화 되며, 달력 표시 날짜를 설정합니다.
 
-.. image:: images/date_picker/date_picker_02.png
+.. image:: ./studio/images/date_picker/date_picker_02.png
   :width: 480
   :alt: 시각화옵션 달력 표시 날짜 설정
 
@@ -478,7 +478,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 날짜 유형을 선택한 경우에만 활성화 되며, 초기 날짜를 설정합니다.
 
-.. image:: images/date_picker/date_picker_03.png
+.. image:: ./studio/images/date_picker/date_picker_03.png
   :width: 480
   :alt: 시각화옵션 초기 날짜 설정
 
@@ -495,7 +495,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 시간 유형을 선택한 경우에만 활성화 되며, 시간을 설정합니다.
 
-.. image:: images/date_picker/date_picker_04.png
+.. image:: ./studio/images/date_picker/date_picker_04.png
   :width: 480
   :alt: 시각화옵션 시간 선택 간격
 
@@ -512,7 +512,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 시간 유형을 선택한 경우에만 활성화 되며, 초기 시간을 설정합니다.
 
-.. image:: images/date_picker/date_picker_05.png
+.. image:: ./studio/images/date_picker/date_picker_05.png
   :width: 480
   :alt: 시각화옵션 초기 시간 설정
 
@@ -538,7 +538,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 기간 설정
 ----------------------------
 
-.. image:: ./images/period/period_setting_01.png
+.. image:: ./studio/images/period/period_setting_01.png
   :alt: 기간 설정 01
 
 | 조회할 기간을 선택할 수 있는 박스를 만드는 메뉴입니다.
@@ -567,7 +567,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 여러 개의 기간을 목록으로 구성한 후 콤보박스에서 기간을 선택하여 조회 할 수 있습니다.
 
-.. image:: ./images/period/period_setting_03.png
+.. image:: ./studio/images/period/period_setting_03.png
   :scale: 60%
   :alt: 기간 설정 03
 
@@ -576,7 +576,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 | 시간 설정 팝업창에서 "미리 설정", "날짜 및 시간 범위" 를 선택하여 시작 시간, 끝 시간을 정할 수 있습니다.
 
-.. image:: ./images/period/period_setting_04.png
+.. image:: ./studio/images/period/period_setting_04.png
   :scale: 60%
   :alt: 기간 설정 04
 

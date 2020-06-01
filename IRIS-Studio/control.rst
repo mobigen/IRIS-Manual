@@ -14,7 +14,7 @@
 버튼 (Button)
 --------------------------------
 
-.. image:: ./images/button/button-button.png
+.. image:: ./studio/images/button/button-button.png
 
 | 사용자가 버튼명 문구를 설정할 수 있고, 버튼을 클릭하여 이벤트 트리거/하이퍼링크 기능을 설정 할 수 있습니다.
 
@@ -38,7 +38,7 @@
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
     변수 명, 해당 객체를 사용하기 위한 변수명으로 사용자가 지정할 수 있습니다.
 
-.. image:: ./images/common/event_01.png
+.. image:: ./studio/images/common/event_01.png
     :scale: 100 %
     :alt: 이벤트값 전달 설정
 
@@ -49,7 +49,7 @@
 
 | 버튼에 적용할 문자를 입력 할 수 있습니다.
 
-.. image:: images/button/button_01.png
+.. image:: ./studio/images/button/button_01.png
   :width: 270
   :alt: 버튼 문구 입력
 
@@ -63,7 +63,7 @@
 
 | 하이퍼링크를 버튼에 설정 할 수 있습니다.
 
-.. image:: images/button/button_02.png
+.. image:: ./studio/images/button/button_02.png
   :width: 270
   :alt: 버튼 하이퍼링크 설정
 
@@ -91,7 +91,7 @@
 탭 (Tab)
 ---------------------------------
 
-.. image:: ./images/tab/button-tab.png
+.. image:: ./studio/images/tab/button-tab.png
 
 | 보고서에 탭을 1개 이상 추가 할 수 있고, 탭 방향 및 해당 탭이 선택되었을 때 나타날 비주얼 객체를 설정할 수 있습니다.
 
@@ -107,7 +107,7 @@
 
 | 데이터 목록을 작성 할 수 있고, 1개 이상의 목록을 작성 할 경우, 추가 버튼을 클릭하여 데이터를 추가 할 수 있습니다.
 
-.. image:: images/tab/tab_01.png
+.. image:: ./studio/images/tab/tab_01.png
   :width: 270
   :alt: 데이터 유형 설정 탭 추가
 
@@ -132,7 +132,7 @@
 
 | 탭의 정렬 방향을 설정합니다.
 
-.. image:: images/tab/tab_07.png
+.. image:: ./studio/images/tab/tab_07.png
   :width: 270
   :alt: 탭 정렬 방향
 
@@ -150,7 +150,7 @@
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
     변수 명, 해당 객체를 사용하기 위한 변수명으로 사용자가 지정할 수 있습니다.
 
-.. image:: ./images/common/event_01.png
+.. image:: ./studio/images/common/event_01.png
     :scale: 100 %
     :alt: 이벤트값 전달 설정
 
@@ -164,26 +164,26 @@
 
 | 첫번째 탭 적용 대상 설정 입니다.
 
-.. image:: images/tab/tab_02.png
+.. image:: ./studio/images/tab/tab_02.png
   :width: 270
   :alt: 첫번째 탭 적용 대상 설정
 
 | 첫번째 탭 적용 대상 UI 입니다.
 
-.. image:: images/tab/tab_03.png
+.. image:: ./studio/images/tab/tab_03.png
   :width: 270
   :alt: 첫번째 탭 적용 대상 UI
 
 
 | 두번째 탭 적용 대상 설정 입니다.
 
-.. image:: images/tab/tab_04.png
+.. image:: ./studio/images/tab/tab_04.png
   :width: 270
   :alt: 두번째 탭 적용 대상 설정
 
 | 두번째 탭 적용 대상 UI 입니다.
 
-.. image:: images/tab/tab_05.png
+.. image:: ./studio/images/tab/tab_05.png
   :width: 270
   :alt: 두번째 탭 적용 대상 UI
 
@@ -193,7 +193,7 @@
 
 | 1개 이상의 탭이 설정된 경우, 탭이 자동으로 전환되도록 설정 할 수 있습니다.
 
-.. image:: images/tab/tab_06.png
+.. image:: ./studio/images/tab/tab_06.png
   :width: 270
   :alt: 탭 자동 전환 설정
 
@@ -210,7 +210,7 @@
 목록 (List)
 ----------------------------------
 
-.. image:: ./images/list/button-list.png
+.. image:: ./studio/images/list/button-list.png
 
 | 목록 객체는 검색, 선택 가능한 목록을 추가 할 수 있습니다.
 | 리스트 제목 & 목록으로 나타날 데이터 필드를 설정하여 나타낼 수 있습니다.
@@ -234,7 +234,7 @@
 
 | 목록 제목을 입력하여 설정할 수 있습니다.
 
-.. image:: images/list/list_01.png
+.. image:: ./studio/images/list/list_01.png
   :width: 270
   :alt: 리스트 제목
 
@@ -245,7 +245,7 @@
 
 | '데이터'에서 조회한 필드를 선택하여, 화면에 나타날 필드를 설정 할 수 있습니다.
 
-.. image:: images/list/list_02.png
+.. image:: ./studio/images/list/list_02.png
   :width: 270
   :alt: 리스트 필드 선택
 
@@ -263,7 +263,7 @@
 태그 목록 (Tag List)
 ------------------------------------
 
-.. image:: ./images/tag_list/button-tag.png
+.. image:: ./studio/images/tag_list/button-tag.png
 
 | 태그 목록을 데이터 설정하여 시각화를 통해 목록을 표시 할 수 있습니다.
 
@@ -280,7 +280,7 @@
 
 | 데이터 목록을 작성 할 수 있고, 1개 이상의 목록을 작성 할 경우, 추가 버튼을 클릭하여 데이터를 추가 할 수 있습니다.
 
-.. image:: images/combo/combo_01.png
+.. image:: ./studio/images/combo/combo_01.png
   :width: 270
   :alt: 태그 목록 사용자 정의
 
@@ -303,7 +303,7 @@
 
 | 이벤트 발생시 정의한 설정값을 전달 합니다.
 
-.. image:: images/tag_list/tag_list_01.png
+.. image:: ./studio/images/tag_list/tag_list_01.png
   :width: 270
   :alt: 태그 목록 이벤트 값 전달 설정
 
@@ -323,7 +323,7 @@
 
 | 태그 목록 배열 방향을 설정 할 수 있습니다.
 
-.. image:: images/tag_list/tag_list_02.png
+.. image:: ./studio/images/tag_list/tag_list_02.png
   :width: 270
   :alt: 태그 목록 항목 배열 방향
 
@@ -341,7 +341,7 @@
 
 | 태그 목록을 토글 형태로 선택할 수 있는 기능을 설정할 수 있습니다.
 
-.. image:: images/tag_list/tag_list_03.png
+.. image:: ./studio/images/tag_list/tag_list_03.png
   :width: 270
   :alt: 태그 목록의 선택기능 사용여부
 
@@ -360,7 +360,7 @@
 주기설정 (Period Setting)
 ---------------------------
 
-.. image:: ./images/period/button-period.png
+.. image:: ./studio/images/period/button-period.png
 
 | 보고서의 데이터 갱신 주기를 설정 할 수 있습니다.
 
@@ -371,7 +371,7 @@
 
 | 주기/기본 설정을 할 수 있습니다.
 
-.. image:: images/period/period_01.png
+.. image:: ./studio/images/period/period_01.png
   :width: 270
   :alt: 주기 설정
 
@@ -395,14 +395,14 @@
 
 | 주기 설정에서 추가한 주기 목록 중 기본 주기로 실행될 주기를 선택할 수 있습니다.
 
-.. image:: images/period/period_02.png
+.. image:: ./studio/images/period/period_02.png
   :width: 236
   :alt: 주기 설정 UI
 
 
 | 기본 주기로 설정한 항목이 표시되어 실행되며, 주기 설정에 추가한 다른 주기는 콤보박스로 선택할 수 있습니다.
 
-.. image:: images/period/period_03.png
+.. image:: ./studio/images/period/period_03.png
   :width: 270
   :alt: 주기 설정 UI
 

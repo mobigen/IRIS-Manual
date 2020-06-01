@@ -13,7 +13,7 @@
 ---------------------------------------
 
 
-.. image:: ./images/iframe/button-ext-url.png
+.. image:: ./studio/images/iframe/button-ext-url.png
 
 | 외부 URL을 입력하여 해당 URL 페이지를 로딩 할 수 있습니다.
 
@@ -30,7 +30,7 @@ URL 불러오기
 
 | http 포함된 URL을 입력하거나, 다른 객체의 변수명을 입력하여 변수값을 사용해 외부URL 페이지를 로딩 할 수 있습니다.
 
-.. image:: images/iframe/iframe_01.png
+.. image:: ./studio/images/iframe/iframe_01.png
   :width: 270
   :alt: 외부 URL 불러오기
 
@@ -62,7 +62,7 @@ Html뷰어(Html Viewer)
 -------------------------------
 
 
-.. image:: ./images/html/button-htmlviewer.png
+.. image:: ./studio/images/html/button-htmlviewer.png
 
 | Html 뷰어 객체는 서버로부터 받아온 데이터의 HTML 코드를 바인딩하여 화면에 보여 줍니다.
 
@@ -83,7 +83,7 @@ Html뷰어(Html Viewer)
 
 불러온 데이터로부터 HTML 코드가 있는 컬럼을 선택하면 자동으로 데이터를 읽어 화면에 보여줍니다.
 
-.. image:: images/html/html_01.png
+.. image:: ./studio/images/html/html_01.png
     :width: 300
     :alt: 필드 선택
 
@@ -100,7 +100,7 @@ Html뷰어(Html Viewer)
 ---------------------------------------------------------------------------------
 
 
-.. image:: ./images/popup/button-loadreport.png
+.. image:: ./studio/images/popup/button-loadreport.png
 
 | 저장된 보고서를 가져와 팝업 화면에 표시하는 객체입니다.
 | (저장된 보고서를 가져올 경우, 가져온 보고서의 객체 목록 중에 팝업/포틀릿 객체가 포함되어 있는 경우, 미리 보기에서 실행되지 않습니다.)
@@ -124,7 +124,7 @@ Html뷰어(Html Viewer)
 | 저장된 보고서 목록이 기본이며, 변수/값 입력을 설정 할 수 있습니다.
 
 
-.. image:: images/popup/popup_01.png
+.. image:: ./studio/images/popup/popup_01.png
   :width: 270
   :alt: 저장된 보고서 목록 설정
 
@@ -142,13 +142,13 @@ Html뷰어(Html Viewer)
 | 검색을 통해 보고서를 검색가능하며, 보고서 선택 시 목록에 표시되고, 팝업 객체에 보고서 이름과 바로가기 나타납니다.
 
 
-.. image:: images/popup/popup_01.png
+.. image:: ./studio/images/popup/popup_01.png
   :width: 270
   :alt: 저장된 보고서 목록 설정
 
 | 팝업 객체의 선택 적용 UI 입니다.
 
-.. image:: images/popup/popup_02.png
+.. image:: ./studio/images/popup/popup_02.png
   :width: 270
   :alt: 저장된 보고서 선택 적용 UI
 
@@ -159,7 +159,7 @@ import 보고서 변수/값
 
 | 변수값을 사용하여 저장된 보고서를 불러 올 수 있습니다.
 
-.. image:: images/popup/popup_03.png
+.. image:: ./studio/images/popup/popup_03.png
   :width: 270
   :alt: 보고서 설정 변수 값/입력
 
@@ -170,7 +170,7 @@ import 보고서 변수/값
 
 | 팝업 열기 시, 실행될 이벤트를 설정합니다.
 
-.. image:: images/popup/popup_04.png
+.. image:: ./studio/images/popup/popup_04.png
   :width: 270
   :alt: 팝업 열기 설정
 
@@ -201,7 +201,7 @@ import 보고서 변수/값
 | 저장된 보고서의 Canvas 변수가 설정된 경우에 설정된 Canvas 변수값에 값을 설정 할 수 있습니다.
 | Canvas 변수가 3개인 경우에 변수값을 3개 설정 할 수 있으며, 변수값을 직접 입력 하거나, 변수명을 입력하여 설정 할 수 있습니다.
 
-.. image:: images/popup/popup_05.png
+.. image:: ./studio/images/popup/popup_05.png
   :width: 270
   :alt: 저장된 보고서 변수 설정
 
@@ -218,7 +218,7 @@ import 보고서 변수/값
 ..........................................
 | 팝업이 열릴 때, 팝업 제목을 설정합니다.
 
-.. image:: images/popup/popup_06.png
+.. image:: ./studio/images/popup/popup_06.png
   :width: 270
   :alt: 팝업 제목 설정
 
@@ -236,7 +236,7 @@ import 보고서 변수/값
 
 | 팝업이 열릴 때, 팝업의 창 크기를 설정합니다.
 
-.. image:: images/popup/popup_08.png
+.. image:: ./studio/images/popup/popup_08.png
   :width: 270
   :alt: 팝업 창 크기 설정
 
@@ -248,12 +248,12 @@ import 보고서 변수/값
 --------------------------------------------------------------------------------------------------
 
 
-.. image:: ./images/portlet/button-loadportlet.png
+.. image:: ./studio/images/portlet/button-loadportlet.png
 
 | 저장된 보고서를 가져와 보고서 화면에 표시하는 객체입니다.
 | (저장된 보고서를 가져올 경우, 가져온 보고서의 객체 목록 중에 팝업/포틀릿 객체가 포함되어 있는 경우, 미리 보기에서 실행되지 않습니다.)
 
-.. image:: images/popup/popup_07.png
+.. image:: ./studio/images/popup/popup_07.png
   :width: 270
   :alt: Import Report 오류 메시지(Import 보고서에 팝업/포틀릿 객체가 포함되어 있습니다)
 
@@ -271,7 +271,7 @@ import 보고서 변수/값
 
 | 저장된 보고서 목록이 기본이며, 변수/값 입력을 설정 할 수 있습니다.
 
-.. image:: images/popup/popup_01.png
+.. image:: ./studio/images/popup/popup_01.png
   :width: 270
   :alt: 저장된 보고서 목록 설정
 
@@ -289,13 +289,13 @@ import 보고서 변수/값
 | 보고서 설정 유형에서 목록을 선택한 경우만 활성화 됩니다.
 | 검색을 통해 보고서를 검색가능하며, 보고서 선택 시 목록에 표시되고, 팝업 객체에 보고서 이름과 바로가기 나타납니다.
 
-.. image:: images/popup/popup_01.png
+.. image:: ./studio/images/popup/popup_01.png
   :width: 270
   :alt: 저장된 보고서 목록 설정
 
 포틀릿 객체의 선택 적용 UI 입니다.
 
-.. image:: images/popup/popup_02.png
+.. image:: ./studio/images/popup/popup_02.png
   :width: 270
   :alt: 저장된 보고서 선택 적용 UI
 
@@ -306,7 +306,7 @@ import 보고서 변수/값
 
 | 변수값을 사용하여 저장된 보고서를 불러 올 수 있습니다.
 
-.. image:: images/popup/popup_03.png
+.. image:: ./studio/images/popup/popup_03.png
   :width: 270
   :alt: 보고서 설정 변수 값/입력
 
@@ -317,7 +317,7 @@ Import 보고서 실행 방법 설정
 
 | 포틀릿 실행 시, 실행될 이벤트를 설정합니다.
 
-.. image:: images/portlet/portlet_01.png
+.. image:: ./studio/images/portlet/portlet_01.png
   :width: 270
   :alt: Import 보고서 실행 방법 설정
 
@@ -351,7 +351,7 @@ Import 보고서 실행 방법 설정
 | Canvas 변수가 3개인 경우에 변수값을 3개 설정 할 수 있으며, 변수값을 직접 입력 하거나, 변수명을 입력하여 설정 할 수 있습니다.
 
 
-.. image:: images/popup/popup_05.png
+.. image:: ./studio/images/popup/popup_05.png
   :width: 270
   :alt: 저장된 보고서 변수 설정
 
@@ -377,7 +377,7 @@ Import 보고서 실행 방법 설정
 -----------------------------------
 
 
-.. image:: ./images/hidden/button-textconv.png
+.. image:: ./studio/images/hidden/button-textconv.png
 
 | 텍스트변환 객체에서 설정한 객체의 이벤트 발생시 해당변수의 값을 트리거에 입력된 텍스트로 변환하여 적용할 수있습니다.
 | 예를 들어 버튼 객체가 3개인 경우, 텍스트 변환 객체의 트리거 설정에 변환값을 입력하여 텍스트 변환 객체의 변수값을 변경하여,
@@ -407,14 +407,14 @@ Import 보고서 실행 방법 설정
 
 | 텍스트 변환 객체 트리거 설정 압니다.
 
-.. image:: images/hidden/hidden_01.png
+.. image:: ./studio/images/hidden/hidden_01.png
   :width: 270
   :alt: 텍스트 변환 객체 트리거 설정
 
 
 | 트리거 설정된 비주얼 객체의 적용 UI 입니다.
 
-.. image:: images/hidden/hidden_02.png
+.. image:: ./studio/images/hidden/hidden_02.png
   :width: 270
   :alt: 텍스트 변환 객체 트리거 설정 UI
 
@@ -444,7 +444,7 @@ RESTful API(REST ful API)
 ------------------------------------------------------------
 
 
-.. image:: ./images/rest_api/button-rest.png
+.. image:: ./studio/images/rest_api/button-rest.png
 
 | RESTful API를 사용하여 데이터를 설정 할 수 있는 객체입니다.
 
@@ -462,7 +462,7 @@ RESTful API(REST ful API)
 
 | RESTful API의  Method, URI, Header Body를 설정합니다.
 
-.. image:: images/rest_api/rest_api_01.png
+.. image:: ./studio/images/rest_api/rest_api_01.png
   :width: 270
   :alt: RESTful API 데이터 설정
 
@@ -517,7 +517,7 @@ RESTful API(REST ful API)
 ---------------------------------------
 
 
-.. image:: ./images/file_upload/button-upload.png
+.. image:: ./studio/images/file_upload/button-upload.png
 
 | 파일 업로드 객체는 보고서에 데이터 추가 시, 정해진 형태의 파일을 REST API로 데이터를 업로드 할 수 있습니다.
 | 비주얼 객체의 이벤트에 의해 업로드 실행 트리거를 설정 할 수 있으며, 한 번에 하나의 파일만 등록 가능합니다.
@@ -534,7 +534,7 @@ RESTful API(REST ful API)
 
 | 파일 업로드 데이터의 Method, URI, Body를 설정합니다.
 
-.. image:: images/file_upload/file_upload_01.png
+.. image:: ./studio/images/file_upload/file_upload_01.png
   :width: 270
   :alt: 파일 업로드 데이터 설정
 
@@ -567,7 +567,7 @@ RESTful API(REST ful API)
 | 미 설정시, 확장자 구분없이 업로드 가능하며, 확장자는 '.csv' or 'csv' 형식으로 등록가능합니다.
 | 하단 추가 버튼을 클릭하여 업로드 가능 파일 확장자를 1개 이상 등록할 수 있습니다.
 
-.. image:: images/file_upload/file_upload_02.png
+.. image:: ./studio/images/file_upload/file_upload_02.png
   :width: 270
   :alt: 파일 업로드 가능 파일 확장자
 
