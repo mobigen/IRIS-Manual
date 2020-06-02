@@ -106,7 +106,7 @@ Html뷰어 (Html Viewer)
 | 저장된 보고서를 가져와 팝업 화면에 표시하는 객체입니다.
 | (저장된 보고서를 가져올 경우, 가져온 보고서의 객체 목록 중에 팝업/포틀릿 객체가 포함되어 있는 경우, 미리 보기에서 실행되지 않습니다.)
 
-.. image:: images/popup/popup_07.png
+.. image:: studio/images/popup/popup_07.png
   :width: 270
   :alt: Import Report 오류 메시지(Import 보고서에 팝업/포틀릿 객체가 포함되어 있습니다)
 
