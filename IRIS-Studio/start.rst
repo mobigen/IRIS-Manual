@@ -217,7 +217,7 @@
 
 **변수 설정**
 
-| 보고서의 Global 변수를 설정하고 외부 보고서 및 내부에서 사용할 수 있습니다.
+| 보고서의 canvas 변수를 설정하고 외부 보고서 및 내부에서 사용할 수 있습니다.
 
 .. image:: ./studio/images/canvas/studio_canvas_14.png
     :alt: canvas 변수 설정
