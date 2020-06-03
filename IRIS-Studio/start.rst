@@ -38,7 +38,7 @@
 | 생성된 내보내기 URL은 관리기능을 통하여 복사, 보기(내보내기 URL 보기), 삭제를 할 수 있습니다. 
 
 .. image:: ./studio/images/studio_list/studio_list03.png
-    :scale: 100 %
+    :scale: 60%
     :alt: 내보내기URL
 
 
@@ -135,11 +135,9 @@
 | 원하는 보고서 명으로 수정 후 체크버튼 클릭 또는 수정 영역외 다른 영역 클릭 시, 변경된 보고서 명이 적용됩니다. 
 
 .. image:: ./studio/images/studio_list/studio_list10.jpg
-    :scale: 100%
     :alt: 보고서 이름 설정
 
 .. image:: ./studio/images/studio_list/studio_list11.jpg
-    :scale: 100%
     :alt: 보고서 이름 설정
 
 

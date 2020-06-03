@@ -52,7 +52,7 @@ URL 불러오기
 ''''''''''''''''''''''''''''''''''
 객체
 ''''''''''''''''''''''''''''''''''
-| 크기와 위치는 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+| 크기와 위치는 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__ 을 참조하시기 바랍니다.
 
 
 
@@ -92,7 +92,7 @@ Html뷰어 (Html Viewer)
 객체 설정
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-| 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참고하시기 바랍니다.
+| 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__ 을 참고하시기 바랍니다.
 
 
 
@@ -239,7 +239,8 @@ import 보고서 변수/값
 객체
 ''''''''''''''''''''''''''''''''''
 
-| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__ 을 참조하시기 바랍니다.
+
 
 
 ................................................................
@@ -381,7 +382,7 @@ Import 보고서 실행 방법 설정
 객체
 ''''''''''''''''''''''''''''''''''''''
 
-| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__  을 참조하시가 바랍니다.
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__  을 참조하시가 바랍니다.
 
 
 
@@ -526,7 +527,7 @@ RESTful API
 ''''''''''''''''''''''''''''''''''''
 객체
 ''''''''''''''''''''''''''''''''''''
-| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__ 을 참조하시기 바랍니다.
 
 
 
@@ -602,4 +603,4 @@ RESTful API
 '''''''''''''''''''''''''''
 객체
 '''''''''''''''''''''''''''
-| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id17>`__ 을 참조하시기 바랍니다.
+| 크기와 위치는 챠트의 `객체 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id18>`__ 을 참조하시기 바랍니다.
