@@ -356,7 +356,7 @@ REST API
 ......................................................................
 
 | 해당 객체의 이벤트를 수신하는 객체를 확인합니다.
-| 확인만 가능하며 해당 객체의 삭제는 수신대상 객체의 데이터 실행 방법 설정을 통해서만 가능합니다.
+| 확인만 가능하며 해당 객체의 삭제는 수신대상 객체의  `데이터 실행 방법 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id5>`__ 을 통해서만 가능합니다.
 
 .. image:: ./studio/images/common/trigger_07.png
     :scale: 100 %
