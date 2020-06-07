@@ -252,7 +252,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
     변수 명, 해당 객체를 사용하기 위한 변수명으로 사용자가 지정할 수 있습니다.
 
-.. image:: ./studio/images/combo/studio_combo_42_1.png.png
+.. image:: ./studio/images/combo/studio_combo_42_1.png
     :scale: 100 %
     :alt: 이벤트값 전달 설정
 
