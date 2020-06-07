@@ -216,7 +216,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 데이터
 ............................
 
-| 데이터 설정은 챠트의 `데이터설정 Mhttp://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id1>`__ 과 동일합니다.
+| 데이터 설정은 챠트의 `데이터설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id1>`__ 과 동일합니다.
 
 
 ....................................................................................................
