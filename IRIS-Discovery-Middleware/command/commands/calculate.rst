@@ -21,7 +21,7 @@ Parameters
 
 .. code-block:: none
 
-   ... | calculate (OPERATION DIRECTION (field_A(, field_B)?)? | arithmetic operation) (FLAG)?
+   ... | calculate (OPERATION DIRECTION (field_A(, field_B)?)? | arithmetic operation) (AS ALIAS_NAME)? (FLAG)?
 
 .. list-table::
    :header-rows: 1
@@ -41,6 +41,9 @@ Parameters
    * - arithmetic operation
      - 특수 문자를 이용한 연산식 을 사용하는 부분입니다. 현재 (``+``, ``-``, ``*``, ``/``, ``(``, ``)``) 문자를 인식 할 수 있습니다.
      - 필수
+   * - AS ALIAS_NAME
+     - ``AS`` 문자를 이용해 substr 결과를 나타낼 필드의 이름을 지정합니다. space가 포함된 문자는 single-quote(``'``)로 감싸야 합니다. (Default = calculated)
+     - 옵션
    * - FLAG
      - 계산 결과 컬럼의 위치를 지정하는 옵션입니다. ``LEFT``, ``RIGHT`` 가 있으며, 각각 ``1번컬럼``, ``마지막컬럼`` 을 의미합니다. Default: RIGHT
      - 옵션
