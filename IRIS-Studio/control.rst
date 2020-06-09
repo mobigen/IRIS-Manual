@@ -44,6 +44,7 @@
     오브젝트 ID, 해당 객체의 고유 아이디로 자동으로 할당됩니다.
 
 .. image:: ./studio/images/button/studio_button_46_1.png
+    :scale: 60%
     :alt: 이벤트값 전달 설정
 
 
@@ -54,7 +55,7 @@
 | 버튼에 적용할 문자를 입력 할 수 있습니다.
 
 .. image:: ./studio/images/button/studio_button_21_2.png
-  :scale: 40%
+  :scale: 60%
   :alt: 버튼 문구 입력
 
 
@@ -70,7 +71,7 @@
 | 하이퍼링크를 버튼에 설정 할 수 있습니다.
 
 .. image:: ./studio/images/button/studio_button_21.png
-  :scale: 40%
+  :scale: 60%
   :alt: 버튼 하이퍼링크 설정
 
 
@@ -136,7 +137,7 @@
 | 탭 목록을 작성 할 수 있고, 1개 이상의 목록을 작성 할 경우, "탭추가" 버튼을 클릭하여 탭을 추가 할 수 있습니다.
 
 .. image:: ./studio/images/tab/studio_tab_23.png
-  :scale: 40%
+  :scale: 60%
   :alt: 데이터 유형 설정 탭 추가
 
 
@@ -190,7 +191,7 @@
 | 탭의 정렬 방향을 설정합니다.
 
 .. image:: ./studio/images/tab/studio_tab_46_2.png
-  :scale: 50%
+  :scale: 60%
   :alt: 탭 정렬 방향
 
 
@@ -235,7 +236,6 @@
 
 
 .. image:: ./studio/images/tab/studio_tab_24.png
-  :scale: 100%
   :alt:  적용 대상 설정
 
 
@@ -276,7 +276,6 @@
 
 
 .. image:: ./studio/images/list/studio_list_26.png
-  :scale: 100%
   :alt: 리스트 개요
 
 

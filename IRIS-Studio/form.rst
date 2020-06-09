@@ -209,6 +209,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. image:: ./studio/images/combo/studio_combo_41.png
+  :scale: 100%
   :alt: 콤보박스 사용자 정의
 
 
@@ -329,7 +330,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 
 .. image:: ./studio/images/combo/studio_combo_43.png
-  :width: 270
+  :scale: 100%
   :alt: 항목 설정 변수
 
 
@@ -670,6 +671,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 | 여러 개의 기간을 목록으로 구성한 후 콤보박스에서 기간을 선택하여 조회 할 수 있습니다.
 
 .. image:: ./studio/images/period/period_setting_03.png
+    :scale: 100%
     :alt: 기간 설정 03
 
 
@@ -678,6 +680,7 @@ Text Area에 읽기만 가능하도록 설정합니다.
 | 시간 설정 팝업창에서 "미리 설정", "날짜 및 시간 범위" 를 선택하여 시작 시간, 끝 시간을 정할 수 있습니다.
 
 .. image:: ./studio/images/period/period_setting_04.png
+  :scale: 100%
   :alt: 기간 설정 04
 
 
