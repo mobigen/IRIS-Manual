@@ -5,34 +5,19 @@ substr
 개요
 ----------------------------------------------------------------------------------------------------
 
-이 명령어는 특정한 필드나 문자열을 SUBSTRING 하고자 할 때 사용됩니다.
+이 명령어는 특정한 필드나 문자열을 SUBSTR 하고자 할 때 사용됩니다.
 
 설명
 ----------------------------------------------------------------------------------------------------
 
-``FIELD``\ 에 해당하는 필드를 시작위치로 부터 원하는 길이로 SUBSTRING 할 수 있습니다.  
-
-Examples
-----------------------------------------------------------------------------------------------------
-
-``name`` 필드의 값들을 다섯번째 부터 열번째까지 SUBSTRING 하는 예제입니다.
-
-.. code-block:: none
-
-   ... | substr name 5 6
-
-``name`` 필드의 값들을 세번째 부터 끝까지 SUBSTRING 하는 예제입니다.
-
-.. code-block:: none
-
-   ... | substr name 3
+``FIELD`` 에 해당하는 필드를 시작위치로 부터 원하는 길이로 SUBSTR 할 수 있습니다.  
 
 Parameters
 ----------------------------------------------------------------------------------------------------
 
 .. code-block:: none
 
-   ... | substr FIELD START_POSITION (LENGTH)?
+   ... | substr FIELD START_POSITION (LENGTH)? (AS ALIAS_NAME)?
 
 .. list-table::
    :header-rows: 1
@@ -41,29 +26,86 @@ Parameters
      - 설명
      - 필수/옵션
    * - FIELD
-     - SUBSTRING 대상인 필드를 의미합니다.
+     - SUBSTR 대상인 필드를 의미합니다.
      - 필수
    * - START_POSITION
-     - SUBSTRING 시작 위치를 의미합니다.
+     - SUBSTR 시작 위치를 의미합니다.
      - 필수
-   * - (LENGTH)?
-     - ``START_POSITION`` 부터 SUBSTRING 할 길이를 의미합니다. 생략이 가능합니다.
+   * - LENGTH
+     - ``START_POSITION`` 부터 SUBSTR 할 길이를 의미합니다. 생략이 가능합니다.
      - 옵션
+   * - AS ALIAS_NAME
+     - ``AS`` 문자를 이용해 substr 결과를 나타낼 필드의 이름을 지정합니다. space가 포함된 문자는 single-quote(``'``)로 감싸야 합니다. (Default = SUBSTRED)
+     - 옵션 
 
-
-Parameters BNF
+Examples
 ----------------------------------------------------------------------------------------------------
+
+- 예제 데이터
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+   * - 123
+     - IRON MAN
+   * - 2345
+     - CAPTAIN AMERICA
+
+- ``B`` 필드의 값을 2번째 문자부터 5개 문자를 SUBSTR
 
 .. code-block:: none
 
-   causes : token factor
+   ... | substr B 2 5
 
-   token : TOKEN
-         | STRING
+.. list-table::
+   :header-rows: 1
 
-   factor : NUMBER
-          | NUMBER NUMBER
+   * - A
+     - B
+     - SUBSTRED
+   * - 123
+     - IRON MAN
+     - RON M
+   * - 2345
+     - CAPTAIN AMERICA
+     - APTAI
 
-   STRING = (?:"(?:[^"\\n\\r\\\\]|(?:"")|(?:\\\\x[0-9a-fA-F]+)|(?:\\\\.))*")|(?:\'(?:[^\'\\n\\r\\\\]|(?:\'\')|(?:\\\\x[0-9a-fA-F]+)|(?:\\\\.))*\')
-   NUMBER = \d+
-   TOKEN = [^ ]+
+- ``B`` 필드의 값을 3번째 부터 끝까지 SUBSTR
+
+.. code-block:: none
+
+   ... | substr B 3
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - SUBSTRED
+   * - 123
+     - IRON MAN
+     - ON MAN
+   * - 2345
+     - CAPTAIN AMERICA
+     - PTAIN AMERICA
+
+- substr 결과 필드의 이름에 별칭을 지정하는 예제
+
+.. code-block:: none
+
+   ... | substr B 3 as '별칭 지정'
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - 별칭 지정
+   * - 123
+     - IRON MAN
+     - ON MAN
+   * - 2345
+     - CAPTAIN AMERICA
+     - PTAIN AMERICA
