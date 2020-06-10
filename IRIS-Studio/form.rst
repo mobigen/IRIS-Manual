@@ -330,7 +330,6 @@ Text Area에 읽기만 가능하도록 설정합니다.
 
 
 .. image:: ./studio/images/combo/studio_combo_43.png
-  :scale: 100%
   :alt: 항목 설정 변수
 
 
