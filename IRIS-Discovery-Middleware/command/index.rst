@@ -179,6 +179,12 @@ Command References
 
 
 .. toctree::
-    :glob:
+   :glob:
 
-    commands/**
+   commands/**
+
+.. toctree::
+   :hidden:
+
+   commands/TFDeep
+   commands/mymnist
