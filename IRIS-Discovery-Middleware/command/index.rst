@@ -32,6 +32,9 @@ Command References
    * - `count <commands/count>`_
      - 입력의 래코드 건수를 계산합니다.
      -
+   * - `distinct <commands/distinct>`_
+     - 선택한 컬럼에 대한 중복값 없는 데이터를 반환합니다.
+     -
    * - `eval <commands/eval>`_
      - 학습된 모델을 이용해 예측 결과를 반환하는 명령어 입니다.
      -
@@ -176,6 +179,12 @@ Command References
 
 
 .. toctree::
-    :glob:
+   :glob:
 
-    commands/**
+   commands/**
+
+.. toctree::
+   :hidden:
+
+   commands/TFDeep
+   commands/mymnist
