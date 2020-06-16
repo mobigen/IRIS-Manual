@@ -377,6 +377,7 @@ REST API
 **일반**
 
 .. image:: ./studio/images/chart/studio_chart_53.png
+    :scale: 60%
     :alt: 시각화 옵션 일반
 
 .. csv-table::
@@ -420,7 +421,7 @@ REST API
 **열**
 
 .. image:: ./studio/images/chart/chart_04.png
-    :width: 300
+    :scale: 60%
     :alt: 시각화 옵션 열
 
 .. csv-table::

@@ -26,9 +26,6 @@ Command References
    * - `concat <commands/concat>`_
      - 선택한 컬럼을 concatenation 하는 명령어 입니다.
      -
-   * - `correlation <commands/correlation>`_
-     - correlation을 진행하는 명령어 입니다.
-     -
    * - `count <commands/count>`_
      - 입력의 래코드 건수를 계산합니다.
      -
@@ -175,6 +172,9 @@ Command References
      -
    * - `ysort <commands/ysort>`_
      - 이 명령어는 검색 결과로 생성된 필드의 순서를 지정된 기준으로 정렬합니다.
+     -
+   * - `corr <commands/corr>`_
+     - 이 명령어는 인수로 받은 필드와의 상관계수를 구합니다.
      -
 
 
