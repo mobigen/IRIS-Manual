@@ -404,7 +404,7 @@ REST API
 **헤더**
 
 .. image:: ./studio/images/chart/chart_03.png
-    :width: 300
+    :scale: 60%
     :alt: 시각화 옵션 헤더
 
 .. csv-table::
@@ -471,7 +471,7 @@ REST API
 **Y축**
 
 .. image:: ./studio/images/chart/chart_07.png
-    :scale: 60%
+    :scale: 40%
     :alt: 시각화 옵션 Y축
 
 .. csv-table::
@@ -534,7 +534,7 @@ REST API
 **데이터**
 
 .. image:: ./studio/images/chart/chart_11.png
-    :scale: 100%
+    :scale: 60%
     :alt: 시각화 옵션 데이터
 
 .. csv-table::
