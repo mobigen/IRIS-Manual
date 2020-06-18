@@ -8,9 +8,6 @@ Command References
    * - Command
      - Description
      - Category
-   * - `ade <commands/ade>`_
-     - Anomaly Detection Engine(ADE) 이상 탐지를 하는 명령어 입니다.
-     -
    * - `adv <commands/adv>`_
      - 테이블의 각종 통계 정보를 구하거나 pivoting 할 수 있습니다. 고급시각화 화면에 사용되는 명령어 모음입니다.
      -
