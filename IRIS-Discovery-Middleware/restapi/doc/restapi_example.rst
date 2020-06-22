@@ -93,10 +93,10 @@ Query API 를 통해 seesion id 발행 & 결과 도출
 - IRIS UI 검색 화면에서 Data-Discovery-Service 에 검색 한 내용에 대한 코드를 복사 할 수 있습니다.
 - 아래 스크린샷을 참고
 
-.. image:: images/1.PNG
+.. image:: images/1.png
    :alt: Get result of query about selected Datamodel
 
-.. image:: images/2.PNG
+.. image:: images/2.png
    :alt: Copy source code about query
 
 - 복사한 코드 편집기에 붙여넣기

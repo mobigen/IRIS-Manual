@@ -29,10 +29,10 @@ Parameters
      - SUBSTR 대상인 필드를 의미합니다.
      - 필수
    * - START_POSITION
-     - SUBSTR 시작 위치를 의미합니다.
+     - SUBSTR 시작 위치를 의미합니다.(정수)
      - 필수
    * - LENGTH
-     - ``START_POSITION`` 부터 SUBSTR 할 길이를 의미합니다. 생략이 가능합니다.
+     - ``START_POSITION`` 부터 SUBSTR 할 길이를 의미합니다. 생략이 가능합니다. (0이상의 정수)
      - 옵션
    * - AS ALIAS_NAME
      - ``AS`` 문자를 이용해 substr 결과를 나타낼 필드의 이름을 지정합니다. space가 포함된 문자는 single-quote(``'``)로 감싸야 합니다. (Default = SUBSTRED)
@@ -109,3 +109,41 @@ Examples
    * - 2345
      - CAPTAIN AMERICA
      - PTAIN AMERICA
+
+- ``B`` 필드의 값을 -5번째 문자부터 끝까지 SUBSTR
+
+.. code-block:: none
+
+   ... | substr B -5
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - SUBSTRED
+   * - 123
+     - IRON MAN
+     - N MAN
+   * - 2345
+     - CAPTAIN AMERICA
+     - ERICA
+
+- ``B`` 필드의 값을 -5번째 문자부터 4개 문자를 SUBSTR
+
+.. code-block:: none
+
+   ... | substr B -5 4
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - SUBSTRED
+   * - 123
+     - IRON MAN
+     - N MA
+   * - 2345
+     - CAPTAIN AMERICA
+     - ERIC
