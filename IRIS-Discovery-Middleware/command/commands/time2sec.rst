@@ -24,7 +24,7 @@ Parameters
 
 .. code-block:: none
 
-   time2sec field ("format")?
+   time2sec field ("format")? (AS ALIAS_NAME)?
 
 .. list-table::
    :header-rows: 1
@@ -37,6 +37,9 @@ Parameters
      - 필수
    * - format
      - 시간 데이터의 형태, 포멧문자는 아래 매핑테이블 참조, double-quote(``"``) 로 감싸서 표현해야 함. 예) ``04:20`` -> ``HH:mm`` or ``mm:ss``
+     - 옵션
+   * - AS ALIAS_NAME
+     - 초단위로 변환된 데이터 필드의 이름을 지정 할 수 있음. (Default: {선택한 컬럼명}_TO_SECONDS)
      - 옵션
 
 포멧 문자 매핑 테이블
@@ -111,6 +114,28 @@ Examples
    * - 05:20:33
      - 05:20
      - 320
+   * - ...
+     - ...
+     - ...
+
+3. 별칭지정 ( 데이터는 시:분:초 로 구성됨)
+
+.. code-block:: none
+
+   time2sec A "HH:mm:ss" AS 별칭지정
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - 별칭지정
+   * - 04:05:22
+     - 04:05
+     - 14722
+   * - 05:20:33
+     - 05:20
+     - 19233
    * - ...
      - ...
      - ...
