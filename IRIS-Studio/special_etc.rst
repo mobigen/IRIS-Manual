@@ -77,8 +77,37 @@ Html뷰어 (Html Viewer)
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 | 데이터 설정은 챠트의 `데이터 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id1>`__ 을 참고하시기 바랍니다.
+| HTML Viewer 는 컬럼의 값으로 html code 가 들어 있습니다.  
+
+**HTML document 예시**
+
+.. code::
+
+  <!DOCTYPE html>
+  <html>
+  <body>
+
+  <h1>My First Heading</h1>
+
+  <p>My first paragraph.</p>
+
+  </body>
+  </html>
+
+가 들어있는 MySQL 테이블에서 데이터를 가져오는 예시
+
+.. image:: ./studio/images/html/studio_html_59.png
+    :scale: 60%
+    :alt: html 59
 
 
+| Html viewer 박스의 우측 상단의 **Html 코드보기** , **Html 그리기** 를 통해 데이터설정을 통해 가져온 Html Code 와 결과를 번갈아 가며 볼수 있습니다.
+
+**결과**
+
+.. image:: ./studio/images/html/studio_html_60.png
+    :scale: 40%
+    :alt: html 59
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -89,9 +118,10 @@ Html뷰어 (Html Viewer)
 
 불러온 데이터로부터 HTML 코드가 있는 컬럼을 선택하면 자동으로 데이터를 읽어 화면에 보여줍니다.
 
-.. image:: ./studio/images/html/html_01.png
-    :width: 300
+.. image:: ./studio/images/html/studio_html_60_1.png
+    :scale: 30%
     :alt: 필드 선택
+
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 객체 설정
