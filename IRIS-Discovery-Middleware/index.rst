@@ -42,3 +42,4 @@ Data-Discovery-Service는사용자로 부터 입력받은 단일 검색 질의�
     command/index.rst
     command_develop/index.rst
     restapi/index.rst
+    example/index.rst
