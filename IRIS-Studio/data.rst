@@ -319,7 +319,7 @@ REST API
 ''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. image:: ./studio/images/data_69_1.png
-    :scale: 40%
+    :scale: 60%
     :alt: studio data 69_1
 
 
