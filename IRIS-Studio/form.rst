@@ -201,15 +201,23 @@ Text Area에 읽기만 가능하도록 설정합니다.
 .. image:: ./studio/images/combo/button-combobox.png
 
 | 사용자가 드롭다운 목록에서 한 항목을 선택할 수 있습니다. 
-| 콤보박스 목록의 데이터는 데이터설정 방법에서 '데이터' 탭과 '사용자 정의'로 설정할 수 있습니다.
+| 콤보박스 목록의 데이터는 '데이터' 탭과 '사용자 정의'로 설정할 수 있습니다.
+| 콤보박스의 데이터는 `데이터객체 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data.html#id1>`__ 와 데이터 연결(`챠트의 데이터 연결 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id1>`__) 로 설정하여 가져옵니다.
+
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 데이터 설정
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-.. image:: ./studio/images/combo/studio_combo_41.png
+
+.. image:: ./studio/images/combo/studio_combo_73.png
   :scale: 60%
+  :alt: 콤보박스 사용자 정의
+
+
+.. image:: ./studio/images/combo/studio_combo_41.png
+  :scale: 40%
   :alt: 콤보박스 사용자 정의
 
 
