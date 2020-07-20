@@ -1,5 +1,5 @@
-IRIS Discovery Service
-===============================
+IRIS Discovery-Middleware Service
+===========================================================
 
 
 **Analysis Middleware**
