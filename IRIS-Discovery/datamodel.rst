@@ -9,6 +9,7 @@
 | IRIS Analyzer, Studio 에서 제공하는 대부분의 기능들은 데이터 모델을 기반으로 동작하기 때문에 데이터 모델을 생성 하는 것이 모든 작업의 시작이라고할 수 있습니다.
 | 데이터 모델 메뉴는 IRIS Discovery 의 하위 메뉴이며, 데이터모델 목록을 보여줍니다.
 
+
 .. image:: ./images/datamodel_47_1.png
     :scale: 40%
     :alt: 데이터모델 - 47_1
