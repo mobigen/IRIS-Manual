@@ -7,7 +7,7 @@
 | 하지만 연결 정보에 대한 권한이 없는 경우에는 접근이 제한됩니다. 
 | **연결정보** 에 대한 내용은 "IRIS 공통기능 >> 관리 >> 연결 정보" 를 참조하시기 바랍니다.
 
-.. image:: ../images/file_br_01.png
+.. image:: ./images/file_br_01.png
     :scale: 40%
     :alt: 파일브라우저 01
 
@@ -20,7 +20,7 @@
 HDFS
 ''''''''''''''''''''''''''''''''''''''
 
-.. image:: ../images/file_br_46_1.png
+.. image:: ./images/file_br_46_1.png
     :scale: 40%
     :alt: 파일브라우저 46-01
 
@@ -44,7 +44,7 @@ HDFS
 MOUNT
 ''''''''''''''''''''''''''''''''''''''
 
-.. image:: ../images/file_br_46_2.png
+.. image:: ./images/file_br_46_2.png
     :scale: 40%
     :alt: 파일브라우저 46-02
 
@@ -58,7 +58,7 @@ MOUNT
 MINIO
 ''''''''''''''''''''''''''''''''''''''
 
-.. image:: ../images/file_br_46_3.png
+.. image:: ./images/file_br_46_3.png
     :scale: 40%
     :alt: 파일브라우저 46-03
 
