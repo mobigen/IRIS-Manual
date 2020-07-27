@@ -63,7 +63,6 @@
 
 
 .. image:: ./images/datamodel_48.png
-    :scale: 40%
     :alt: 데이터모델 - 48
 
 
