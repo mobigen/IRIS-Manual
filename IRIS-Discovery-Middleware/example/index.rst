@@ -9,6 +9,6 @@ Command 사용 예제
 
     DSL_ex1.rst 
     example_flower.rst
-    example_ML_wine.rst
+    #example_ML_wine.rst
     
     #doc/restful_api/auth.rst
