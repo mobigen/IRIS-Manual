@@ -828,7 +828,7 @@ REST API : 데이터객체로 이전
     :widths: 40, 100
 
     "Tile", "지도에 Tile Code를 이용한 Layer를 선택합니다. "
-    "Mash", "지도에 Mash Code를 이용한 Layer를 선택합니다." 
+    "Mesh", "지도에 Mesh Code를 이용한 Layer를 선택합니다." 
     "마커", "지도에 Point 및 Flag Layer를 선택합니다."
     "도형", "지도에 polygon 및 multi-polygon Layer를 선택합니다."
     "라벨", "지도에 텍스트 라벨을 표시하는 Layer를 선택합니다."
@@ -852,7 +852,7 @@ REST API : 데이터객체로 이전
     :header: "옵션 명", "설명"
     :widths: 40, 100
 
-    "격자", "Tile 및 Mash에서 격자가 보이거나 안 보이도록 설정합니다."
+    "격자", "Tile 및 Mesh에서 격자가 보이거나 안 보이도록 설정합니다."
     "투명도", "Layer의 투명도를 설정합니다."
 
 
@@ -868,7 +868,7 @@ REST API : 데이터객체로 이전
     :header: "옵션 명", "설명"
     :widths: 40, 100
 
-    "격자", "Tile 및 Mash에서 격자가 보이거나 안 보이도록 설정합니다."
+    "격자", "Tile 및 Mesh에서 격자가 보이거나 안 보이도록 설정합니다."
     "투명도", "Layer의 투명도를 설정합니다."
 
 
