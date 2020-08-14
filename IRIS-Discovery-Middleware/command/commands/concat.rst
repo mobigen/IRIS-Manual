@@ -10,8 +10,38 @@ concat
 ----
 
 ``,`` 를 이용해서 필드명을 구분 하여 concatenation 을 하고자 하는 필드들을 지정 할 수 있습니다.
+
 필드 명이 복잡한 경우 single quote(``'``) 를 이용해서 감싸주어 사용 할 수 있습니다.
+
 문자 자체를 이용하고 싶을 때는 double quote(``"``) 를 이용해서 감싸주어 사용 할 수 있습니다.
+
+alias 기능을 이용해서 결과 컬럼의 이름을 지정 할 수 있습니다.
+
+Parameters
+----------------------------------------------------------------------------------------------------
+
+.. code-block:: none
+
+   ... | concat ('|")?(FIELD_NAME|STRING)('|")? (, ('|")?(FIELD_NAME|STRING)('|")?)* (AS ALIAS_NAME)?
+
+.. list-table::
+   :header-rows: 1
+
+   * - 이름
+     - 설명
+     - 필수/옵션
+   * - FIELD_NAME
+     - field의 이름을 의미합니다.
+     - 필수
+   * - STRING
+     - concatenation 에 사용할 문자열 입니다.
+     - 필수
+   * - ``'`` or ``"``
+     - single quote는 필드명을 묶어 줄 때 사용합니다.\ :raw-html-m2r:`<br />`\ double quote는 문자 자체를 concatenation 할 때 사용합니다.
+     - 옵션
+   * - AS ALIAS_NAME
+     - concatenation 결과 필드의 이름을 지정 할 수 있습니다. (Default = concated)
+     - 옵션
 
 Examples
 ----------------------------------------------------------------------------------------------------
@@ -128,47 +158,32 @@ Examples
      - 다c3
      - 다,다c3-3
 
-
-Parameters
-----------------------------------------------------------------------------------------------------
+- alias 기능을 이용해서 결과 컬럼의 이름을 지정 합니다.
 
 .. code-block:: none
 
-   ... | concat ('|")?(FIELD_NAME|STRING)('|")? (, ('|")?(FIELD_NAME|STRING)('|")?)*
+   ... | concat 한글, 알파벳, 숫자 AS 별명지정
 
 .. list-table::
    :header-rows: 1
 
-   * - 이름
-     - 설명
-     - 필수/옵션
-   * - FIELD_NAME
-     - field의 이름을 의미합니다.
-     - 필수
-   * - STRING
-     - concatenation 에 사용할 문자열 입니다.
-     - 필수
-   * - ``'`` or ``"``
-     - single quote는 필드명을 묶어 줄 때 사용합니다.\ :raw-html-m2r:`<br />`\ double quote는 문자 자체를 concatenation 할 때 사용합니다.
-     - 옵션
-
-
-Parameters BNF
-----------------------------------------------------------------------------------------------------
-
-.. code-block:: none
-
-   fields : token
-          | fields COMMA token
-
-   token : terms
-         | DQ_TERM
-         | SQ_TERM
-
-   terms : TERM
-         | terms TERM
-
-   t_SQ_TERM = '[^']+'
-   t_DQ_TERM = "[^"]+"
-   COMMA : ,
-   TOKEN : [^ |^,|^"|^']+
+   * - 한글
+     - 알파벳
+     - 숫자
+     - 혼, 합-문자
+     - 별명지정
+   * - 가
+     - a
+     - 1
+     - 가a1
+     - 가a1
+   * - 나
+     - b
+     - 2
+     - 나b2
+     - 나b2
+   * - 다
+     - c
+     - 3
+     - 다c3
+     - 다c3

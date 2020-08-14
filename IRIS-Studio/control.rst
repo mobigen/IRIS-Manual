@@ -473,6 +473,7 @@
 
 
 .. image:: ./studio/images/tag_list/studio_tag_list_49_3.png
+  :scale: 60%
   :alt: 태그 목록의 선택기능 사용여부 예시
 
 

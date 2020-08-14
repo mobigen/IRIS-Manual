@@ -20,6 +20,7 @@ IRIS DB                          IRIS 데이터베이스 활용 및 관리에 �
 
     IRIS-Common/index.rst
     IRIS-Studio/index.rst
+    IRIS-Discovery/index.rst
     IRIS-Analyzer/index.rst
     IRIS-Discovery-Middleware/index.rst
     IRIS-Database/index.rst

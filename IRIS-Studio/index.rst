@@ -8,6 +8,7 @@ IRIS Studio를 활용하여 데이터 탐색과 시각화 결과를 원하는 �
     :hidden:
 
     start.rst
+    data.rst
     data_visualize.rst
     decorate.rst
     form.rst

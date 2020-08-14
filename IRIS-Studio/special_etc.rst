@@ -76,9 +76,48 @@ Html뷰어 (Html Viewer)
 데이터 설정
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-| 데이터 설정은 챠트의 `데이터 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id1>`__ 을 참고하시기 바랍니다.
+| 데이터 설정은  `데이터객체 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data.html#id1>`__ 를 참고하시기 바랍니다.
+| HTML Viewer 는 컬럼의 값으로 html code 가 들어 있습니다.  
+
+**HTML document 예시**
+
+.. code::
+
+  <!DOCTYPE html>
+  <html>
+  <body>
+
+  <h1>My First Heading</h1>
+
+  <p>My first paragraph.</p>
+
+  </body>
+  </html>
+
+가 들어있는 MySQL 테이블에서 데이터를 가져오는 데이터객체 생성 예시
+
+.. image:: ./studio/images/html/studio_html_72.png
+    :scale: 60%
+    :alt: html 72
+
+| Html Viewer 객체를 클릭한 후 **데이터연결** 에서 데이터객체를 선택합니다.
 
 
+.. image:: ./studio/images/html/studio_html_72_1.png
+    :scale: 50%
+    :alt: html 72_1
+
+| 데이터객체를 클릭한 후 실행을 선택하면 Html Viewer 에 결과가 표시됩니다.
+
+
+
+| Html viewer 박스의 우측 상단의 **Html 코드보기** , **Html 그리기** 를 통해 데이터설정을 통해 가져온 Html Code 와 결과를 번갈아 가며 볼수 있습니다.
+
+**결과**
+
+.. image:: ./studio/images/html/studio_html_60.png
+    :scale: 40%
+    :alt: html 59
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -89,9 +128,10 @@ Html뷰어 (Html Viewer)
 
 불러온 데이터로부터 HTML 코드가 있는 컬럼을 선택하면 자동으로 데이터를 읽어 화면에 보여줍니다.
 
-.. image:: ./studio/images/html/html_01.png
-    :width: 300
+.. image:: ./studio/images/html/studio_html_60_1.png
+    :scale: 30%
     :alt: 필드 선택
+
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 객체 설정
@@ -177,6 +217,9 @@ import 보고서 변수/값
   :alt: 보고서 설정 변수 값/입력 2
 
 
+| **직접 입력하기** 는 입력한 보고서 이름을 입력해서 불러옵니다.
+| **변수 입력하기** 는 날짜/시간 선택 객체와 트리거 이벤트를 설정하여 선택한 날짜변수 값에 따라 불러오는 보고서 이름이 달라집니다.
+
 
 ........................................................................
 팝업 열기 설정
@@ -205,6 +248,7 @@ import 보고서 변수/값
 ....................................................................................
 이벤트 값 전달 설정
 ....................................................................................
+
 | `이벤트 값 전달 설정 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Studio/data_visualize.html#id14>`__ 을 참고하시기 바랍니다.
 
 
@@ -233,6 +277,7 @@ import 보고서 변수/값
 ....................................................................................
 팝업 제목
 ....................................................................................
+
 | 팝업이 열릴 때, 팝업 제목을 설정합니다.
 
 .. image:: ./studio/images/popup/popup_06.png
@@ -430,7 +475,7 @@ Import 보고서 실행 방법 설정
 | 텍스트 변환 객체의 트리거 설정과 적용 UI 입니다.
 
 .. image:: ./studio/images/hidden/studio_hidden_18.png
-  :scale: 40%
+  :scale: 60%
   :alt: 텍스트 변환 객체 트리거 설정
 
 

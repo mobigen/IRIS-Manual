@@ -13,10 +13,11 @@ anomalies
 설명
 ----------------------------------------------------------------------------------------------------
 
-Input 으로 받은 Data 를 대상으로 anomaly 한 값을 찾습니다.
-옵션으로 입력한 이상탐지 알고리즘(basic / robust) 을 적용하여 anomal 여부를 알 수 있는 컬럼을 추가하여 Dataframe 형식의 data를  결과로 반환합니다.
+| Input 으로 받은 Data 를 대상으로 anomaly 한 값을 찾습니다.
+| 옵션으로 입력한 이상탐지 알고리즘(basic / robust) 을 적용하여 anomal 여부를 알 수 있는 컬럼을 추가하여 Dataframe 형식의 data를  결과로 반환합니다.
 
-옵션으로 명령어 실행 결과에서 anomalies 로  판명된 값만 따로 뽑아내는 것도 가능합니다.
+| 옵션으로 명령어 실행 결과에서 anomalies 로  판명된 값만 따로 뽑아내는 것도 가능합니다.
+
 
 Examples
 ----------------------------------------------------------------------------------------------------
@@ -73,7 +74,7 @@ Examples
      - 165
 
 
-basic 알고리즘을 사용 하는 예
+* basic 알고리즘을 사용 하는 예
 
 .. code-block:: none
 
@@ -81,7 +82,8 @@ basic 알고리즘을 사용 하는 예
    ... | anomalies time value by=host
    ... | anomalies time value alg=basic bound=2 direct=below
 
- by  가 없을 때
+| basic 알고리즘은 디폴트 알고리즘으로 alg=basic 을 생략할 수 있습니다.
+
 
 .. list-table::
    :header-rows: 1
@@ -118,7 +120,7 @@ basic 알고리즘을 사용 하는 예
      - .
 
 
-  by  가 있을 때
+| 결과는 입력데이터의 뒤에 upper(임계치상한), lower(임계치하한), anomaly(true 이면 이상치에 해당) 을 추가해서 표시합니다.
 
 .. list-table::
    :header-rows: 1
