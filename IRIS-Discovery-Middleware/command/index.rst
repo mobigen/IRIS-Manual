@@ -10,12 +10,12 @@ Note
     - 예) host, level, 시간, 문장
   2. 여러 단어 or 특수문자 or 숫자 등이 포함되어 복잡한 경우
     - 백쿼터(back-quote : "`") 를 사용하여 표현
-    - 예) `` `test column` `` , `` `%2컬럼명 abc` ``
+    - 예) \`test column\`, \`%2컬럼명 abc\`
 
 - 문자열
 
   - 문자열 표현은 따옴표(single-quote : ') 를 사용하여 표현
-  - 예) `` '문자열입니다.' ``
+  - 예) '문자열입니다.'
 
 
 Command References
