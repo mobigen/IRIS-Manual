@@ -681,7 +681,6 @@ REST API : 데이터객체로 이전
 | "layer map (지도)" 레이어는 기본 지도 레이어로 Naver Web Map 과 Open Street Map 을 지도 API로 제공합니다.
 
 .. image:: ./studio/images/map/map_0831_05.png
-    :width: 300
     :alt: 레이어 선택
 
 ............................................................
@@ -692,7 +691,6 @@ REST API : 데이터객체로 이전
 | 기본 지도 레이어인 "layer map(지도)"  는 삭제할 수 없습니다.
 
 .. image:: ./studio/images/map/map_02.png
-    :width: 300
     :alt: 레이어 관리
 
 .. csv-table::
@@ -717,7 +715,6 @@ REST API : 데이터객체로 이전
 | Open Street Map에서 제공하는 API를 사용할지 Naver Web Map에서 제공하는 API를 사용할지를 선택합니다.
 
 .. image:: ./studio/images/map/map_03.png
-    :width: 300
     :alt: 지도 API 선택
 
 
@@ -727,7 +724,6 @@ REST API : 데이터객체로 이전
 | 인터넷 연결에서는 자동 설정 후 표시되어 사용자가 따로 설정할 필요는 없으나, 폐쇄망인 경우에는 자체 지도 이미지 서버 URI로 설정해야 합니다.
 
 .. image:: ./studio/images/map/map_04.png
-    :width: 300
     :alt: 지도 URL
 
 
@@ -736,11 +732,8 @@ REST API : 데이터객체로 이전
 | 지도 API 를 선택한 후, 지도 오른쪽 상단을 "객체 위치 이동" 에서 "지도 이동" 이 되도록 변경하여 지도의 위치(위도, 경도, 줌 레벨)을 설정합니다.
 | 
 
-map_0831_06_1.png
-
 
 .. image:: ./studio/images/map/map_05.png
-    :width: 300
     :alt: 기본값 설정
 
 
@@ -759,6 +752,7 @@ map_0831_06_1.png
 
 
 .. image:: ./studio/images/map/studio_map_28_2.png
+    :scale: 40%
     :alt: 변수값 트리거 설정
 
 
@@ -781,6 +775,7 @@ map_0831_06_1.png
 
 
 .. image:: ./studio/images/map/studio_map_29.png
+    :scale: 100%
     :alt: 시각화 옵션 맵
 
 .. csv-table::
