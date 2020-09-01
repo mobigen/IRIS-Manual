@@ -775,7 +775,7 @@ REST API : 데이터객체로 이전
 
 
 .. image:: ./studio/images/map/studio_map_29.png
-    :scale: 100%
+    :scale: 60%
     :alt: 시각화 옵션 맵
 
 .. csv-table::
