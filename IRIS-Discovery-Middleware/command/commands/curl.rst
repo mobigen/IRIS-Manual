@@ -22,7 +22,7 @@ Linux 의 curl 과 유사하게 동작하는 명령어로, 현재 지원되는 �
 Parameters
 ------------
 
-.. code-block::
+.. code-block:: none
 
    ... | curl2 (op)? (-X (GET/POST))? (-H Header)? (-d data)? url
 
@@ -55,7 +55,7 @@ Example
 
 https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_daily.csv 사이트에 있는 csv 파일 데이터를 가져오는 명령어
 
-.. code-block::
+.. code-block:: none
 
     * | curl2 -X GET https://raw.githubusercontent.com/jooeungen/coronaboard_kr/master/kr_daily.csv 
 

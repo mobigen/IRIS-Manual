@@ -1,4 +1,3 @@
-
 rename
 ====================================================================================================
 
@@ -12,22 +11,13 @@ rename
 
 ``OLD_FIELD_NAME``\ 에 해당하는 필드를 ``NEW_FIELD_NAME``\ 으로 명칭을 바꿉니다.
 
-Examples
-----------------------------------------------------------------------------------------------------
-
-
-* ``HR``\ 를 ``홈런``\ 로 명칭을 바꾸는 예제 입니다.
-
-.. code-block:: none
-
-   .. | rename HR 홈런
-
 Parameters
 ----------------------------------------------------------------------------------------------------
 
 .. code-block:: none
 
    ... | rename OLD_FIELD_NAME NEW_FIELD_NAME
+   ... | rename OLD_FIELD_NAME NEW_FIELD_NAME, (OLD_FIELD_NAME NEW_FIELD_NAME)*
 
 .. list-table::
    :header-rows: 1
@@ -43,11 +33,104 @@ Parameters
      - 필수
 
 
-Parameters BNF
+Examples
 ----------------------------------------------------------------------------------------------------
+
+- 예제용 데이터 모양 입니다.
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - C
+     - D
+   * - 일반
+     - 1
+     - 10.123
+     - ab
+   * - 특수
+     - 2
+     - 20.123
+     - ab
+   * - 일반
+     - 3
+     - 30.123
+     - ef
+   * - 특수
+     - 4
+     - 40.123
+     - gh
+   * - 옵션
+     - 5
+     - 50.123
+     - ij
+
+
+- 컬럼명 A를 AAA로 바꾸는 예제입니다.
 
 .. code-block:: none
 
-   tokens : TOKEN TOKEN
+   ... | rename A AAA
 
-   TOKEN : [^ ]+
+.. list-table::
+   :header-rows: 1
+
+   * - AAA
+     - B
+     - C
+     - D
+   * - 일반
+     - 1
+     - 10.123
+     - ab
+   * - 특수
+     - 2
+     - 20.123
+     - ab
+   * - 일반
+     - 3
+     - 30.123
+     - ef
+   * - 특수
+     - 4
+     - 40.123
+     - gh
+   * - 옵션
+     - 5
+     - 50.123
+     - ij
+
+- 컬럼명 A를 one one, 컬럼명 B를 two two로 바꾸는 예제입니다.
+
+.. code-block:: none
+
+   ... | rename A `one one`, B `two two`
+
+.. list-table::
+   :header-rows: 1
+
+   * - one one
+     - two two
+     - C
+     - D
+   * - 일반
+     - 1
+     - 10.123
+     - ab
+   * - 특수
+     - 2
+     - 20.123
+     - ab
+   * - 일반
+     - 3
+     - 30.123
+     - ef
+   * - 특수
+     - 4
+     - 40.123
+     - gh
+   * - 옵션
+     - 5
+     - 50.123
+     - ij

@@ -1,4 +1,4 @@
-TIMEDIFF
+timediff
 ==========
 
 개요
@@ -27,7 +27,7 @@ col_name은 결과 컬럼명을 RESULT를 제외한 컬럼명으로 변경할 �
 Parameters
 ------------
 
-.. code-block::
+.. code-block:: none
 
    ... | timediff UNIT 'TIME1' 'TIME2'
    ... | timediff UNIT 'TIME1' "OPTION" 'TIME2'
@@ -81,7 +81,7 @@ Example
 
 - Ts1 컬럼과 Ts2 컬럼을 ``second`` 기준으로 차이를 구하는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | timediff second 'Ts1' 'Ts2'
 
@@ -107,7 +107,7 @@ Example
 
 - Ts1 컬럼과 D1 컬럼을 ``day`` 기준으로 차이를 구하고 결과 컬럼명을 바꾸는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | timediff day 'Ts1' 'D1' as test
 
@@ -133,7 +133,7 @@ Example
 
 - '20200729160315' Data와 Ts1 컬럼을 ``minute`` 기준으로 차이를 구하는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | timediff minute '20200729160315' "YYYYMMDDHHmmss" 'Ts1'
 

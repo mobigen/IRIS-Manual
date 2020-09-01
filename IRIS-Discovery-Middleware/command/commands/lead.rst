@@ -1,4 +1,4 @@
-Lead
+lead
 =========
 
 개요
@@ -18,7 +18,7 @@ Lead
 Parameters
 ---------
 
-.. code-block::
+.. code-block:: none
 
     * | lead 값컬럼명 BY 그룹컬럼명 (AS 신규컬럼명)?
 
@@ -58,7 +58,7 @@ Examples
      - 1
 
 - 예제1
-.. code-block::
+.. code-block:: none
 
     * | lag B BY A
 
@@ -82,7 +82,7 @@ Examples
      - 
 
 - 예제2
-.. code-block::
+.. code-block:: none
 
     * | lag B BY A AS 결과컬럼
 
