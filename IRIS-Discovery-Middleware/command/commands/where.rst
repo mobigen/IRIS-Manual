@@ -1,5 +1,4 @@
-
-WHERE
+where
 ====================================================================================================
 
 개요
@@ -15,7 +14,7 @@ WHERE
 Parameters
 ----------------------------------------------------------------------------------------------------
 
-.. code-block::
+.. code-block:: none
 
    ... | where FILTER_CONDITION
 
@@ -67,7 +66,7 @@ Examples
 
 `D` 필드의 값 중 95인 값을 출력합니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | where D = 95 
 
@@ -89,7 +88,7 @@ Examples
 
 `A` 필드의 값 중 ClassA와 ClassC를 포함하는 값을 출력합니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | A in ('ClassA', 'ClassC')
 
@@ -119,7 +118,7 @@ Examples
 
 `A` 필드의 값 중 A 또는 C 로 끝나는 문자열을 포함하는 값을 출력합니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | A like '%A' or A like '%C'
 

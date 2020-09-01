@@ -16,7 +16,7 @@ weeknumber
 Parameters
 ---------
 
-.. code-block::
+.. code-block:: none
 
     * | weeknumber 컬럼명 "<date format>"
     * | weeknumber 컬럼명 "<date format>" as 결과컬럼명
@@ -70,7 +70,7 @@ Examples
 
 - 예제1
 
-.. code-block::
+.. code-block:: none
 
     * | weeknumber A "YYYY-MM-DD"
 
@@ -92,7 +92,7 @@ Examples
 
 - 예제2
 
-.. code-block::
+.. code-block:: none
 
     * | weeknumber A "YYYY-MM-DD" as `몇 주차?`
 
