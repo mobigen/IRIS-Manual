@@ -46,6 +46,9 @@ Command References
    * - `count <commands/count>`_
      - 입력의 래코드 건수를 계산합니다.
      -
+   * - `curl <commands/curl>`_
+     - curl 을 통해 가져온 데이터를 DataFrame 으로 만들어 spark 을 통해 처리 가능하도록 합니다.
+     -
    * - `distinct <commands/distinct>`_
      - 선택한 컬럼에 대한 중복값 없는 데이터를 반환합니다.
      -
@@ -96,6 +99,12 @@ Command References
      -
    * - `kmeans <commands/kmeans>`_
      - kmeans를 진행하는 명령어 입니다.
+     -
+   * - `lag <commands/lag>`_
+     - 현재 행 이전의 행의 값을 가져오는 명령어입니다.
+     -
+   * - `lead <commands/lead>`_
+     - 현재 행의 다음 행의 값을 가져오는 명령어입니다.
      -
    * - `metatron <commands/metatron>`_
      - metatron에 쓰기를 하는 명령어 입니다.
@@ -169,6 +178,9 @@ Command References
    * - `substr <commands/substr>`_
      - 이 명령어는 특정한 필드나 문자열을 SUBSTRING 하고자 할 때 사용됩니다.
      -
+   * - `timediff <commands/timediff>`_
+     - 선택한 컬럼 끼리 혹은 원하는 데이터와 컬럼 간의 시간 차이를 구해주는 명령어 입니다.
+     -
    * - `timeline <commands/timeline>`_
      - 시간 범위에 따라 group by된 카운트의 숫자를 출력 합니다.
      -
@@ -178,11 +190,20 @@ Command References
    * - `top <commands/top>`_
      - 이 명령어는 검색 결과를 지정된 필드를 기준으로 정렬 후 상위 값을 출력합니다.
      -
+   * - `typecast <commands/typecast>`_
+     - 선택한 컬럼의 데이터 타입을 원하는 타입으로 변환시켜 반환합니다.
+     -
    * - `union <commands/union>`_
      - 이 명령어는 다른 데이터 모델과 union 을 할 때 사용됩니다.
      -
+   * - `weekdates <commands/weekdates>`_
+     - 정수를 이용해 해당 주차의 시작일과 종료일을 찾는 명령어입니다.
+     -
    * - `weekend <commands/weekend>`_
      - 이 명령어는 주말/주중 데이터를 필터링하는데 사용합니다.
+     -
+   * - `weeknumber <commands/weeknumber>`_
+     - 데이터의 날짜가 1년의 몇 번째 주인지 계산하는 명령어입니다.
      -
    * - `where <commands/where>`_
      - 데이터를 일정 조건에 따라 filter 합니다.

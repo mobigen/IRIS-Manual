@@ -18,7 +18,7 @@ weekdates
 Parameters
 ---------
 
-.. code-block::
+.. code-block:: none
 
     * | weekdates 컬럼명 "<date format>"
 
@@ -66,7 +66,7 @@ Examples
 
 - 예제1
 
-.. code-block::
+.. code-block:: none
 
     * | weekdatas A "YYYY-WW"
 

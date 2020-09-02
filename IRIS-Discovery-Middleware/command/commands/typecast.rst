@@ -1,4 +1,4 @@
-TYPECAST
+typecast
 ===========================
 
 개요
@@ -20,7 +20,7 @@ OPTION에는 ``""`` 를 사용해야 합니다.
 Parameters
 --------------------------------------
 
-.. code-block::
+.. code-block:: none
 
     ... | typecast ('FIELD_NAME'/ FIELD_NAME) NEW_TYPE "OPTION"
     ... | typecast ('FIELD_NAME'/ FIELD_NAME) TYPE "OPTION", (('FIELD_NAME'/ FIELD_NAME) TYPE "OPTION")*
@@ -66,7 +66,7 @@ Examples
 
 - ``INTEGER`` 타입의 AAA 컬럼을 ``REAL`` 타입으로 변환하는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | typecast AAA real
 
@@ -89,7 +89,7 @@ Examples
 
 - ``STRING`` 타입의 EEE 컬럼을 ``DATE`` 타입으로 변환하는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | typecast 'EEE' date "YYYY/MM/DD"
 
@@ -112,7 +112,7 @@ Examples
 
 - ``STRING`` 타입의 EEE 컬럼을 ``DATE`` 타입과 ``BIGINT`` 타입의 DDD 컬럼을 ``TIMESTAMP`` 타입으로 변환하는 예제입니다.
 
-.. code-block::
+.. code-block:: none
 
    ... | typecast EEE date "YYYY/MM/DD", 'DDD' TIMESTAMP
 
