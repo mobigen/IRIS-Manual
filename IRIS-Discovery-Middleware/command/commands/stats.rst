@@ -37,16 +37,20 @@ Examples
 
 
 * avg, stdev, stdevp, min, max, median, sum, var
-    * ``species`` 이라는 필드 이름으로 그룹핑 된 결과 에서  갯수, ``sepal_width`` 필드의 평균, 표준편차, 최소값, 최대값, 중간값, 헙계, 분산을 구합니다.
+    * ``species`` 이라는 필드 이름으로 그룹핑 된 결과 에서  개수, ``sepal_width`` 필드의 평균, 표준편차, 최소값, 최대값, 중간값, 합계, 분산을 구합니다.
 
 .. code-block:: none
 
-   *  | stats count(*) as 개수,  avg(sepal_width) as 평균_sepal_width,  
+   *  | stats count(*) as 개수,
+              avg(sepal_width) as 평균_sepal_width,  
               stdev(sepal_width) as 표준편차_sepal_width,
               stdevp(sepal_width) as 모표준편차_sepal_width,
-              min(sepal_width) as 최소값_sepal_width, max(sepal_width) as 최대값_sepal_width ,
-              median(sepal_width) as 중간값_epal_width,  sum(sepal_width) as 합계_sepal_width,  var(sepal_width) as 분산_sepal_width
-              by  species |  sort species
+              min(sepal_width) as 최소값_sepal_width, 
+              max(sepal_width) as 최대값_sepal_width ,
+              median(sepal_width) as 중간값_epal_width,  
+              sum(sepal_width) as 합계_sepal_width,  
+              var(sepal_width) as 분산_sepal_width
+        by  species |  sort species
 
 
 .. image:: ./images/stats_2_1.png
@@ -78,7 +82,8 @@ Examples
 * iqr : interquartile range 
     * setosa 종의 Sepal_Width 의 IQR 값 
 
-..code ::
+
+.. code::
 
     * Species='setosa' | fields Sepal_Width,Species |  sort  Sepal_Width | stats iqr(Sepal_Width)  by Species
 
@@ -90,7 +95,7 @@ Examples
 
 
 .. image:: ./images/stats_3_2.png
-    :scale: 40% 
+    :scale: 60% 
     :alt: stats 3_2
 
 

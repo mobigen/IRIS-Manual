@@ -57,37 +57,41 @@ Examples
 
 * count, avg, stddev, min, max, median, sum  통계 &  SPLITROW Species
     * ``Species``  는 3개 종이므로 SPLITROW Species 는 3개의 행으로 split 되어 결과가 나옵니다.
-    * ``Species``  이름으로 그룹핑 된 결과 에서  갯수, ``sepal_width`` 필드의 평균, 표준편차, 최소값, 최대값, 중간값, 헙계를 구합니다.
+    * ``Species``  이름으로 그룹핑 된 결과 에서  갯수, ``sepal_width`` 필드의 평균, 표준편차, 최소값, 최대값, 중간값, 합계를 구합니다.
 
 * SORTROW 
     * ``SPLITROW Species SORTROW desc`` 는  Species 가 행으로 split 된 결과를 내림차순으로 표시합니다.
 
 .. code-block:: none
 
-   *  | pivot count(*) as 개수,  avg(sepal_width) as 평균_sepal_width,  
+   *  | pivot count(*) as 개수,  
+              avg(sepal_width) as 평균_sepal_width,  
               stddev(sepal_width) as 표준편차_sepal_width,
-              min(sepal_width) as 최소값_sepal_width, max(sepal_width) as 최대값_sepal_width,
-              median(sepal_width) as 중간값_epal_width,  sum(sepal_width) as 합계_sepal_width
-              SPLITROW Species SORTROW desc
+              min(sepal_width) as 최소값_sepal_width, 
+              max(sepal_width) as 최대값_sepal_width,
+              median(sepal_width) as 중간값_epal_width,  
+              sum(sepal_width) as 합계_sepal_width
+        SPLITROW Species SORTROW desc
 
 
 .. image:: ./images/pivot_6.png
-    :scale: 40% 
+    :scale: 60% 
     :alt: pivot 6
 
 
 * count, avg  통계 &  SPLICOL Species & SORTCOL
-    * SPLITCOL Species 는  ``3개 종_ 함수결과`` 가 컬럼으로 생성되어 보여집니다.
+    * SPLITCOL Species 는  ``3개종_함수결과`` 가 컬럼으로 생성되어 보여집니다.
 
 
 .. code-block:: none
 
-    *  | pivot count(*) as 개수 , avg(sepal_width) as 평균_sepal_width 
+    *  | pivot count(*) as 개수 , 
+               avg(sepal_width) as 평균_sepal_width 
          SPLITCOL Species SORTCOL desc
 
 
 .. image:: ./images/pivot_6_2.png
-    :scale: 40% 
+    :scale: 60% 
     :alt: pivot 6-2
 
 
@@ -98,7 +102,7 @@ Examples
     *  | pivot countDistinct(Species) 
 
 .. image:: ./images/pivot_5.png
-    :scale: 40% 
+    :scale: 60% 
     :alt: pivot 5
 
 

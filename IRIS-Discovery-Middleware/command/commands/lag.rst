@@ -10,7 +10,7 @@ lag
 -------
 
 | 현재 행 이전의 행의 값을 가져오는 명령어로
-| 현재 데이터와 이전 데이터의 값을 비교 할 때 사용되면 유용한 명령어입니다.
+| 현재 데이터와 이전 데이터의 값을 비교 할 때 유용한 명령어입니다.
 | 예를들어, 선택한 컬럼의 데이터가 1,2,3,4 순서로 있을 때, 해당 데이터의 이전값 즉 null,1,2,3 의 값을 가져오는 동작을 실행합니다.
 
 Parameters
@@ -55,7 +55,9 @@ Examples
    * - 2020-01-04
      - 1
 
-- 예제1
+- 예제 1
+
+
 .. code-block:: none
 
     * | lag B BY A
@@ -79,15 +81,17 @@ Examples
      - 1
      - 23
 
-- 예제2
+
+- 예제 2
+
 .. code-block:: none
 
     *  HOST = 'hadoop01' |  where DATETIME < 20200325092030 
                          |  stats count(*) as CNT by date_group("DATETIME", "10S") , HOST 
-                         | sort dategroup   
-    | lag CNT by  dategroup  as 이전값
+                         |  sort dategroup   
+     | lag CNT by  dategroup  as 이전값
 
 
 .. image:: ./images/lags_5.png
-    :scale: 40% 
+    :scale: 60% 
     :alt: lag 5
