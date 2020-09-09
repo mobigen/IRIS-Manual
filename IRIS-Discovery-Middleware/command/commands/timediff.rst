@@ -8,8 +8,6 @@ timediff
 설명
 ------
 
-MySQL에서 사용되는 DATEDIFF, TIMESTAMPDIFF 명령어와 같이 시간 차이를 구해주는 명령어 입니다.
-
 UNIT에는 second, minute, hour, day, week를 기준으로 단위 시간을 지정할 수 있습니다.
 
 second, minute, hour는 소수점 까지 day, week는 반올림을 기준으로 합니다.
