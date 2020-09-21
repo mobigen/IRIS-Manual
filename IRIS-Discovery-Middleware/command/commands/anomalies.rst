@@ -346,7 +346,7 @@ Parameters
      - 옵션
 
 
-*옵션
+* 옵션
 
 .. list-table::
    :header-rows: 1
@@ -368,7 +368,7 @@ Parameters
      - both
    * - alert_window
      - 이 옵션이 설정되면  설정된 시간동안 발생한 anomaly 값만 return 합니다.  실정된 기간동안 anomaly 한 값이 없으면 빈 값이 반환됩니다.\ :raw-html-m2r:`<br />`\ 최근 시간 범위 내 이상치 값을 탐지합니다.\ :raw-html-m2r:`<br/>`\ 예 : last_60s 이면 최근 60초 이내 데이터 중 이상치를 탐지합니다.\ :raw-html-m2r:`<br/>`\ 예 : last_1m 이면 최근 1분 이내 데이터 중 이상치를 탐지합니다.\ :raw-html-m2r:`<br />`\ 예 : last_1h 이면 최근 1시간 이내 데이터 중 이상치를 탐지합니다.
-     - last_60s
+     - None
 
 
 ``alg`` : **basic**\ ,   **robust** 알고리즘을 선택합니다.  각각 기본통계,  STL decomposition을 수행합니다. 기본값 = **basic**.

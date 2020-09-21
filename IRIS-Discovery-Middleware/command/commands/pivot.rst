@@ -264,7 +264,7 @@ Examples
 
 
 * count, avg  통계 &  SPLICOL Species & SORTCOL
-    * SPLITCOL Species 는  ``3개종_함수결과`` 가 컬럼으로 생성되어 보여집니다.
+    * SPLITCOL Species 는  ``Species결과_함수명(alias)`` 가 컬럼으로 생성되어 보여집니다.
 
 
 .. code-block:: none

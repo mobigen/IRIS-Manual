@@ -140,10 +140,10 @@ Examples
     :alt: stats 3_1
 
 
-| stats 의 var() 는 표본 분산, 즉 N - 1 로 계산한 값입니다.
+| var() 는 표본 분산, 즉 N - 1 로 계산한 값입니다.
 | stdev() 는  N - 1 을 분모로 하여 계산한 것입니다. (표본표준편차)
 | stdevp() 는  N 을 분모로 계산한 것입니다. (모표준편차)
-| var() 는 표본 분산입니다. 
+
 
 
 * distinct_count
@@ -157,10 +157,10 @@ Examples
 * ``iqr`` : interquartile range  = Q3 - Q1
     
 | 데이터를 낮은 깂에서 높은 값 순서로 정렬 한 후 4등분 했을 때 25% 에 해당하는 순서의 데이터(Q1), 75% 에 해당하는 값(Q3) 
-| 계산 방법이 다양(R 같은 통계S/W 에서는 7가지 type 이 있음)하지만, 여기서는 4등분할 때 소수점으로 나오는 분할 수를 반올림하여 사용합니다.
+| 사분위수는 계산 방법이 다양(R 같은 통계S/W 에서는 7가지 type 이 있음)하지만, 여기서는 4등분할 때 소수점으로 나오는 분할 수를 반올림하여 사용합니다.
 | 즉 50개의 데이터를 4등분하면 12.5, 25, 37.5, 50 번째 값이 4분위수이지만, 반올림하여 13, 25, 38, 50 번째 값을 사용합니다.
     
-    
+
 .. code::
 
     * Species='setosa' | fields Sepal_Width,Species |  sort  Sepal_Width | stats iqr(Sepal_Width)  by Species
@@ -175,6 +175,17 @@ Examples
 .. image:: ./images/stats_3_2.png
     :scale: 60% 
     :alt: stats 3_2
+
+
+
+
+.. code::
+
+    * | stats iqr(Sepal_Width) as IQR_sepal_width  by Species
+
+.. image:: ./images/stats_10.png
+    :scale: 60% 
+    :alt: stats_10
 
 
 
