@@ -16,7 +16,7 @@ geojson 데이터를 properties 컬럼 들과 geometry 컬럼으로 바꿔주는
 Parameters
 -----------
 
-.. code-block::
+.. code-block:: bash
 
     * | geoconverter (intype=<geometry type>)?
                      (outtype=goejson)?
@@ -86,7 +86,7 @@ Examples
    
 1. WKT -> geojson 변환
 
-.. code-block::
+.. code-block:: bash
 
    * | geoconverter intype=WKT outtype=geojson geocol=B
 
@@ -101,7 +101,7 @@ Examples
 
 2. WKT -> geojson 변환, properties 설정
 
-.. code-block::
+.. code-block:: bash
 
    * | geoconverter intype=WKT outtype=geojson geocol=B properties=A
 
@@ -129,7 +129,7 @@ Examples
 
 1. geojson -> WKT 변환
 
-.. code-block::
+.. code-block:: bash
 
    * | geoconverter intype=WKT outtype=geojson geocol=B
 

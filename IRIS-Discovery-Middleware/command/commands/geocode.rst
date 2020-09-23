@@ -14,7 +14,7 @@ geocode
 Parameters
 -----------
 
-.. code-block::
+.. code-block:: bash
 
     * | geocode codetype=address country=<country code> SI=column GU=column DONG=column
     * | geocode codetype=code country=<country code> ZIPCODE=column
@@ -112,7 +112,7 @@ Examples
    
 1. 주소에 해당하는 geometry
 
-.. code-block::
+.. code-block:: bash
 
    * | geocode codetype=address country=KR SI=A GU=B DONG=C
 
@@ -151,7 +151,7 @@ Examples
 
 1. 우편번호에 해당하는 geometry
 
-.. code-block::
+.. code-block:: bash
 
    * | geocode codetype=code country=KR ZIPCODE=A
 

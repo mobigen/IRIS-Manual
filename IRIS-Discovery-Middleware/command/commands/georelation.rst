@@ -18,7 +18,7 @@ output: 필터링된 geometry/geojson 데이터
 Parameters
 -----------
 
-.. code-block::
+.. code-block:: bash
 
     * | georelation (intype=<geometry/geojson type>)?
                     (op=<value>)?
@@ -134,7 +134,7 @@ Examples
    
 - 예제1, 필터와 겹치(intersects)는 부분이 있는 폴리곤 필터링
 
-.. code-block::
+.. code-block:: bash
 
    * | georelation intype=WKT op = intersects geocol=B filter = POLYGON(( 0 0, 0 3, 5 5, 4 0, 0 0))
 
@@ -150,7 +150,7 @@ Examples
 
 - 예제2, 필터에 포함(contains)되는 폴리곤 필터링
 
-.. code-block::
+.. code-block:: bash
 
    * | georelation intype=WKT op = contains geocol=B filter = POLYGON(( 0 0, 0 3, 3 3, 3 0, 0 0))
 

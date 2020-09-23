@@ -18,7 +18,7 @@ output: 분석 결과 데이터
 Parameters
 -----------
 
-.. code-block::
+.. code-block:: bash
 
     * | georelation (intype=<geometry/geojson type>)?
                     (outtype=<geometry/geojson type>)?
@@ -246,7 +246,7 @@ Examples
    
 - 예제1, 필터와 겹치(intersection)는 부분의 폴리곤을 반환
 
-.. code-block::
+.. code-block:: bash
 
    * | geometric op = intersection filter = POLYGON(( 0 0, 0 3, 3 3, 3 0, 0 0)) intype=WKT outtype=WKT
 
@@ -268,7 +268,7 @@ Examples
 
 - 예제2, 넓이 반환
 
-.. code-block::
+.. code-block:: bash
 
    * | geometric op = area intype=WKT
 
