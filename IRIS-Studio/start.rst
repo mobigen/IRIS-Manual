@@ -13,7 +13,9 @@
     :scale: 50%
     :alt: IRIS메뉴
 
+
 | 보고서 목록
+
 
 .. image:: ./studio/images/studio_list/studio_list02.png
     :alt: 보고서목록
@@ -27,6 +29,7 @@
 | 해당 보고서를 지정한 카테고리내에서 지정하여 저장할 수 있습니다.
 | 카테고리는 지정하지 않아도 됩니다.
 | 관리자는 **카테고리 관리** 에서 카테고리를 추가/삭제/수정 할 수 있습니다.
+
 
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -52,7 +55,7 @@
 | 보고서의 이름 변경, 수정, 복제, 삭제의 기능이 제공됩니다. 
 
 .. image:: ./studio/images/studio_list/studio_list04.jpg
-    :scale: 100 %
+    :scale: 40%
     :alt: 편집
 
 
@@ -64,8 +67,8 @@
 | 해당 보고서의 사용자 권한을 지정 할 수 있습니다. 
 | 사용자 별 권한을 추가 하거나 사용자 그룹 단위의 권한 설정을 할 수 있습니다. 
 
-.. image:: ./studio/images/studio_list/studio_list05.jpg
-    :scale: 100 %
+.. image:: ./studio/images/studio_list/studio_list05.png
+    :scale: 60%
     :alt: 접근권한
 
 
@@ -217,7 +220,7 @@
     :header: "옵션 명", "설명"
 
     "색상 선택", "Canvas 영역의 색상을 변경합니다."
-    "배경 색상 선택", "Canvase 바깥 영역의 색상을 변경합니다."
+    "배경 색상 선택", "Canvas 바깥 영역의 색상을 변경합니다."
 
 **변수 설정**
 
@@ -272,6 +275,15 @@
 .. image:: ./studio/images/data_61.png
     :scale: 40%
     :alt: studio data 61
+
+
+| 챠트 객체와 연결되는 데이터 객체를 생성하는 다른 방법이 있습니다.
+| 챠트 객체를 선택한 후에는 데이터연결 옆의 "자동 추가" 를 클릭하면 해당 챠트 객체와 자동 연결되는 데이터 객체가 생성됩니다.
+
+.. image:: ./studio/images/data_61_2.png
+    :scale: 60%
+    :alt: studio data 61-2
+
 
 
 **데이터객체 파트**
