@@ -40,8 +40,14 @@ Command References
    * - `calculate <commands/calculate>`_
      - 행 or 열 간의 간단한 수식 계산을 합니다.
      -
+   * - `case <commands/case>`_
+     - 조건 처리가 가능한 명령어 입니다.
+     -
    * - `concat <commands/concat>`_
      - 선택한 컬럼을 concatenation 하는 명령어 입니다.
+     -
+   * - `corr <commands/corr>`_
+     - input 으로 받은 컬럼들 간의 상관계수를 구하는 명령어입니다.
      -
    * - `count <commands/count>`_
      - 입력의 래코드 건수를 계산합니다.
@@ -70,11 +76,23 @@ Command References
    * - `forecasts <commands/forecasts>`_
      - 주어진 데이터의 미래 시점 데이터를 예측합니다.
      -
+   * - `geocode <commands/geocode>`_
+     - 주소, 우편번호, 위경도 등의 데이터 컬럼에 해당하는 geometry 데이터를 찾아주는 명령어 입니다.
+     -
+   * - `geoconverter <commands/geoconverter>`_
+     - gemotery / geojson 형태를 서로 바꿔주는 명령어 입니다.
+     -
    * - `geoip <commands/geoip>`_
      - 이 명령어는 ip가 포함된 필드를 기반으로 위, 경도 등의 추가정보를 제공합니다.
      -
    * - `geomap <commands/geomap>`_
      - 이 명령어는 업로드 되어있는 컬렉션을 기반으로 사용자가 요청하는 테이블에 지역 경계(geometry) 정보를 제공합니다.
+     -
+   * - `geomatric <commands/geomatric>`_
+     - ``데이터의 계산값`` / ``필터와의 관계`` 와 같은 연산을 하는 명령어 입니다.
+     -
+   * - `georelation <commands/georelation>`_
+     - geometry 타입의 데이터를 필터 조건을 이용해 필터링 하는 명령어 입니다.
      -
    * - `geostats <commands/geostats>`_
      - 이 명령어는 위, 경도 데이터를 포함한 두 개의 필드를 기반으로 그룹(지정 지역 클러스터)별 통계정보를 제공합니다.
@@ -105,6 +123,9 @@ Command References
      -
    * - `lead <commands/lead>`_
      - 현재 행의 다음 행의 값을 가져오는 명령어입니다.
+     -
+   * - `merge <commands/merge>`_
+     - 이 명령어는 다른 데이터 모델과 join을 할 때 사용됩니다.
      -
    * - `metatron <commands/metatron>`_
      - metatron에 쓰기를 하는 명령어 입니다.
@@ -178,6 +199,9 @@ Command References
    * - `substr <commands/substr>`_
      - 이 명령어는 특정한 필드나 문자열을 SUBSTRING 하고자 할 때 사용됩니다.
      -
+   * - `time2sec <commands/time2sec>`_
+     - ``시:분:초`` 로 이루어진 데이터를 ``초`` 단위 숫자로 변경해주는 명령어 입니다.
+     -
    * - `timediff <commands/timediff>`_
      - 선택한 컬럼 끼리 혹은 원하는 데이터와 컬럼 간의 시간 차이를 구해주는 명령어 입니다.
      -
@@ -210,9 +234,6 @@ Command References
      -
    * - `ysort <commands/ysort>`_
      - 이 명령어는 검색 결과로 생성된 필드의 순서를 지정된 기준으로 정렬합니다.
-     -
-   * - `corr <commands/corr>`_
-     - 이 명령어는 인수로 받은 필드와의 상관계수를 구합니다.
      -
 
 
