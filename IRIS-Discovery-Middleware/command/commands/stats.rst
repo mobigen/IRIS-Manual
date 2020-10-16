@@ -13,8 +13,8 @@ stats
 설명
 ----------------------------------------------------------------------------------------------------
 
-| 해당 검색 결과에 각종 함수를 적용하여 통계 값을 구합니다. 마치 SQL의 aggregation과 비슷합니다. 
-| 만약 각종 통계 값들이 ``BY`` 절 없이 쓰인다면, 전체 결과를 aggregation을 하여, 하나의 열만 검색 결과로 출력 될 것입니다. 
+| 해당 검색 결과에 각종 함수를 적용하여 통계 값을 구합니다. 마치 SQL의 aggregation과 비슷합니다.
+| 만약 각종 통계 값들이 ``BY`` 절 없이 쓰인다면, 전체 결과를 aggregation을 하여, 하나의 열만 검색 결과로 출력 될 것입니다.
 | 만약 ``BY`` 절에 의하여 그룹핑할 field가 주어진다면, 해당 field의 유니크한 값들의 개수 만큼의 열이 검색 결과로 출력 될 것 입니다.
 
 
@@ -23,7 +23,7 @@ stats
 Parameters
 ----------------------------------------------------------------------------------------------------
 
-.. code-block:: none
+.. code-block:: python
 
    ... | stats FUNCTION (AS ALIAS_NAME)?(, FUNCTION (AS ALIAS_NAME)?)* (BY FIELD_NAME (, FIELD_NAME)*)?
 
@@ -41,10 +41,8 @@ Parameters
      - ``AS ALIAS_NAME``\ 입니다. ``AS``\ 는 키워드 이며 ``ALIAS_NAME``\ 은 변경 할 이름을 뜻합니다.
      - 옵션
    * - ``BY FIELD_NAME``
-     - ``BY``\ 는 키워드를 나타내고, ``FIELD_NAME``\ 는 그룹핑 할 field명을 의미 합니다. 각 field는 ``,``\ 으로 구분 됩니다. :raw-html-m2r:`<br>`\ ``FIELD_NAME`` 은 ``date_group(FIELD, UNIT)`` 함수를 사용 할 수 있습니다. 시간 단위(\ ``UNIT``\ , 초/분/시간/일/월/년)로 ``FIELD``\ 를 그룹핑합니다. ``FIELD``\ 는 시간 필드를 의미합니다. ``UNIT``\ : 기준 시간 단위는 ``"10y"``\ , ``"1y"``\ , ``"10m"``\ , ``"1m"``\ , ``"10d"``\ , ``"1d"``\ , ``"10H"``\ , ``"1H"``\ , ``"10M"``\ , ``"1M"``\ , ``"10S"`` 과 ``"1S"`` 이 될 수 있습니다.
+     - 그룹핑 할 필드명을 지정 가능합니다. 추가로 date_group 함수 사용가능 date_group 옵션은 아래 테이블에서 확인할 수 있습니다.
      - 옵션
-
-
 
 * aggregation functions list
 
@@ -60,7 +58,7 @@ Parameters
    * - ``count()``
      - 카운트를 구합니다.
      - 모든 Type 가능
-   * - ``distinct_count()``
+   * - ``countDistinct()``
      - 유니크한 개별 값의 개수를 구합니다
      - 모든 Type 가능
    * - ``max()``
@@ -72,181 +70,292 @@ Parameters
    * - ``min()``
      - 제일 작은 값을 구합니다.
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
-   * - ``stdev()``
-     - 표본 표준편차 값을 구합니다 (SQL 의 STDEV와 동일).
+   * - ``stddev()``
+     - 표본표준편차 값을 구합니다.
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
-   * - ``stdevp()``
-     - 모표준편차 값을 구합니다 (SQL 의 STDEVP와 동일).
+   * - ``stddev_samp()``
+     - 표본표준편차 값을 구합니다.
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``stddev_pop()``
+     - 모표준편차 값을 구합니다.
+     - ``TEXT``\, ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``sum()``
      - 전체의 합을 구합니다.
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
-   * - ``var()``
-     - 표본의 분산 값을 구합니다.
+   * - ``variance()``
+     - 표본분산 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``var_samp()``
+     - 표본분산 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``var_pop()``
+     - 모분산 값을 구합니다. (SQL 의 VAR_POP와 동일).
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``iqr()``
      - 사분위수 범위(IQR = Q3 - Q1)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
 
+* date_group unit(option) list
 
+.. list-table::
+   :header-rows: 1
 
-
+   * - unit
+     - 설명
+   * - 10y
+     - 10년
+   * - 1y
+     - 1년
+   * - 10m
+     - 10월
+   * - 1m
+     - 1월
+   * - 10d
+     - 10일
+   * - 1d
+     - 1일
+   * - 10H
+     - 10시간
+   * - 1H
+     - 1시간
+   * - 10M
+     - 10분
+   * - 1M
+     - 1분
+   * - 10S
+     - 10초
+   * - 1S
+     - 1초
 
 Examples
 ----------------------------------------------------------------------------------------------------
 
-| 예제 데이터로 2종류의 데이터를 사용합니다.
-| 하나는 초단위의 TIMESTAMP 필드와 이벤트 데이터(로그 데이터)가 있는 데이터모델 EDU_SYSLOG_2020_0325_09 , 
-| 다른 하나는 붓꽂의 종류별로 4개의 featrure 를 측정한 붓꽃(iris) 데이터가 있는 EDU_DATA_iris (150건)  입니다.
+- 예제 데이터
 
+.. list-table::
+   :header-rows: 1
 
+   * - sepal_length
+     - sepal_width
+     - speceis
+   * - 5.1
+     - 3.5
+     - Iris-setosa
+   * - 4.9
+     - 3.0
+     - Iris-setosa
+   * - 4.7
+     - 3.2
+     - Iris-setosa
+   * - 3.7
+     - 4.7
+     - Iris-setosa
+   * - 5.8
+     - 8.2
+     - Iris-setosa
+   * - 7.3
+     - 2.6
+     - Iris-setosa
+   * - 7.4
+     - 5.4
+     - Iris-setosa
+   * - 6.5
+     - 7.8
+     - setosa
+   * - 6.2
+     - 4.7
+     - setosa
+   * - 5.9
+     - 12.5
+     - setosa
+   * - 4.3
+     - 5.2
+     - setosa
+   * - 5.7
+     - 7.3
+     - setosa
+   * - 5.2
+     - 3.8
+     - setosa
+   * - 2.5
+     - 7.1
+     - setosa
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-붓꽃 데이터 예제 : EDU_DATA_iris
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-.. image:: ./images/stats_1.png
-    :scale: 60% 
-    :alt: stats 1
-
-
-* avg, stdev, stdevp, min, max, median, sum, var
+* avg, stddev_samp, stddev_pop, min, max, median, sum, var
     * ``species`` 이라는 필드 이름으로 그룹핑 된 결과 에서  개수, ``sepal_width`` 필드의 평균, 표준편차, 최소값, 최대값, 중간값, 합계, 분산을 구합니다.
 
-.. code-block:: none
+.. code-block:: python
 
    *  | stats count(*) as 개수,
-              avg(sepal_width) as 평균_sepal_width,  
-              stdev(sepal_width) as 표준편차_sepal_width,
-              stdevp(sepal_width) as 모표준편차_sepal_width,
-              min(sepal_width) as 최소값_sepal_width, 
+              avg(sepal_width) as 평균_sepal_width,
+              stddev_samp(sepal_width) as 표본표준편차_sepal_width,
+              stddev_pop(sepal_width) as 모표준편차_sepal_width,
+              min(sepal_width) as 최소값_sepal_width,
               max(sepal_width) as 최대값_sepal_width ,
-              median(sepal_width) as 중간값_epal_width,  
-              sum(sepal_width) as 합계_sepal_width,  
+              median(sepal_width) as 중간값_epal_width,
+              sum(sepal_width) as 합계_sepal_width,
               var(sepal_width) as 분산_sepal_width
         by  species |  sort species
 
 
-.. image:: ./images/stats_2_1.png
-    :scale: 60% 
-    :alt: stats 2_1
+.. list-table::
+   :header-rows: 1
 
+   * - species
+     - 개수
+     - 평균_sepal_width
+     - 표본표준편차_sepal_width
+     - 모표준편차_sepal_width
+     - 최소값_sepal_width
+     - 최대값_sepal_width
+     - 중간값_epal_width
+     - 합계_sepal_width
+     - 분산_sepal_width
+   * - Iris-setosa
+     - 7
+     - 4.371428571428572
+     - 1.9567952419830796
+     - 1.8116403661672287
+     - 2.6
+     - 8.2
+     - 3.5
+     - 30.6
+     - 3.829047619047619
+   * - setosa
+     - 7
+     - 6.914285714285714
+     - 2.8783262332060113
+     - 2.6648122804047416
+     - 3.8
+     - 12.5
+     - 7.1
+     - 48.4
+     - 8.284761904761906
 
-* 참고 :  var /stdev / stdevp 계산
+* 참고 :  var_samp /stddev_samp / stddev_pop 계산
 
 
 .. image:: ./images/stats_3_1.png
-    :scale: 40% 
+    :scale: 40%
     :alt: stats 3_1
 
 
-| var() 는 표본 분산, 즉 N - 1 로 계산한 값입니다.
-| stdev() 는  N - 1 을 분모로 하여 계산한 것입니다. (표본표준편차)
-| stdevp() 는  N 을 분모로 계산한 것입니다. (모표준편차)
+| var_samp() 는 표본 분산, 즉 N - 1 로 계산한 값입니다.
+| stddev_samp() 는  N - 1 을 분모로 하여 계산한 것입니다. (표본표준편차)
+| stddev_pop() 는  N 을 분모로 계산한 것입니다. (모표준편차)
 
 
+.. code-block:: python
 
-* distinct_count
-    * 결과 : 3
+      *  | stats countDistinct(species) as 종의개수
 
-.. code::
 
-      *  | stats distinct_count(Species) as 종의개수
+.. list-table::
+   :header-rows: 1
+
+   * - 종의개수
+   * - 2
 
 
 * ``iqr`` : interquartile range  = Q3 - Q1
-    
-| 데이터를 낮은 깂에서 높은 값 순서로 정렬 한 후 4등분 했을 때 25% 에 해당하는 순서의 데이터(Q1), 75% 에 해당하는 값(Q3) 
+
+| 데이터를 낮은 깂에서 높은 값 순서로 정렬 한 후 4등분 했을 때 25% 에 해당하는 순서의 데이터(Q1), 75% 에 해당하는 값(Q3)
 | 사분위수는 계산 방법이 다양(R 같은 통계S/W 에서는 7가지 type 이 있음)하지만, 여기서는 4등분할 때 소수점으로 나오는 분할 수를 반올림하여 사용합니다.
-| 즉 50개의 데이터를 4등분하면 12.5, 25, 37.5, 50 번째 값이 4분위수이지만, 반올림하여 13, 25, 38, 50 번째 값을 사용합니다.
-    
+| 즉 7개의 데이터를 4등분하면 1.75, 3.5, 5.25, 7 번째 값이 4분위수이지만, 올림하여 2, 4, 6, 7 번째 값을 사용합니다.
 
-.. code::
+.. code-block:: python
 
-    * Species='setosa' | fields Sepal_Width,Species |  sort  Sepal_Width | stats iqr(Sepal_Width)  by Species
+    * species='setosa' | fields sepal_Width, species |  sort  sepal_Width | stats iqr(sepal_width)  by species
 
-    => 50개 데이터를 작은 값부터 큰 값까지 sorting 한 후 50 * 0.25 에 해당하는 1사분위수는 13번째 값 = 3.2
-        50 * 0.5 에 해당하는 2사분위수는 중간값으로 25번째 값 = 3.4
-        50 * 0.75 에 해당하는 3사분위수는 38번째 값 = 3.7
-    
-    IQR = 3사분위수 - 1사분위수 = 3.7 - 3.2 = 0.5
+    => 7개 데이터를 작은 값부터 큰 값까지 sorting 한 후 7 * 0.25 에 해당하는 1사분위수는 2번째 값 = 4.7
+        7 * 0.5 에 해당하는 2사분위수는 중간값으로 4번째 값 = 7.1
+        7 * 0.75 에 해당하는 3사분위수는 6번째 값 = 7.8
 
-
-.. image:: ./images/stats_3_2.png
-    :scale: 60% 
-    :alt: stats 3_2
+    IQR = 3사분위수 - 1사분위수 = 7.8 - 4.7 = 3.1
 
 
+.. code-block:: python
+
+    * | stats iqr(sepal_width) as IQR_sepal_width  by species
 
 
-.. code::
+.. list-table::
+   :header-rows: 1
 
-    * | stats iqr(Sepal_Width) as IQR_sepal_width  by Species
-
-.. image:: ./images/stats_10.png
-    :scale: 60% 
-    :alt: stats_10
-
-
-
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-SYSLOG 데이터 예제 : EDU_SYSLOG_2020_0325_09
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-| 이벤트 로그 데이터인 SYSLOG  데이터 중에서 2020.03.25 09:00 ~ 10:00 데이터만 있는 데이터 모델입니다.
+   * - species
+     - IQR_sepal_width
+   * - setosa
+     - 3.1
 
 
-* HOST 별로 10분 단위로 로그 COUNT 를 구합니다.
+- 예제 데이터 2
 
-.. code-block:: none
+.. list-table::
+   :header-rows: 1
 
-   * | stats count(*) as CNT by date_group(DATETIME, "10M"), HOST 
+   * - DATETIME
+     - HOST
+   * - "2020-07-03 12:14:00"
+     - gcs1
+   * - "2020-07-03 12:24:00"
+     - gcs1
+   * - "2020-07-05 12:34:00"
+     - gcs1
+   * - "2020-07-03 11:34:00"
+     - gcs1
+   * - "2020-07-04 04:34:00"
+     - gcs1
+   * - "2020-07-03 04:34:00"
+     - gcs2
+   * - "2020-07-04 02:34:00"
+     - gcs2
+   * - "2020-07-03 01:34:00"
+     - gcs2
+   * - "2020-07-04 05:34:00"
+     - gcs2
+   * - "2020-07-05 03:34:00"
+     - gcs2
+   * - "2020-07-04 12:13:00"
+     - gcs2
+   * - "2020-07-03 12:14:00"
+     - gcs2
 
+* HOST 별로 1 단위로 로그 COUNT 를 구합니다.일
 
-.. image:: ./images/stats_4.png
-    :scale: 60% 
-    :alt: stats 4
+.. code-block:: python
 
-
-
-
-* 백쿼터(back-quote : `` ` ``) 를 사용하여 단어가 아닌 필드명도 사용할 수 있습니다.
-
-.. code-block:: none
-
-    * | stats count(*) as `개수(HOST)`   by date_group(DATETIME, "10M"), HOST |  sort  dategroup
-
-
-
-
-
-
-
-Parameters BNF
-----------------------------------------------------------------------------------------------------
-
-.. code-block:: none
-
-   clauses : funcs
-           | funcs BY byclause
-
-   byclause : byexpr
-           | byclause COMMA byexpr
-
-   byexpr : TOKEN
-           | func
-
-   funcs : funcs COMMA func
-           | func
-
-   func : TOKEN LPAREN TOKEN RPAREN
-       | TOKEN LPAREN TOKEN RPAREN AS TOKEN
-       | TOKEN LPAREN TOKEN COMMA TOKEN RPAREN
-       | TOKEN LPAREN TOKEN COMMA TOKEN RPAREN AS TOKEN
+   * | stats count(*) as CNT by date_group(DATETIME, "1d"), HOST
 
 
-   TOKEN : [^,|^ |^\|^(|^)|^\'|\"]+
-   COMMA : ,
-   LPAREN : (
-   RPAREN : )
-   BY : (i?)BY
+.. list-table::
+   :header-rows: 1
+
+   * - date_group(DATETIME, 1d)
+     - HOST
+     - CNT
+   * - 2020-07-04
+     - gcs1
+     - 1
+   * - 2020-07-03
+     - gcs2
+     - 3
+   * - 2020-07-05
+     - gcs1
+     - 1
+   * - 2020-07-05
+     - gcs2
+     - 1
+   * - 2020-07-04
+     - gcs2
+     - 3
+   * - 2020-07-03
+     - gcs1
+     - 3
+
+
+
+* 백쿼터(back-quote : `` ` `` ) 를 사용하여 단어가 아닌 필드명도 사용할 수 있습니다.
+
+.. code-block:: python
+
+    * | stats count(*) as `개수(HOST)` by date_group(DATETIME, "1d"), HOST | sort dategroup

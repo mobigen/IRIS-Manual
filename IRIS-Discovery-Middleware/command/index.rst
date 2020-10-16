@@ -109,6 +109,9 @@ Command References
    * - `indexer <commands/indexer>`_
      - 설정한 컬럼의 데이터를 기반으로 indexing하는 명령어 입니다. 컬럼의 데이터가 다를 경우 같은 값이라도 index 결과가 다를 수 있습니다.
      -
+   * - `interpolation <commands/interpolation>`_
+     - 시계열 데이터를 이용하여 집계를 할 때, 설정한 간격 사이의 시계열 데이터가 없으면 해당 데이터를 추가(보간) 해주는 명령어 입니다.
+     -
    * - `iris <commands/iris>`_
      - IRIS에 읽기를 하는 명령어 입니다.
      -
@@ -198,6 +201,9 @@ Command References
      -
    * - `substr <commands/substr>`_
      - 이 명령어는 특정한 필드나 문자열을 SUBSTRING 하고자 할 때 사용됩니다.
+     -
+   * - `summary <commands/summary>`_
+     - DF 의 각 컬럼에 대한 집계 정보를 보여주는 명령어 입니다.
      -
    * - `time2sec <commands/time2sec>`_
      - ``시:분:초`` 로 이루어진 데이터를 ``초`` 단위 숫자로 변경해주는 명령어 입니다.

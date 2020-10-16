@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 scaler
 ====================================================================================================
 
@@ -166,6 +162,64 @@ a,b,c,d 필드를 standard scaling한 예
      - 2.44
 
 
+a,b,c,d 필드를 maxabs scaling한 예
+
+.. code-block:: none
+
+   ... | scaler maxabs a to _a, b to _b, c to _c, d to _d
+
+명령어 이후 테이블(maxabs적용)
+
+.. list-table::
+   :header-rows: 1
+
+   * - a
+     - b
+     - c
+     - d
+     - species
+     - _a
+     - _b
+     - _c
+     - _d
+   * - 5.1
+     - 3.5
+     - 4.0
+     - 0.2
+     - Iris-setosa
+     - 0.65
+     - 0.95
+     - 0.82
+     - 0.67
+   * - 6.3
+     - 3.7
+     - 4.9
+     - 0.1
+     - Iris-setosa
+     - 0.82
+     - 1.0
+     - 1.0
+     - 0.33
+   * - 7.8
+     - 2.0
+     - 3.5
+     - 0.3
+     - Iris-versicolor
+     - 1.0
+     - 0.54
+     - 0.71
+     - 1.0
+   * - 6.1
+     - 3.1
+     - 3.8
+     - 0.2
+     - Iris-virginica
+     - 0.78
+     - 0.84
+     - 0.78
+     - 0.67
+
+
 Parameters
 ----------------------------------------------------------------------------------------------------
 
@@ -180,10 +234,10 @@ Parameters
      - 설명
      - 필수/옵션
    * - alg
-     - 사용할 scaler에 대한 정보입니다. :raw-html-m2r:`<br />`\ minmax / standard 중 원하는 scaling방법을 입력할 수 있습니다.
+     - 사용할 scaler에 대한 정보입니다. |br| minmax / standard / maxabs 중 원하는 scaling방법을 입력할 수 있습니다.
      - 필수
    * - fields_as_out
-     - 원하는 input 필드명과 output 필드명들입니다.\ :raw-html-m2r:`<br />`\ 예 : input_name1 to ouput_name1, input_name2 to ouput_name2,...
+     - 원하는 input 필드명과 output 필드명들입니다. |br| 예 : input_name1 to ouput_name1, input_name2 to ouput_name2,...
      - 필수
 
 
@@ -209,3 +263,7 @@ Parameters BNF
    COMMA = ,
    TO = to
       | TO
+
+.. |br| raw:: html
+
+   <br/>
