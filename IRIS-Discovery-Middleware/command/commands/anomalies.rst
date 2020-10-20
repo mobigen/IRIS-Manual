@@ -25,6 +25,7 @@ Parameters
                  (direct=(below|above|both))?
                  (alert_window=last_<숫자><suffix>)?
                  (seasonality=(additive|multiplicative))?
+                 (period=<정수>)?
                  (index_type=(timestamp|date))?
 
 .. list-table::
@@ -64,8 +65,12 @@ Parameters
      - 
      - 옵션
    * - seasonality
-     - additive/multiplicative 모델 선택 가능 |br| additive: ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative: ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0 초과 실수**)
+     - additive/multiplicative 모델 선택 가능, 약자 사용 가능 |br| additive(a, add): ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative(m, multi): ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0 초과 실수**)
      - additive
+     - 옵션
+   * - period
+     - robust 알고리즘을 사용 할 때 사용되는 옵션으로, timeseries 의 기간 옵션
+     - 6
      - 옵션
    * - index_type
      - index 로 지정되는 시계열 데이터가 시간데이터가 포함된 것인지(timestamp), day 단위 데이터인지 (date) 구분을 하여 입력
