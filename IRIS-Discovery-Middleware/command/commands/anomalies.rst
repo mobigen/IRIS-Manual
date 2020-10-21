@@ -30,7 +30,7 @@ Parameters
 
 .. list-table::
    :header-rows: 1
-   :widths: 15 55 15 15
+   :widths: 15 55 20 15 15
 
    * - 이름
      - 설명
