@@ -30,7 +30,7 @@ Parameters
 
 .. list-table::
    :header-rows: 1
-   :widths: 15 55 20 15 15
+   :widths: 15 55 20 10 10
 
    * - 이름
      - 설명
@@ -73,7 +73,7 @@ Parameters
      -
      - 옵션
    * - seasonality
-     - additive/multiplicative 모델 선택 가능, 약자 사용 가능 |br| additive(a, add): ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative(m, multi): ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0이 있으면 안됨**)
+     - additive/multiplicative 모델 선택 가능, 약자 사용 가능 |br| additive(a, add): ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative(m, multi): ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0제외**)
      - alg=robust 일 때 사용
      - additive
      - 옵션
@@ -84,6 +84,7 @@ Parameters
      - 옵션
    * - index_type
      - index 로 지정되는 시계열 데이터가 시간데이터가 포함된 것인지(timestamp), day 단위 데이터인지 (date) 구분을 하여 입력
+     - basic, robust 공통
      - timestamp
      - 옵션
 
