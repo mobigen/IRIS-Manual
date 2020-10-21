@@ -34,42 +34,52 @@ Parameters
 
    * - 이름
      - 설명
+     - 적용알고리즘
      - 기본값
      - 필수/옵션
    * - index
      - 시계열 데이터에서 시간 필드명 입니다.
+     - basic, robust 공통
      - 
      - 필수
    * - target
      - anomaly 탐지할 대상 데이터 필드명 입니다.
+     - basic, robust 공통
      - 
      - 필수
    * - by
      - 그룹으로 각각의 이상탐지를 시행 |br| 예 : by=fieldA
+     - basic, robust 공통
      - 
      - 옵션
    * - alg
      - basic/robust 알고리즘 선택 가능 |br| basic: 기본통계 |br| robust: STL decomposition |br| 예 : alg=robust
+     - 
      - basic
      - 옵션
    * - bound
      - 임계값 범위의 scale을 지정 |br| 위의 수식에 z값의 배수값으로 bound가 커지면 upper/lower limit 의 범위가 늘어납니다.
+     - basic, robust 공통
      - 2
      - 옵션
    * - direct
      - anomaly 한 값을 판정할 때 이상치의 방향을 below/above/both 로 선택 |br| below: lower 보다 낮은 수치 |br| above: upper 보다 높은 수치 |br| both: below and above
+     - basic, robust 공통
      - both
      - 옵션
    * - alert_window
      - 최근 시간 범위 내 이상치 값을 탐지 |br| 예 : last_60s 이면 최근 60초 이내 데이터 중 이상치를 탐지 |br| 예 : last_1m 이면 최근 1분 이내 데이터 중 이상치를 탐지 br| 예 : last_1h 이면 최근 1시간 이내 데이터 중 이상치를 탐지
-     - 
+     - basic, robust 공통
+     -
      - 옵션
    * - seasonality
-     - additive/multiplicative 모델 선택 가능, 약자 사용 가능 |br| additive(a, add): ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative(m, multi): ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0 초과 실수**)
+     - additive/multiplicative 모델 선택 가능, 약자 사용 가능 |br| additive(a, add): ``trend + seasonality + erro``, 데이터의 진폭이 일정할 경우 사용(실수) |br| multiplicative(m, multi): ``trend * seasonality * erro``, 데이터의 폭이 점점 증가하거나 감소할 때 사용(**0이 있으면 안됨**)
+     - alg=robust 일 때 사용
      - additive
      - 옵션
    * - period
      - robust 알고리즘을 사용 할 때 사용되는 옵션으로, timeseries 의 기간 옵션
+     - alg=robust 일 때 사용
      - 6
      - 옵션
    * - index_type
@@ -395,11 +405,15 @@ Examples
      - -62.37
      - False
 
-- 예제2) robust 알고리즘을 사용 하는 예
+- 예제2) robust 알고리즘을 사용 하는 예 : 
+    - seasonality = additive 는 target 필드의 값에 `` null``  이 있으면 안됩니다.
+    - seasonality = multiplicative  는 target 필드의 값에 `` 0 `` 이 있으면 안됩니다.
+    - seasonality = additive 를 빼고 실행할 수 있습니다.( default 로 seasonality = additive )
+    
 
 .. code-block:: bash
 
-   ... | anomalies CTIME PM2_5 alg=robust
+   ... | where PM2_5 is not null | anomalies CTIME PM2_5 alg=robust 
 
 .. list-table::
    :header-rows: 1
@@ -633,7 +647,7 @@ Examples
 
 .. code-block:: bash
 
-   ... | anomalies CTIME PM2_5 alg=robust alert_window=last_72h
+   ... | where PM2_5 is not null | anomalies CTIME PM2_5 alg=robust alert_window=last_72h
 
 .. list-table::
    :header-rows: 1
