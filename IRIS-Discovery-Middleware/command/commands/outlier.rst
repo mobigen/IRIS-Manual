@@ -14,10 +14,11 @@ outlier 명령어 문법 및 연동규격 설명서 입니다.
 * 여러 그룹을 대상으로 outlier 에 해당하는 그룹을 찾는 명령어 입니다.
 
 
-* 비슷한 그룹으로 clustering 을 한 결과 데이터의 패턴이 달라서 묶이지 않는 그룹을 찾습니다. ( dbscan 알고리즘)
+* 디폴트 알고리즘인 dbscan 은 비슷한 그룹으로 clustering 을 한 결과 데이터의 패턴이 달라서 묶이지 않는 그룹을 찾습니다.
 
 
-* 알고리즘을 mad 로 지정하여 실행하면 그룹 내의 데이터중에서 일정 비율 이상으로 많은 anomal 한 데이터를 갖고 있는 그룹을  탐지합니다.
+* 알고리즘을 mad 로 지정하여 실행하면 그룹 내의 데이터중에서 일정 비율 이상의 anomal 한 데이터를 갖고 있는 그룹을 탐지합니다.
+
 
 설명
 ----------------------------------------------------------------------------------------------------
@@ -71,9 +72,33 @@ Parameters
    * - alg
      - **dbscan** , **mad**. 밀도기반 클러스터링 알고리즘과 중앙값 편차를 이용하여 비정상적인 그룹을 찾아냅니다.  ``default = dbscan``
    * - tolerance
-     - 임계값 범위의 scale을 지정합니다. 위의 수식에 값의 범위를 늘리는 데 사용 합니다. :raw-html-m2r:`<br/>`\ dbscan 알고리즘에서는 tolerance = 0.5 (eps 로 사용됨) 가 기본값.\ :raw-html-m2r:`<br/>`\ mad 알고리즘에서는 tolerance = 3.0 이 기본값.  일반적으로 1.5 ~ 5.0  사이 값
+     - 임계값 범위의 scale을 지정합니다. 위의 수식에 값의 범위를 늘리는 데 사용 합니다. :raw-html-m2r:`<br/>`\ dbscan 알고리즘에서는 tolerance = 0.5 (eps로 사용됨) 가 기본값.포인트간의 거리를 의미하므로 데이터의 최대거리를 고려한 값을 입력한다. \ :raw-html-m2r:`<br/>`\ mad 알고리즘에서는 tolerance = 3.0 이 기본값.  일반적으로 1.5 ~ 5.0  사이 값
    * - pct
-     - ``mad`` 알고리즘에서 사용되는 파라미터.\ :raw-html-m2r:`<br/>`\ 이상하다고 판단하는 데이터의 그룹내의 비율 입니다. (0.1= 10%) :raw-html-m2r:`<br/>`\ 이 비율 이상으로 outlier 가 발생하면 해당 그룹 데이터 전체는 outlier 그룹으로 표시됩니다. ``0 < pct < 1``
+     - ``mad`` 알고리즘에서 사용되는 파라미터.\ :raw-html-m2r:`<br/>`\ 이상하다고 판단하는 데이터의 그룹내의 비율 입니다. (0.1= 10%) :raw-html-m2r:`<br/>`\ 이 비율 이상으로 이상치가 발생하면 해당 그룹 데이터 전체는 outlier 그룹으로 표시됩니다. ``0 < pct < 1``
+
+
+**검색어 사용예시**
+
+.. code-block:: none
+
+   ## alg=dbscan ##
+
+   # outlier target by=field
+   ... | outlier CNT by=HOST [alg=dbscan] [tolerance=0.5]
+
+   # outlier target by=field tolerance=0.8
+   ... | outlier CNT by=HOST alg=dbscan tolerance=2.0
+
+
+   ## alg=mad ##
+
+   # outlier target by=field alg=mad
+   ... | outlier CNT by=HOST alg=mad [tolerance=3.0] [pct=0.1]
+
+   # outlier target by=field alg=mad tolerance=4.0 pct=0.2
+   ... | outlier CNT by=HOST alg=mad tolerance=4.0 pct=0.2
+
+
 
 Examples
 ----------------------------------------------------------------------------------------------------

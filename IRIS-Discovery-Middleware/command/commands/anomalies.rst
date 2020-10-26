@@ -96,6 +96,55 @@ Parameters
 - robust : Seasonal_Decomposition을 사용한 알고리즘입니다. 계절성, 추세, 잔차 값을 구별하여 잔차 값으로 임계값을 구하여 이상치를 판단합니다.
 
 
+**검색어 사용예시**
+
+.. code-block:: bash
+
+  #### alg=basic ####
+
+  # anomalies INDEX TARGET 
+   ... | anomalies CTIME PM2_5 
+   ... | anomalies CTIME PM2_5 alg=basic
+
+  # anomalies INDEX TARGET by=그룹컬럼 bound=숫자 direct=[below|above|both]
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=below
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=above
+
+  # anomalies INDEX TARGET by=그룹컬럼 bound=숫자 direct=[below|above|both] alert_window=last_숫자[s|m|h]
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=below alert_window=last_1h
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=above alert_window=last_1m
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=both alert_window=last_10m
+
+  # anomalies INDEX TARGET by=그룹컬럼 bound=숫자 direct=[below|above|both] index_type=[timestamp|date]
+   ... | anomalies CTIME PM2_5 by=station bound=3 direct=both index_type=timestamp
+
+   ... | anomalies YYYYMMDD PM2_5 by=station bound=3 direct=both index_type=date
+
+  
+  
+  #### alg=robust ####
+
+  # anomalies INDEX TARGET alg=robust
+   ... | anomalies CTIME PM2_5 alg=robust
+
+  # anomalies INDEX TARGET by=그룹컬럼 alg=robust period=정수 bound=정수 direct=[below|above|both]
+   ... | anomalies CTIME PM2_5 by=station alg=robust period=12 bound=3 direct=below
+   ... | anomalies CTIME PM2_5 by=station alg=robust period=6 bound=3 direct=above
+
+  # anomalies INDEX TARGET by=그룹컬럼 alg=robust bound=숫자 direct=[below|above|both] alert_window=last_숫자[s|m|h]
+   ... | anomalies CTIME PM2_5 by=station alg=robust bound=3 direct=below alert_window=last_1h
+   ... | anomalies CTIME PM2_5 by=station alg=robust bound=3 direct=above alert_window=last_1m
+   ... | anomalies CTIME PM2_5 by=station alg=robust bound=3 direct=both alert_window=last_10m
+
+  # anomalies INDEX TARGET by=그룹컬럼 alg=robust bound=숫자 direct=[below|above|both] index_type=[timestamp|date]
+   ... | anomalies CTIME PM2_5 by=station alg=robust bound=3 direct=both index_type=timestamp
+
+   ... | anomalies YYYYMMDD PM2_5 by=station alg=robust bound=3 direct=both index_type=date
+
+
+
+
+
 Examples
 ----------------------------------------------------------------------------------------------------
 

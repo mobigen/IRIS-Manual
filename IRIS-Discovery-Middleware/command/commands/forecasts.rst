@@ -113,9 +113,9 @@ Alg = linear
 
 .. code-block:: none
 
-   ... | forecasts index target [alg=linear] [f_coeff=0] [index_type=timestamp/date]
+   ... | forecasts index target [alg=linear] [f_coeff=0] [index_type=timestamp|date]
 
-linear regression 으로 예측을 수행 합니다.
+linear regression 으로 예측을 수행 합니다. 디폴트 알고리즘입니다.
 
 .. list-table::
    :header-rows: 1
@@ -145,7 +145,7 @@ Alg = seasonal
 
 .. code-block:: none
 
-   ... | forecasts index target alg=seasonal [f_coeff=10] [deviation=1]
+   ... | forecasts index target alg=seasonal [f_coeff=10] [index_type=timestamp|date]
 
 계절성과 시간적 변화에 따라 예측을 수행 합니다. 내부적으로  ARIMA 알고리즘이 적용되며, AIC 를 최소화 하는 order 를 구해서 모델링합니다.
 
@@ -170,6 +170,36 @@ Alg = seasonal
    * - index_type
      - index 로 지정되는 시계열 데이터가 시간데이터가 포함된 것인지(timestamp), day 단위 데이터인지 (date) 구분을 하여 입력, default = timestamp
      - 옵션
+
+
+**검색어 사용예시**
+
+.. code-block:: none
+
+  ## alg=linear ##
+  
+   # 디폴트옵션  : forecasts INDEX TARGET alg=linear f_coeff=0 index_type=timestamp 
+   ... | forecasts DATETIME CNT 
+
+   # forecasts INDEX TARGET alg=linear f_coeff=3 index_type=timestamp
+   ... | forecasts DATETIME CNT f_coeff=3 index_type=timestamp
+
+   # forecasts INDEX TARGET alg=linear f_coeff=3 index_type=date
+   ... | forecasts YYYYMMDD CNT f_coeff=7 index_type=date
+
+  ## alg=seasonal ##
+  
+   # forecasts INDEX TARGET alg=seasonal f_coeff=0 index_type=timestamp 
+   ... | forecasts DATETIME CNT alg=seasonal
+
+   # forecasts INDEX TARGET alg=seasonal f_coeff=3 index_type=timestamp
+   ... | forecasts DATETIME CNT alg=seasonal f_coeff=3 index_type=timestamp
+
+   # forecasts INDEX TARGET alg=seasonal f_coeff=3 index_type=date
+   ... | forecasts YYYYMMDD CNT alg=seasonal f_coeff=7 index_type=date
+
+
+
 
 Example
 ----------------------------------------------------------------------------------------------------
