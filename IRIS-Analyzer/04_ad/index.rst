@@ -1,3 +1,3 @@
 .. toctree::
 
-    ad.rst
+    Anomaly-Detection.rst
