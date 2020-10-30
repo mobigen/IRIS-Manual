@@ -92,7 +92,7 @@ IRIS에서는 테이블을 생성시 테이블의 타입 및 보관 주기등을
    None ]
 -  partitiondate : PARTITION으로 사용할 값이 저장되는 컬럼 [ GLOBAL
    테이블 경우 None ]
--  partitionragne : 하나의 PARTITION 이 가지는 범위 [ GLOBAL 테이블 경우
+-  partitionrange : 하나의 PARTITION 이 가지는 범위 [ GLOBAL 테이블 경우
    0 ]
 
 지원하는 column-constraint
