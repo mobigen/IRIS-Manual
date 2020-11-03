@@ -13,7 +13,7 @@ pivot
 설명
 ----
 
-``SPLITROW``\ , ``SPLITCOL``\ , ``AS`` 와 ``BY``\ 의 문구를 지원하며, ``SPLITROW``\ 는 가로축 기반으로 그리고 ``SPLITCOL``\ 은 세로축 기반으로 데이터를 축 기준으로 회전 하거나 aggregation을 할 수 있습니다. ``AS``\ 는 결과 값의 field의 별칭을 줄 수 있습니다.
+``SPLITROW``\ , ``SPLITCOL``\ , ``AS`` 의 문구를 지원하며, ``SPLITROW``\ 는 가로축 기반으로 그리고 ``SPLITCOL``\ 은 세로축 기반으로 데이터를 축 기준으로 회전 하거나 aggregation을 할 수 있습니다. ``AS``\ 는 결과 값의 field의 별칭을 줄 수 있습니다.
 
 pivot 의 결과를 sort 하고자 할 때, 옵션 ``SORTROW`` , ``SORTCOL``\ 을 사용할 수 있습니다.
 
@@ -35,7 +35,7 @@ pivot 의 결과를 sort 하고자 할 때, 옵션 ``SORTROW`` , ``SORTCOL``\ �
 Parameters
 ----------
 
-.. code-block:: none
+.. code-block:: python
 
    ... | pivot FUNCTION (ASLIAS)? (, FUNCTION (ASLIAS)?)* (SPLITROW FIELD_NAME(, FIELD_NAME)*)? (SPLITCOL FIELD_NAME)? (FILTER filter_expr)? (COLSIZE N)? ((SORT order)? | (SORTROW order)? (SORTCOL order)?)
 
@@ -111,6 +111,21 @@ Parameters
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``stddev()``
      - 표준편차 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``stddev_samp()``
+     - 표준편차 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``stddev_pop()``
+     - 모표준편차 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``variance()``
+     - 표본분산 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``var_samp()``
+     - 표본분산 값을 구합니다.
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``var_pop()``
+     - 모분산 값을 구합니다.
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``countDistinct()``
      - 유니크한 값의 갯수를 구합니다.
@@ -218,25 +233,58 @@ Parameters
 
 
 Examples
---------------
+----------------------------------------------------------------------------------------------------
 
-| 예제 데이터로 2종류의 데이터를 사용합니다.
-| 하나는 초단위의 TIMESTAMP 필드와 이벤트 데이터(로그 데이터)가 있는 데이터모델 EDU_SYSLOG_2020_0325_09 , 
-| 다른 하나는 붓꽂의 종류별로 4개의 featrure 를 측정한 붓꽃(iris) 데이터가 있는 EDU_DATA_iris (150건)  입니다.
+- 예제 데이터
 
+.. list-table::
+   :header-rows: 1
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-붓꽃 데이터 예제 : EDU_DATA_iris
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-
-.. image:: ./images/stats_1.png
-    :scale: 60% 
-    :alt: stats 1
-
-| 붓꽃 3개 종(Species) 각 50개, 총 150개의 데이터이며, Sepal(꽃받침)의 length, width, Petal(꽃잎)의 length, width 를 측정한 데이터입니다.
-| Sepal(꽃받침)의 length, width, Petal(꽃잎)의 length, width 로 3개 종을 분류할 수 있는 지 분류 및 clustering 할 때 많이 사용되는 데이터입니다.
-
+   * - sepal_length
+     - sepal_width
+     - speceis
+   * - 5.1
+     - 3.5
+     - Iris-setosa
+   * - 4.9
+     - 3.0
+     - Iris-setosa
+   * - 4.7
+     - 3.2
+     - Iris-setosa
+   * - 3.7
+     - 4.7
+     - Iris-setosa
+   * - 5.8
+     - 8.2
+     - Iris-setosa
+   * - 7.3
+     - 2.6
+     - Iris-setosa
+   * - 7.4
+     - 5.4
+     - Iris-setosa
+   * - 6.5
+     - 7.8
+     - setosa
+   * - 6.2
+     - 4.7
+     - setosa
+   * - 5.9
+     - 12.5
+     - setosa
+   * - 4.3
+     - 5.2
+     - setosa
+   * - 5.7
+     - 7.3
+     - setosa
+   * - 5.2
+     - 3.8
+     - setosa
+   * - 2.5
+     - 7.1
+     - setosa
 
 
 * count, avg, stddev, min, max, median, sum  통계 &  SPLITROW Species
@@ -246,7 +294,7 @@ Examples
 * SORTROW 
     * ``SPLITROW Species SORTROW desc`` 는  Species 가 행으로 split 된 결과를 내림차순으로 표시합니다.
 
-.. code-block:: none
+.. code-block:: python
 
    *  | pivot count(*) as 개수,  
               avg(sepal_width) as 평균_sepal_width,  
@@ -258,162 +306,127 @@ Examples
         SPLITROW Species SORTROW desc
 
 
-.. image:: ./images/pivot_6.png
-    :scale: 60% 
-    :alt: pivot 6
+.. list-table::
+   :header-rows: 1
+
+   * - species
+     - 개수
+     - 평균_sepal_width
+     - 표본표준편차_sepal_width
+     - 모표준편차_sepal_width
+     - 최소값_sepal_width
+     - 최대값_sepal_width
+     - 중간값_epal_width
+     - 합계_sepal_width
+     - 분산_sepal_width
+   * - Iris-setosa
+     - 7
+     - 4.371428571428572
+     - 1.9567952419830796
+     - 1.8116403661672287
+     - 2.6
+     - 8.2
+     - 3.5
+     - 30.6
+     - 3.829047619047619
+   * - setosa
+     - 7
+     - 6.914285714285714
+     - 2.8783262332060113
+     - 2.6648122804047416
+     - 3.8
+     - 12.5
+     - 7.1
+     - 48.4
+     - 8.284761904761906
 
 
 * count, avg  통계 &  SPLICOL Species & SORTCOL
     * SPLITCOL Species 는  ``Species결과_함수명(alias)`` 가 컬럼으로 생성되어 보여집니다.
 
 
-.. code-block:: none
+.. code-block:: python
 
-    *  | pivot count(*) as 개수 , 
-               avg(sepal_width) as 평균_sepal_width 
-         SPLITCOL Species SORTCOL desc
+    *  | pivot count(*) as 개수, avg(sepal_width) as 평균_sepal_width SPLITCOL Species SORTCOL desc
 
+.. list-table::
+   :header-rows: 1
 
-.. image:: ./images/pivot_6_2.png
-    :scale: 60% 
-    :alt: pivot 6-2
+   * - Iris-setosa_평균_sepal_width
+     - Iris-setosa_개수
+     - setosa_평균_sepal_width
+     - setosa_개수
+   * - 6.914285714285714
+     - 7
+     - 4.371428571428572
+     - 7
 
 
 * countDistinct 
 
-.. code::
+.. code-block:: python
 
     *  | pivot countDistinct(Species) 
 
-.. image:: ./images/pivot_5.png
-    :scale: 60% 
-    :alt: pivot 5
+.. list-table::
+   :header-rows: 1
 
+   * - countDistinct
+   * - 2
 
+- 예제 데이터 2
 
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-SYSLOG 데이터 예제 : EDU_SYSLOG_2020_0325_09
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+.. list-table::
+   :header-rows: 1
 
-| ``EDU_SYSLOG_2020_0325_09`` 는 이벤트 로그 데이터인 SYSLOG  데이터 중에서 2020.03.25 09:00 ~ 10:00 데이터만 있는 데이터 모델입니다.
-
+   * - DATETIME
+     - HOST
+   * - "2020-07-03 12:14:00"
+     - gcs1
+   * - "2020-07-03 12:24:00"
+     - gcs1
+   * - "2020-07-05 12:34:00"
+     - gcs1
+   * - "2020-07-03 11:34:00"
+     - gcs1
+   * - "2020-07-04 04:34:00"
+     - gcs1
+   * - "2020-07-03 04:34:00"
+     - gcs2
+   * - "2020-07-04 02:34:00"
+     - gcs2
+   * - "2020-07-03 01:34:00"
+     - gcs2
+   * - "2020-07-04 05:34:00"
+     - gcs2
+   * - "2020-07-05 03:34:00"
+     - gcs2
+   * - "2020-07-04 12:13:00"
+     - gcs2
+   * - "2020-07-03 12:14:00"
+     - gcs2
 
 * HOST 별로 10분 단위로 로그 COUNT 를 구합니다. ``SPLITROW 필드,필드 SORTROW asc/desc``
 
-.. code-block:: none
+.. code-block:: python
 
-    * | pivot count(*) SPLITROW 'date_group("DATETIME", "10M")',HOST SORTROW asc
+    * | pivot count(*) as CNT SPLITROW date_group(DATETIME, 10H) as TIME, HOST SORTROW asc
 
+.. list-table::
+   :header-rows: 1
 
-.. image:: ./images/pivot_8.png
-    :scale: 60% 
-    :alt: pivot_8
-
-
-
-* countDistinct 
-
-.. code::
-
-    * | pivot countDistinct(LEVEL) as D_LEVEL개수 SPLITROW HOST SORTROW asc
-
-
-.. image:: ./images/pivot_9.png
-    :scale: 60% 
-    :alt: pivot_9
-
-
-
-
-Parameters BNF
---------------
-
-.. code-block:: none
-
-   causes : funcs
-          | funcs SPLITROW fields
-          | funcs SPLITCOL fields
-          | funcs SPLITROW fields SPLITCOL fields
-          | funcs FILTER tokens
-          | funcs SPLITROW fields FILTER tokens
-          | funcs SPLITCOL fields FILTER tokens
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens
-          | funcs COLSIZE NUMBER
-          | funcs SPLITROW fields COLSIZE NUMBER
-          | funcs SPLITCOL fields COLSIZE NUMBER
-          | funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER
-          | funcs FILTER tokens COLSIZE NUMBER
-          | funcs SPLITROW fields FILTER tokens COLSIZE NUMBER
-          | funcs SPLITCOL fields FILTER tokens COLSIZE NUMBER
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER
-          | funcs SORT order
-          | funcs SPLITROW fields SORT order
-          | funcs SPLITCOL fields SORT order
-          | funcs SPLITROW fields SPLITCOL fields SORT order
-          | funcs FILTER tokens SORT order
-          | funcs SPLITROW fields FILTER tokens SORT order
-          | funcs SPLITCOL fields FILTER tokens SORT order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens SORT order
-          | funcs COLSIZE NUMBER SORT order
-          | funcs SPLITROW fields COLSIZE NUMBER SORT order
-          | funcs SPLITCOL fields COLSIZE NUMBER SORT order
-          | funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER SORT order
-          | funcs FILTER tokens COLSIZE NUMBER SORT order
-          | funcs SPLITROW fields FILTER tokens COLSIZE NUMBER SORT order
-          | funcs SPLITCOL fields FILTER tokens COLSIZE NUMBER SORT order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER SORT order
-          | funcs SPLITROW fields SORTROW order
-          | funcs SPLITROW fields SPLITCOL fields SORTROW order
-          | funcs SPLITROW fields FILTER tokens SORTROW order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens SORTROW order
-          | funcs SPLITROW fields COLSIZE NUMBER SORTROW order
-          | funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER SORTROW order
-          | funcs SPLITROW fields FILTER tokens COLSIZE NUMBER SORTROW order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER SORTROW order
-          | funcs SPLITCOL fields SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields SORTCOL order
-          | funcs SPLITCOL fields FILTER tokens SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens SORTCOL order
-          | funcs SPLITCOL fields COLSIZE NUMBER SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER SORTCOL order
-          | funcs SPLITCOL fields FILTER tokens COLSIZE NUMBER SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields SORTROW order SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens SORTROW order SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields COLSIZE NUMBER SORTROW order SORTCOL order
-          | funcs SPLITROW fields SPLITCOL fields FILTER tokens COLSIZE NUMBER SORTROW order SORTCOL order
-
-   fields : field
-          | fields COMMA field
-
-   field : TOKEN
-         | TOKEN AS TOKEN
-
-   funcs : funcs COMMA func
-         | func
-
-   func : TOKEN LPAREN TOKEN RPAREN
-        | TOKEN LPAREN TOKEN RPAREN AS TOKEN
-
-   tokens : TOKEN
-          | tokens TOKEN
-          | NUMBER
-          | tokens NUMBER
-
-   order : DESC
-         | ASC
-
-   TOKEN : ["..."|'...'|[^ |^,|^+|^-]+]
-   COMMA : ,
-   LPAREN : (
-   RPAREN : )
-   SPLITROW : (?i)SPLITROW
-   SPLITCOL : (?i)SPLITCOL
-   FILTER : (?i)FILTER
-   AS : (?i)AS
-   SORT : (?i)SORT
-   COLSIZE : (?i)COLSIZE
-   ASC : (?i)ASC
-   DESC : (?i)DESC
-   SORTROW : (?i)SORTROW
-   SORTCOL : (?i)SORTCOL
+   * - TIME
+     - HOST
+     - CNT
+   * - 2020-07-01 00:00:00
+     - gcs1
+     - 1
+   * - 2020-07-01 00:00:00
+     - gcs2
+     - 5
+   * - 2020-07-01 10:00:00
+     - gcs1
+     - 4
+   * - 2020-07-01 10:00:00
+     - gcs2
+     - 2
