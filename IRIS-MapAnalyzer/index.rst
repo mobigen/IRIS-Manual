@@ -1,5 +1,6 @@
-Map Analyzer
-============
+IRIS Map Analyzer
+=================
+
 
 IMA 소개
 -------
