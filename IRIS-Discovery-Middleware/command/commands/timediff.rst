@@ -12,6 +12,8 @@ UNIT에는 second, minute, hour, day, week를 기준으로 단위 시간을 지�
 
 second, minute, hour는 소수점 까지 day, week는 반올림을 기준으로 합니다.
 
+UNIT_OPTION은 현재 시간과 TIME1 간의 차이를 얻고 싶을때 사용할 수 있습니다.
+
 TIME1에는 원하는 컬럼 혹은 원하는 시간의 데이터를 넣을 수 있습니다.
 
 TIME2에는 원하는 컬럼의 데이터만 넣을 수 있습니다.
@@ -20,16 +22,16 @@ TIME2에는 원하는 컬럼의 데이터만 넣을 수 있습니다.
 
 OPTION은 TIME에 시간의 데이터를 넣었을시 TIME의 format을 설정할 수 있습니다.
 
-col_name은 결과 컬럼명을 RESULT를 제외한 컬럼명으로 변경할 수 있습니다.
+new_col은 결과 컬럼명을 RESULT를 제외한 컬럼명으로 변경할 수 있습니다.
 
 Parameters
 ------------
 
-.. code-block:: none
+.. code-block:: python
 
-   ... | timediff UNIT 'TIME1' 'TIME2'
-   ... | timediff UNIT 'TIME1' "OPTION" 'TIME2'
-   ... | timediff UNIT 'TIME1' 'TIME2' AS col_name
+   ... | timediff UNIT TIME TIME
+   ... | timediff UNIT TIME OPTION TIME
+   ... | timediff UNIT TIME TIME AS new_col
 
 .. list-table::
    :header-rows: 1
@@ -41,7 +43,7 @@ Parameters
      - 단위 시간의 기준을 입력합니다.
      - 필수
    * - TIME
-     - 비교하고싶은 컬럼 혹은 시간을 입력합니다.
+     - 비교하고싶은 컬럼 혹은 시간을 입력합니다, 혹은 today 나 now 옵션을 사용할 수 있습니다.
      - 필수
    * - OPTION
      - 시간을 입력했을때 TIME의 format을 설정할 수 있습니다.
@@ -49,11 +51,26 @@ Parameters
    * - AS
      - Spark SQL의 as에 해당합니다.
      - 옵션
-   * - col_name
-     - 결과 컬럼명을 설정할 수 있습니다.
+   * - new_col
+     - 결과컬럼의 이름을 설정할 수 있습니다.
      - 옵션
 
-- OPTION을 입력하지 않으면 "YYYY-MM-DD HH:mm:ss"가 기본 옵션입니다.
+- TIME
+
+.. list-table::
+   :header-rows: 1
+
+   * - 이름
+     - 설명
+     - 필수/옵션
+   * - today
+     - 현재 날짜 (YYYY-MM-DD) 와 컬럼간의 비교를 위해 사용할 수 있습니다.
+     - 옵션
+   * - now
+     - 현재 시간 (YYYY-MM-DD HH:mm:ss) 과 컬럼간의 비교를 위해 사용할 수 있습니다.
+     - 옵션
+
+- OPTION을 입력하지 않으면 'YYYY-MM-DD HH:mm:ss'가 기본 옵션입니다.
 
 
 Example
@@ -79,9 +96,9 @@ Example
 
 - Ts1 컬럼과 Ts2 컬럼을 ``second`` 기준으로 차이를 구하는 예제입니다.
 
-.. code-block:: none
+.. code-block:: python
 
-   ... | timediff second 'Ts1' 'Ts2'
+   ... | timediff second Ts1 Ts2
 
 .. list-table::
    :header-rows: 1
@@ -105,9 +122,9 @@ Example
 
 - Ts1 컬럼과 D1 컬럼을 ``day`` 기준으로 차이를 구하고 결과 컬럼명을 바꾸는 예제입니다.
 
-.. code-block:: none
+.. code-block:: python
 
-   ... | timediff day 'Ts1' 'D1' as test
+   ... | timediff day Ts1 D1 as test
 
 .. list-table::
    :header-rows: 1
@@ -131,9 +148,9 @@ Example
 
 - '20200729160315' Data와 Ts1 컬럼을 ``minute`` 기준으로 차이를 구하는 예제입니다.
 
-.. code-block:: none
+.. code-block:: python
 
-   ... | timediff minute '20200729160315' "YYYYMMDDHHmmss" 'Ts1'
+   ... | timediff minute `2020-07-29 16:03:15` Ts1
 
 .. list-table::
    :header-rows: 1
@@ -154,3 +171,59 @@ Example
      - 2022-08-02 18:32:30
      - 2021-08-02
      - 443229.0833333333
+
+- 현재 시간과 Ts1 컬럼을 ``hour`` 기준으로 차이를 구하는 예제입니다.
+
+현재시간 : 2020-10-21 15:13:30
+
+.. code-block:: python
+
+   ... | timediff hour now Ts1
+
+.. list-table::
+   :header-rows: 1
+
+   * - Ts1
+     - Ts2
+     - D1
+     - RESULT
+   * - 2020-07-01 12:10:00
+     - 2020-07-01 12:00:00
+     - 2020-07-03
+     - 2691.0633333333335
+   * - 2020-08-02 10:11:10
+     - 2020-06-01 16:41:20
+     - 2020-06-01
+     - 1925.043888888889
+   * - 2021-06-02 11:12:20
+     - 2022-08-02 18:32:30
+     - 2021-08-02
+     - 5371.975555555556
+
+- 현재 날짜와 Ts1 컬럼을 ``day`` 기준으로 차이를 구하는 예제입니다.
+
+현재날짜 : 2020-10-21
+
+.. code-block:: python
+
+   ... | timediff day Ts1 today
+
+.. list-table::
+   :header-rows: 1
+
+   * - Ts1
+     - Ts2
+     - D1
+     - RESULT
+   * - 2020-07-01 12:10:00
+     - 2020-07-01 12:00:00
+     - 2020-07-03
+     - 111.4931
+   * - 2020-08-02 10:11:10
+     - 2020-06-01 16:41:20
+     - 2020-06-01
+     - 79.5756
+   * - 2021-06-02 11:12:20
+     - 2022-08-02 18:32:30
+     - 2021-08-02
+     - 224.4669
