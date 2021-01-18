@@ -60,7 +60,7 @@ Examples
 - 예제1
 .. code-block:: none
 
-    * | lag B BY A
+    * | lead B BY A
 
 .. list-table::
    :header-rows: 1
@@ -84,7 +84,7 @@ Examples
 - 예제2
 .. code-block:: none
 
-    * | lag B BY A AS 결과컬럼
+    * | lead B BY A AS 결과컬럼
 
 .. list-table::
    :header-rows: 1
