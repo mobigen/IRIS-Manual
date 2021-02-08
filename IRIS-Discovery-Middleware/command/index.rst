@@ -28,6 +28,9 @@ Command References
    * - Command
      - Description
      - Category
+   * - `abs <commands/abs>`_
+     - integer, bigint, real 등 숫자 컬럼의 절댓값을 구하는 명령어 입니다.
+     -
    * - `adv <commands/adv>`_
      - 테이블의 각종 통계 정보를 구하거나 pivoting 할 수 있습니다. 고급시각화 화면에 사용되는 명령어 모음입니다.
      -
@@ -60,6 +63,9 @@ Command References
      -
    * - `eval <commands/eval>`_
      - 학습된 모델을 이용해 예측 결과를 반환하는 명령어 입니다.
+     -
+   * - `explode <commands/explode>`_
+     - 선택한 컬럼의 데이터를 구분자를 이용해 분리하고, 새로운 레코드로 만듭니다. (원래 데이터는 삭제)
      -
    * - `fields <commands/fields>`_
      - 검색 결과가 출력 될 field를 설정합니다.
@@ -166,8 +172,14 @@ Command References
    * - `pylambda <commands/pylambda>`_
      - 해당 명령어는 Python의 lambda 함수를 실행 합니다.
      -
+   * - `regex <commands/regex>`_
+     - regex 명령을 사용하여 지정된 정규식과 일치하지 않는 결과를 제거합니다.
+     -
    * - `rename <commands/rename>`_
      - 이 명령어는 특정한 field를 다른 명칭으로 이름을 바꾸고자 할 때 사용됩니다.
+     -
+   * - `replace <commands/replace>`_
+     - 선택한 컬럼의 데이터의 글자를 변환하는 명령어 입니다.
      -
    * - `round <commands/round>`_
      - 이 명령어는 지정된 실수형 필드의 소수점을 반올림 하는 명령어 입니다.
@@ -186,6 +198,9 @@ Command References
      -
    * - `sort <commands/sort>`_
      - 이 명령어는 검색 결과를 지정된 필드를 기준으로 정렬합니다.
+     -
+   * - `spath <commands/spath>`_
+     - json/xml 과 같은 구조화된 데이터의 key 를 이용해서 해당하는 데이터를 추출하는 명령어입니다.
      -
    * - `split <commands/split>`_
      - 선택한 컬럼을 구분자를 통해서 분리하여 새로운 레코드로 만드는 명령어
@@ -225,6 +240,12 @@ Command References
      -
    * - `union <commands/union>`_
      - 이 명령어는 다른 데이터 모델과 union 을 할 때 사용됩니다.
+     -
+   * - `unpivot <commands/unpivot>`_
+     - 가로로 출력되는 열(COLUMN) 데이터를 세로로 돌려 행(ROW)으로 출력할 수 있습니다.
+     -
+   * - `value_counts <commands/value_counts>`_
+     - 특정 필드에 대한 고유값과 해당 값의 count를 리턴합니다.
      -
    * - `weekdates <commands/weekdates>`_
      - 정수를 이용해 해당 주차의 시작일과 종료일을 찾는 명령어입니다.

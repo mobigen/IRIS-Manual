@@ -279,4 +279,6 @@ Examples
    :scale: 60%
    :alt: anomalies TEST_DATA_0141 15 2
 
+.. |br| raw:: html
 
+  <br/>

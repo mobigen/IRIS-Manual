@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 stats
 ====================================================================================================
 
@@ -51,48 +47,67 @@ Parameters
 
    * - Arguments
      - Description
+     - UseCase
      - ETC
    * - ``avg()``
      - 평균 값을 구합니다.
+     - avg(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``count()``
      - 카운트를 구합니다.
+     - count(컬럼명)
      - 모든 Type 가능
    * - ``countDistinct()``
      - 유니크한 개별 값의 개수를 구합니다
+     - countDistinct(컬럼명)
      - 모든 Type 가능
    * - ``max()``
      - 가장 큰 값을 구합니다
+     - max(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``median()``
      - 중간 값을 구합니다.
+     - median(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``min()``
      - 제일 작은 값을 구합니다.
+     - min(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``stddev()``
      - 표본표준편차 값을 구합니다.
+     - stddev(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``stddev_samp()``
      - 표본표준편차 값을 구합니다.
+     - stddev_samp(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``stddev_pop()``
      - 모표준편차 값을 구합니다.
+     - stddev_pop(컬럼명)
      - ``TEXT``\, ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``sum()``
      - 전체의 합을 구합니다.
+     - sum(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``variance()``
      - 표본분산 값을 구합니다.
+     - variance(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``var_samp()``
      - 표본분산 값을 구합니다.
+     - var_samp(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``var_pop()``
      - 모분산 값을 구합니다. (SQL 의 VAR_POP와 동일).
+     - var_pop(컬럼명)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
    * - ``iqr()``
      - 사분위수 범위(IQR = Q3 - Q1)
+     - iqr(컬럼명)
+     - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
+   * - ``quantile()``
+     - 지정한 percentage 를 이용하여 각 분위별 값을 구합니다. |br| percentage 는 정수로 입력하며 0 < percentage < 100 까지 입력이 가능합니다.
+     - quantile(컬럼명, 10) |br| quantile(컬럼명, 25)
      - ``TEXT``\ , ``BINARY``\ , ``BOOLEAN`` 불가능
 
 * date_group unit(option) list
@@ -359,3 +374,8 @@ Examples
 .. code-block:: python
 
     * | stats count(*) as `개수(HOST)` by date_group(DATETIME, "1d"), HOST | sort dategroup
+
+
+.. |br| raw:: html
+
+  <br/>
