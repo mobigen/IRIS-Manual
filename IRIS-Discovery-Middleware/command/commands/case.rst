@@ -204,7 +204,7 @@ Example
 
 .. code-block:: none
 
-   ... | when C*3+4 > 90 then 'TRUE' otherwise 'FALSE'
+   ... | case when C*3+4 > 90 then 'TRUE' otherwise 'FALSE'
 
 .. list-table::
    :header-rows: 1
@@ -244,7 +244,7 @@ Example
 
 .. code-block:: none
 
-   ... | when `A`='일반' and `B`>2 then 'A,B result' when `C`=10.123 then 'C result' otherwise 0 as `test result`
+   ... | case when `A`='일반' and `B`>2 then 'A,B result' when `C`=10.123 then 'C result' otherwise 0 as `test result`
 
 .. list-table::
    :header-rows: 1
@@ -282,7 +282,7 @@ Example
 
 .. code-block:: none
 
-   ... | when B<=5 then null
+   ... | case when B<=5 then null
 
 .. list-table::
    :header-rows: 1
