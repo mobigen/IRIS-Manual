@@ -406,11 +406,11 @@ Examples
    * - "2020-07-03 12:14:00"
      - gcs2
 
-* HOST 별로 10분 단위로 로그 COUNT 를 구합니다. ``SPLITROW 필드,필드 SORTROW asc/desc``
+* HOST 별로 10시간 단위로 로그 COUNT 를 구합니다. ``SPLITROW 필드,필드 SORTROW asc/desc``
 
 .. code-block:: python
 
-    * | pivot count(*) as CNT SPLITROW date_group(DATETIME, 10M) as TIME, HOST SORTROW asc
+    * | pivot count(*) as CNT SPLITROW date_group(DATETIME, 10H) as TIME, HOST SORTROW asc
 
 .. list-table::
    :header-rows: 1
@@ -418,15 +418,28 @@ Examples
    * - TIME
      - HOST
      - CNT
-   * - 2020-07-01 00:00:00
-     - gcs1
-     - 1
-   * - 2020-07-01 00:00:00
-     - gcs2
-     - 5
-   * - 2020-07-01 10:00:00
-     - gcs1
-     - 4
-   * - 2020-07-01 10:00:00
+   * - 2020-07-03 00:00:00
      - gcs2
      - 2
+   * - 2020-07-03 10:00:00
+     - gcs1
+     - 3
+   * - 2020-07-03 10:00:00
+     - gcs2
+     - 1
+   * - 2020-07-04 00:00:00
+     - gcs1
+     - 1
+   * - 2020-07-04 00:00:00
+     - gcs2
+     - 2
+   * - 2020-07-04 10:00:00
+     - gcs2
+     - 1
+   * - 2020-07-05 00:00:00
+     - gcs2
+     - 1
+   * - 2020-07-05 10:00:00
+     - gcs1
+     - 1
+     
