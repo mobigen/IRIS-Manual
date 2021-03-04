@@ -410,7 +410,7 @@ Examples
 
 .. code-block:: python
 
-    * | pivot count(*) as CNT SPLITROW date_group(DATETIME, 10H) as TIME, HOST SORTROW asc
+    * | pivot count(*) as CNT SPLITROW date_group(DATETIME, 10M) as TIME, HOST SORTROW asc
 
 .. list-table::
    :header-rows: 1
