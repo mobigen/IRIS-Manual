@@ -47,7 +47,7 @@ Parameters
      - ``INTO model_name``\ 으로 이루어져 있습니다. 경로 (\ **/Biris/angora/ml**\ )에 모델 메타 데이터와 함께 저장합니다.
      - 필수
    * - k
-     - 중심점의 갯수 입니다.
+     - 중심점의 갯수 입니다. 예시) k=3
      - 필수
    * - initMode
      - initialize mode입니다.
@@ -62,7 +62,7 @@ Parameters BNF
 
 .. code-block:: none
 
-   SparkKmeans_command : FEATURES fields params INTO_model
+   SparkKmeans_command : FEATURES fields k=N params INTO_model
 
    fields : field
            | fields COMMA field
