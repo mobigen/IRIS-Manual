@@ -22,7 +22,7 @@ Parameters
 
 .. code-block:: none
 
-   ... | fit KMeans FEATURES fields k=N INTO_model
+   ... | fit KMeans FEATURES fields k=N INTO model
    
    # example : iris 붓꽃데이터 예시
    ... | fit KMeans FEATURES Sepal_Length,Sepal_Width,Petal_Length,Petal_Width k=3 INTO Kmeans_model_iris
