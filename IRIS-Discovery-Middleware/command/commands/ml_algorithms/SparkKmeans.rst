@@ -22,7 +22,11 @@ Parameters
 
 .. code-block:: none
 
-   ... | fit KMeans FEATURES fields INTO_model
+   ... | fit KMeans FEATURES fields k=N INTO_model
+   
+   # example : iris 붓꽃데이터 예시
+   ... | fit KMeans FEATURES Sepal_Length,Sepal_Width,Petal_Length,Petal_Width k=3 INTO Kmeans_model_iris
+
 
 .. list-table::
    :header-rows: 1
@@ -44,7 +48,7 @@ Parameters
      - 필수
    * - k
      - 중심점의 갯수 입니다.
-     - 옵션
+     - 필수
    * - initMode
      - initialize mode입니다.
      - 옵션
