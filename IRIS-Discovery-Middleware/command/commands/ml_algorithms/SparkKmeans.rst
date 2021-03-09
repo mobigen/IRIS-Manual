@@ -50,12 +50,17 @@ Parameters
      - 중심점의 갯수 입니다. 예시) k=3
      - 필수
    * - initMode
-     - initialize mode입니다.
+     - initialize mode입니다.  "random", "k-means||" 중에서 설정가능합니다. default = "k-means||" 
      - 옵션
    * - tol
      - convergence tolerance 값 입니다.
      - 옵션
-
+   * - maxIter
+     - 최대 iteration 의 수. centroid 를 찾는 step의 반복 횟수. default = 20
+     - 옵션
+   * - seed
+     - 맨 처음 initial point를 설정할 때 주는 seed points. None 이면 seed = 0.
+     - 옵션 
 
 Parameters BNF
 ----------------------------------------------------------------------------------------------------
@@ -99,4 +104,4 @@ Parameters BNF
    DOUBLE : [-+]?[0-9]+(\.([0-9]+)?([eE][-+]?[0-9]+)?|[eE][-+]?[0-9]+)
 
 
-   params : k = 2, initMode = "k-means||", initSteps = 2, tol = 1e-4, maxIter = 20, seed = None
+   params : initMode = "k-means||", initSteps = 2, tol = 1e-4, maxIter = 20, seed = None
