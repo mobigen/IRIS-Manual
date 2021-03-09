@@ -12,6 +12,8 @@ PYTHON 버전 및 설정 방법
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 API를 사용하기 위해서는 python 2.7 버전에서 사용해야 합니다. (python3.6의 경우 mobigen-iris-python36-2.1.0.zip 파일 사용)
 
+다운로드 경로: http://docs.iris.tools/dist/mobigen-iris-python36-2.1.0.zip
+
 제공되는 파일을 PYTHONPATH 에 설정하여 사용하시면 됩니다.
 
 지원 쿼리
