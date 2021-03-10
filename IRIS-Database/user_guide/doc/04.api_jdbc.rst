@@ -14,7 +14,7 @@ IRIS 2.1에서 사용되는 JDBC는 버전은 mobigen-iris-jdbc-2.1.0.2.jar파�
 
 IRIS JDBC를 사용하기 위해서 다음 jar 파일이 제공 됩니다.
 
-- mobigen-iris-jdbc-2.1.0.2.jar
+- mobigen-iris-jdbc-2.1.0.2.jar `다운로드 <http://docs.iris.tools/dist/mobigen-iris-jdbc-2.1.0.2.jar>`_
 
 이 jar 파일을 java의 class path 에 설정하여 사용하시면 됩니다.
 
