@@ -68,7 +68,7 @@ Examples
 
 .. code-block:: none
 
-    * | weekdatas A "YYYY-WW"
+    * | weekdates A "YYYY-WW"
 
 .. list-table::
    :header-rows: 1
