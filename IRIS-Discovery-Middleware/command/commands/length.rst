@@ -39,9 +39,9 @@ Example
 
 - 예제 명령어 1
 
+.. code-block:: python
 
-    * | length column_1, column_1 as `alias column 1`, `column 2` as alias_column_2,  `column 2` as `alias column 2 with spaces`, 'my text', 'my text' as `custom text`
-
+   * | length column_1, column_1 as `alias column 1`, `column 2` as alias_column_2,  `column 2` as `alias column 2 with spaces`, 'my text', 'my text' as `custom text`
 
 
 결과

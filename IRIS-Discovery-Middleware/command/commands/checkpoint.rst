@@ -61,7 +61,7 @@ Example
 
 - 예제용 데이터 모양 입니다.
 
-.. list-table:: none
+.. list-table::
    :header-rows: 1
 
    * - A
@@ -99,7 +99,7 @@ Example
 
    ... | checkpoint get key=ad1042b5-f73d-46ta-8zae-fdb2220ee10e
 
-.. list-table:: none
+.. list-table::
    :header-rows: 1
 
    * - A
@@ -122,9 +122,9 @@ Example
 
 .. code-block:: python
 
-   ... | checkpoint delelte key=ad1042b5-f73d-46ta-8zae-fdb2220ee10e
+   ... | checkpoint delete key=ad1042b5-f73d-46ta-8zae-fdb2220ee10e
 
-.. list-table:: none
+.. list-table::
    :header-rows: 1
 
    * - A
@@ -149,7 +149,7 @@ Example
 
    ... | checkpoint list
 
-.. list-table:: none
+.. list-table::
    :header-rows: 1
 
    * - KEY

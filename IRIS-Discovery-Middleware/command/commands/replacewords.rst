@@ -35,7 +35,7 @@ new 컬럼의 데이터는 old 문자에 대한 대치 문자열입니다.
 Parameters
 --------------------------------------
 
-.. code-block:: 
+.. code-block:: python
 
     ... | replacewords col=COL model=Model_name delimiter=,
 
@@ -91,7 +91,7 @@ Examples
 
 - 예제1
 
-.. code-block:: 
+.. code-block:: python
 
     * | replacewords col=WORD model=my_stopwords delimiter=,
 
