@@ -46,6 +46,9 @@ Command References
    * - `case <commands/case>`_
      - 조건 처리가 가능한 명령어 입니다.
      -
+   * - `checkpoint <commands/checkpoint>`_
+     - 쿼리의 결과를 일정시간동안 저장해 놓을수 있는 명령어
+     -
    * - `concat <commands/concat>`_
      - 선택한 컬럼을 concatenation 하는 명령어 입니다.
      -
@@ -133,6 +136,9 @@ Command References
    * - `lead <commands/lead>`_
      - 현재 행의 다음 행의 값을 가져오는 명령어입니다.
      -
+   * - `length <commands/length>`_
+     - string length를 계산 하는 명령어입니다.
+     -
    * - `merge <commands/merge>`_
      - 이 명령어는 다른 데이터 모델과 join을 할 때 사용됩니다.
      -
@@ -157,6 +163,9 @@ Command References
    * - `modeldata <commands/modeldata>`_
      - 이 명령어는 Data-Discovery-Service ML 관련 명령어 이며, 사용자가 입력한 한 데이터를 데이터 프레임으로 반환 합니다.
      -
+   * - `objectstorage <commands/objectstorage>`_
+     - objectstorage 읽기 및 쓰기를 하는 명령어 입니다.
+     -
    * - `outlier <commands/outlier>`_
      - 여러 그룹을 대상으로 outlier 에 해당하는 그룹을 찾는 명령어 입니다.
      -
@@ -180,6 +189,9 @@ Command References
      -
    * - `replace <commands/replace>`_
      - 선택한 컬럼의 데이터의 글자를 변환하는 명령어 입니다.
+     -
+   * - `replacewords <commands/replacewords>`_
+     - 대치어(replace)사전을 통해 단어를 대치합니다.
      -
    * - `round <commands/round>`_
      - 이 명령어는 지정된 실수형 필드의 소수점을 반올림 하는 명령어 입니다.
