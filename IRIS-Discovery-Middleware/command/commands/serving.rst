@@ -1,7 +1,3 @@
-.. role:: raw-html-m2r(raw)
-   :format: html
-
-
 serving
 ====================================================================================================
 
@@ -15,6 +11,24 @@ Tensorflow Serving을 통해 예측, 모델의 서빙 상태를 확인하는 명
 
 배포된 모델에 대해 예측하거나 서빙 상태를 확인할 수 있습니다. 배포는 `적재 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Discovery-Middleware/command/commands/mlmodel.html#mlmodel-import>`_ , `배포 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Discovery-Middleware/command/commands/mlmodel.html#mlmodel-deploy>`_ 를 참조해주세요.
 
+- operation 종류
+    - status
+    - predict
+
+- dsl-object API 이용시 json 구성 (각 operation 에 대한 파라미터는 아래에서 확인)
+
+.. code-block:: json
+
+   {
+     "command": "serving",
+     "params":{
+       "operation": <string>,  # "status|predict",
+       "name": <string>,  # "학습모델명"
+       "version": <int>,  # 2
+       "user": <string>,  # "유저명"
+       ...
+     }
+   }
 
 serving predict
 ----------------------------------------------------------------------------------------------------
@@ -30,52 +44,11 @@ DSL 방식과 설정파일 제출 방식을 지원합니다.
 Parameters
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-DSL 방식 1
-
-- feature옵션에 예측에 필요한 정보를 모두 입력합니다.
-
-``serving predict model_name feature=[(feature, Conv1_input, double, 28, 28, 1)] version=11 tag=(zero, one, two, three, four, five, six, seven, egiht, nine, ten)``
-
-.. list-table::
-   :header-rows: 1
-
-   * - 이름
-     - 설명
-     - 기본값
-     - 예시값
-     - 타입
-     - 필수
-   * - model_name
-     - 예측할 모델명
-     - 
-     - mnist_v1
-     - 문자열
-     - O
-   * - feature
-     - 특징 컬럼명, 입력 텐서 이름, 입력 텐서 자료형, 입력 텐서 모양의 리스트
-     - 
-     - [(body, body, float, 10), (tags, tags, double, 12), (feature, Conv1_input, int, 28, 28, 1)]
-     - list of tuple
-     - O
-   * - version
-     - 모델의 서빙 버전
-     - 최근 버전
-     - 3
-     - 숫자형
-     - 
-   * - tag
-     - 태그값
-     - 
-     - ('T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot')
-     - 튜플형
-     - 
-
-
-DSL 방식 2
-
 - feature 옵션을 col, dtype, shape, layer_name으로 나누어 입력합니다.
 
-``serving predict model_name col=(feature) shape=[(28,28,1)] dtype=(float) layer_name=(Conv1_input) version=11 tag=(zero, one, two, three, four, five, six, seven, egiht, nine, ten)``
+.. code-block:: python
+
+   ... | serving predict (user=<user>)? name=<model_name> (version=<version>)? col=(feature) shape=[(28,28,1)] dtype=(float) layer_name=(Conv1_input) tag=(zero, one, two, three, four, five, six, seven, egiht, nine, ten)
 
 .. list-table::
    :header-rows: 1
@@ -86,102 +59,54 @@ DSL 방식 2
      - 예시값
      - 타입
      - 필수
-   * - model_name
-     - 예측할 모델명
-     - 
+   * - user
+     - 모델 소유주 명
+     - API를 요청하는 user
+     - demo
+     - string
+     - False
+   * - name
+     - 모델명
+     -
      - mnist_v1
-     - 문자열
-     - O
+     - string
+     - True
+   * - version
+     - 모델의 버전
+     - last version of serving model
+     - 1
+     - int
+     - False
    * - col
-     - 특징 컬럼명
+     - feature 컬럼명
      - 
      - (body, tags, title)
      - 튜플형
-     - O
+     - True
    * - shape
      - 입력 텐서 모양의 리스트
      - 
-     - [(-1), (10), (-1)]
+     - [(28,28,1)]
      - list of tuple
-     - O     
+     - True     
    * - dtype
      - 입력 텐서 자료형
      - (float, float, ...) col에 정의된 특징 컬럼의 개수
      - (float, double, int)
      - 튜플형
-     - 
+     - False
    * - layer_name
      - 입력 텐서 이름
      - col과 같은 값으로 간주합니다.
      - (body, tags, title)
      - 튜플형
-     - 
-   * - version
-     - 모델의 서빙 버전
-     - 최근 버전
-     - 3
-     - 숫자형
-     - 
+     - False
    * - tag
      - 태그값
      - 
      - ('T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot')
      - 튜플형
-     - 
-
-설정파일 제출 방식
-
-- 설정파일을 객체저장소에 업로드하고, 업로드 경로를 입력하여 예측합니다.
-- `설정 파일 포맷 <https://www.tensorflow.org/tfx/serving/api_rest#request_format_2>`_
-- 설정 파일 예시
-
-.. code-block:: none
-
-   {
-   "signature_name": "serving_default",
-   "instances": [[[[0.0], [0.0], [0.0],..., [0.011764705882352941], [0.0], [0.0], [0.45098039215686275], [0.4470588235294118], [0.41568627450980394], [0.5372549019607843],..., [0.0], [0.0]]]]
-   }
-
-
-``serving predict model_name conf=OBJECTSTORAGE.{CONNECTOR_NAME}:{KEY} version=1 tag=(T-shirt/top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle boot)``
-
-.. list-table::
-   :header-rows: 1
-
-   * - 이름
-     - 설명
-     - 기본값
-     - 예시값
-     - 타입
-     - 필수
-   * - model_name
-     - 예측할 모델명
-     - 
-     - mnist_v1
-     - 문자열
-     - O
-   * - conf
-     - 설정 파일
-     - 
-     - OBJECTSTORAGE.MINAI:USERS/root/clothes/predict/1.json
-     - 문자열
-     - O
-   * - version
-     - 모델의 서빙 버전
-     - 최근 버전
-     - 3
-     - 숫자형
-     - 
-   * - tag
-     - 태그값
-     - 
-     - ('T-shirt/top', 'Trouser', 'Pullover', 'Dress', 'Coat', 'Sandal', 'Shirt', 'Sneaker', 'Bag', 'Ankle boot')
-     - 튜플형
-     - 
-
-``CONNECTOR_NAME`` : Conncetor Name입니다. IRIS UI에서 연결정보 생성 후, 연결정보의 ``이름`` 컬럼에서 확인할 수 있는 값입니다.
-
-``KEY`` : OBJECTSTORAGE의 key입니다. bucket은 생략해야 합니다.
+     - False
 
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -190,7 +115,7 @@ angora mnist test 데이터의 30개 레코드를 소스로하여 예측합니�
 
 - layer_name을 잘못 입력하면 아래와 같이 에러 문구가 나옵니다. 에러 문구의 signiture를 참조하여 layer_name을 입력하면 됩니다. 아래 예시에서는 input 텐서의 이름을 feature로 잘못 주었고, input 텐서 이름을 Conv1_input로 주어야 합니다.
 
-.. code-block:: none
+.. code-block:: python
 
    raise AngoraException(servingCommand.EXCEPTION_05.format(res.status_code, res.text, signature))
    angora.exceptions.AngoraException: Incorrect response[404]. Please check the signature. 
@@ -206,7 +131,9 @@ angora mnist test 데이터의 30개 레코드를 소스로하여 예측합니�
    shape: (-1, 10)\\n      
    name: StatefulPartitionedCall:0\\nMethod name is: tensorflow/serving/predict\\n\"\n
 
-``model name = 'angora mnist test' | top 30 feature | serving predict mnist_v1 col=feature shape=[(28,28,1)] layer_name=Conv1_input version=12 tag=(zero, one, two, three, four, five, six, seven, egiht, nine, ten)``
+.. code-block:: python
+
+   model name = 'angora mnist test' | top 30 feature | serving predict mnist_v1 col=feature shape=[(28,28,1)] layer_name=Conv1_input version=12 tag=(zero, one, two, three, four, five, six, seven, egiht, nine, ten)
 
 출력 결과
 
@@ -244,7 +171,9 @@ angora mnist test 데이터의 30개 레코드를 소스로하여 예측합니�
 
 multi_in_out test 데이터를 소스로 예측합니다. 다중 컬럼을 입력으로하고 다중 컬럼을 출력합니다. 특징 컬럼과 input 텐서이름이 같다면 layer_name을 생략합니다. version을 최신 버전을 사용할거라면 생략합니다.
 
-``model name = 'multi_in_out test' | serving predict multi_in_out col=(title, body, tags) shape=[(10), (10), (12)]``
+.. code-block:: python
+
+   model name = 'multi_in_out test' | serving predict multi_in_out col=(title, body, tags) shape=[(10), (10), (12)]
 
 출력 결과
 
@@ -269,45 +198,6 @@ multi_in_out test 데이터를 소스로 예측합니다. 다중 컬럼을 입�
      - ...
      - ...
 
-설정파일을 제출하여 예측합니다. 옷을 분류하는 모델이 사용되었습니다.
-
-``serving predict clothes conf=OBJECTSTORAGE.MIN_AI:USERS/namjals/clothes/predict/1.json version=1 tag=(T-shirt/top, Trouser, Pullover, Dress, Coat, Sandal, Shirt, Sneaker, Bag, Ankle boot)``
-
-출력 결과
-
-.. list-table::
-   :header-rows: 1
-
-   * - predictions
-     - probability
-     - interpreted
-   * - [0.14, 0.03, 0.03...]
-     - 0.38
-     - Ankle boot
-   * - ...
-     - ...
-     - ...
-
-
-Parameters BNF
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-.. code-block:: none
-
-   serving_command : PREDICT WORD options
-   options : option
-           | options option
-           |
-   option : WORD EQ WORD
-           | WORD EQ WORD_WITH_BRACKET
-           | WORD EQ WORD_WITH_SQUARE_BRACKET
-
-   WORD = [^ |^\|^\'|\"|^\=]+
-   WORD_WITH_BRACKET =  \([^\|^\'|\"|^\=]+\)
-   WORD_WITH_SQUARE_BRACKET = \[[^\|^\'|\"|^\=]+\]
-   EQ = \=
-   PREDICT = (?i)predict
-
 
 serving status
 ----------------------------------------------------------------------------------------------------
@@ -317,7 +207,9 @@ serving status
 Parameters
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-``serving status model_name``
+.. code-block:: python
+
+   serving status (user=<user>)? name=<model_name>
 
 .. list-table::
    :header-rows: 1
@@ -328,19 +220,27 @@ Parameters
      - 예시값
      - 타입
      - 필수
-   * - model_name
-     - 서빙 상태를 확인할 모델명
-     - 
+   * - user
+     - 모델 소유주 명
+     - API를 요청하는 user
+     - demo
+     - string
+     - False
+   * - name
+     - 모델명
+     -
      - mnist_v1
-     - 문자열
-     - O
+     - string
+     - True
 
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 mnist_v1모델의 서빙 상태를 확인합니다.
 
-``serving status mnist_v1``
+.. code-block:: python
+
+   serving status name=mnist_v1
 
 .. list-table::
    :header-rows: 1
@@ -358,13 +258,3 @@ mnist_v1모델의 서빙 상태를 확인합니다.
      - ...
      - ...
 
-
-Parameters BNF
-''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-.. code-block:: none
-
-   serving_command : STATUS WORD
-
-   WORD = [^ |^\|^\'|\"|^\=]+
-   STATUS = (?i)status
