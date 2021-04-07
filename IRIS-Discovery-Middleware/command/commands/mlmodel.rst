@@ -4,21 +4,23 @@ mlmodel
 개요
 ----------------------------------------------------------------------------------------------------
 
-| ML 모델을 관리하는 명령어
+| ML 모델을 관리하는 명령어입니다.
+| 현재(2021-04월) 는 IRIS 에서 fit 명령어로 학습한 후 저장한 spark type 의 ML 모델과 
+| IRIS 외부에서 tensorFlow 로 만든 tf type의 ML 모델을 대상으로 합니다. 
 
 설명
 ----------------------------------------------------------------------------------------------------
 
-학습 모델에 대해 목록 조회, 상세 조회, 삭제, 적재, 반출, 배포, 중지 기능을 제공합니다.
+IRIS Discovery 의 ML 모델 저장소에 저장된 학습 모델에 대해 목록 조회, 상세 조회, 삭제, 적재, 반출, 배포, 중지 기능을 제공합니다.
 
 - operation 종류
-    - list
-    - summary
-    - delete
-    - import
-    - export
-    - deploy
-    - stop
+    - list     ( spark 모델 / tf 모델 )
+    - summary  ( spark 모델 / tf 모델 )
+    - delete   ( spark 모델 / tf 모델 )
+    - import  ( only tf 모델 )
+    - export  ( only tf 모델 )
+    - deploy  ( only tf 모델 )
+    - stop    ( only tf 모델 )
 
 - dsl-object API 이용시 json 구성 (각 operation 에 대한 파라미터는 아래에서 확인)
 
@@ -39,7 +41,7 @@ mlmodel
 mlmodel list
 ----------------------------------------------------------------------------------------------------
 
-- 전체 모델 목록을 조회합니다.
+- IRIS Discovery 의 ML 모델 저장소에서 관리중인 전체 모델 목록을 조회합니다.(spark 모델과 tf 모델 모두 사용 가능)
 
 Parameters
 ''''''''''
@@ -134,7 +136,7 @@ Example
 mlmodel summary
 ----------------------------------------------------------------------------------------------------
 
-- 특정 모델의 상세 내용을 조회합니다.
+- IRIS Discovery 의 ML 모델 저장소에 저장된 특정 모델의 상세 내용을 조회합니다.(spark 모델과 tf 모델 모두 사용 가능)
 
 
 Parameters
@@ -197,16 +199,16 @@ Parameters
      - model.h5
    * - format
      - 포멧
-     - h5, saved_model 등
+     - h5 또는 saved_model
    * - type
      - 유형
-     - spark, tf, sklearn, r 등
+     - spark 또는 tf
    * - category
      - 범주
      - classification, regression 등
    * - algorithm
      - 알고리즘
-     - deep
+     - deep 또는 RandomForestRegression ,,,
    * - feature
      - 특징 컬럼
      - x
@@ -314,7 +316,7 @@ Example
 mlmodel delete
 ----------------------------------------------------------------------------------------------------
 
-- 특정 모델을 삭제합니다. 모델 meta정보와 객체저장소의 모델 파일들을 삭제합니다. 성공 시, 모델목록을 보여줍니다.
+- IRIS Discovery의 ML 모델 저장소에서 특정 모델을 삭제합니다. 모델 meta정보와 객체저장소의 모델 파일들을 삭제합니다. 성공 시, ML 모델 저장소에서 관리 중인 모델목록을 보여줍니다.( spark 모델과 tf 모델 모두 사용 가능 )
 
 Parameters
 ''''''''''
@@ -405,7 +407,7 @@ Examples
 mlmodel import
 ----------------------------------------------------------------------------------------------------
 
-객체 저장소에 있는 내 계정 소유의 학습 모델 파일을 IRIS Discovery Service가 관리하는 객체저장소에 적재 합니다.
+객체 저장소에 있는 사용자의 계정 소유의 학습 모델 파일을 IRIS Discovery Service가 관리하는 ML 모델 저장소에 적재 합니다.(tf 모델만 사용 가능)
 적재된 모델은 학습, 예측, 평가, 배포 명령어 등에 활용할 수 있습니다.
 
 학습 모델 파일은 tar 아카이브 형태이어야 하며, 아카이브 파일 내 타입별 필수 파일은 다음과 같습니다.
@@ -429,13 +431,13 @@ Parameters
    * - name
      - 저장할 모델명
      -
-     - sklearn_test
+     - mnist_v1
      - 문자열
      - True
    * - type
      - 유형
      -
-     - sklearn
+     - tf
      - 문자열
      - True
    * - category
@@ -447,13 +449,13 @@ Parameters
    * - algorithm
      - 알고리즘
      -
-     - LogisticRegression
+     - deep
      - 문자열
      - True
    * - format
      - 모델 포멧
      -
-     - pickle 혹은 h5 혹은 saved_model
+     - h5 또는 saved_model
      - 문자열
      - True
    * - connector_id
@@ -465,7 +467,7 @@ Parameters
    * - path
      - 객체 스토리지 내 모델 소스 경로, bucket은 생략해야 합니다.
      -
-     - USERS/root/sklearn_model.tar
+     - USERS/root/model.tar
      - 문자열
      - True
 
@@ -476,10 +478,6 @@ Parameters
 
    * - 타입
      - 필수 포함 파일
-   * - R
-     - 학습 모델  파일 (model.rda)
-   * - Scikit-Learn
-     - 학습 모델  파일 (model.pkl)
    * - Spark
      - 학습 모델  파일 (data.parquet), 학습 모델 메타 파일 (metadata)
    * - TensorFlow
@@ -488,7 +486,7 @@ Parameters
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-- 모델정보를 아카이브한 파일을 IRIS Discovery Service가 관리하는 객체저장소에 업로드 합니다.
+- 모델정보를 아카이브한 tar 파일을 IRIS Discovery Service가 관리하는 객체저장소에 업로드 합니다.
 
 .. code-block:: python
 
@@ -505,9 +503,7 @@ Examples
 mlmodel export
 ----------------------------------------------------------------------------------------------------
 
-객체 저장소에 관리되고 있는 학습 모델 디렉토리를 아카이브하여 개인 객체 저장소에 저장하고 download url을 제공합니다.
-
-관리되고 있는 학습모델은 fit명령으로 학습된 모델 혹은 mlmodel import로 적재된 모델을 의미합니다.
+먼저 IRIS Discovery 의 ML 모델 저장소에서 관리되고 있는 학습 모델을 파라미터로 입력한 연결정보의 개인 객체 저장소에 저장한 후, download url을 제공합니다.(tf 모델만 사용 가능)
 
 
 Parameters
@@ -553,7 +549,7 @@ Parameters
    * - path
      - 객체 스토리지 내 모델 저장 경로, bucket은 생략해야 합니다.
      -
-     - USERS/root/sklearn_model.tar
+     - USERS/root/model.tar
      - 문자열
      - True
 
@@ -561,11 +557,11 @@ Parameters
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-- mnist_v1 모델을 개인 객체 저장소에 저장합니다.
+- mnist_v1 모델을 개인 객체 저장소에 저장하고, 다운로드 받을 수 있는 url 을 통해 로컬PC 로 다운로드합니다.
 
 .. code-block:: python
 
-   mlmodel export name=mnist_v1 path=OBJECTSTORAGE.MIN_AI:USERS/root/tf_mnist.tar
+   mlmodel export user=demo name=mnist_v1 connector_id=179 path=USERS/ROOT/mnist_v1_export.tar
 
 - 출력 결과
 
@@ -576,15 +572,15 @@ Examples
      - download_url
      - expired time (sec)
    * - ok
-     - http://IP:PORT/test/ANGORA/AI/DOWNLOAD/root/mnist_v1/tf_mnist.tar...
+     - http://b-iris.mobigen.com/hdfs-browser/minio/download?path=%2FROOT%2F%2Fmnist_v1_export.tar
      - 3600
 
 mlmodel deploy
 ----------------------------------------------------------------------------------------------------
 
-관리되고 있는 학습된 모델을 서빙 가능하도록 TersorFlow Serving에 배포합니다. tf 타입만 제공합니다.
+mlmodel import 를 통해 IRIS Discovery 의 ML 모델 저장소에서 관리되고 있는 ML 모델(tf type) 을 서빙 가능하도록 TersorFlow Serving에 배포합니다. (tf 모델만 사용 가능)
 
-모델 배포시 버전을 선택하지 않으면 마지막 버전을 배포합니다.
+모델 배포시 버전을 선택하지 않으면 자동으로 마지막 버전을 배포합니다.
 배포가 되면, `serving 명령어 <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Discovery-Middleware/command/commands/serving.html>`_ 로 version별 모델 예측, 모델 서빙 상태 확인이 가능합니다.
 
 
@@ -623,9 +619,9 @@ Parameters
      - int
      - False
    * - label
-     - 배포 모델 설명
+     - 배포 모델의 설명
      -
-     - unstable
+     - unstable 또는 stable 등
      - 문자열
      - False
 
@@ -633,7 +629,7 @@ Parameters
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-- 학습된 mnist_v1모델을 배포합니다.
+- 학습된 mnist_v1모델을 서빙 배포합니다.
 
 .. code-block:: python
 
@@ -646,7 +642,7 @@ Examples
 .. list-table::
    :header-rows: 1
 
-   * - reslut
+   * - result
      - latest_version
      - serving_name
    * - on
@@ -666,28 +662,19 @@ mnist_v1모델을 업데이트하고 재배포합니다.
 .. list-table::
    :header-rows: 1
 
-   * - reslut
+   * - result
      - latest_version
      - serving_name
    * - on
      - 2
      - root_mnist_v1
 
-`restapi <https://www.tensorflow.org/tfx/serving/api_rest#url_4>`_ 로 배포 모델을 확인합니다.
 
-``!curl -d '{"signature_name": "serving_default", "instances": [[[[0.0], [0.0],..., [0.8196078431372549], [0.8156862745098039], [1.0], [0.8196078431372549],..., [0.0], [0.0], [0.0]]]]}'
--X POST http://localhost:8501/v1/models/root_mnist_v1/versions/2:predict``
-
-.. code-block:: json
-
-   {
-       "predictions": [[1.34083416e-06, 6.62974609e-09, 4.16653876e-08, 6.56875301e-08, 1.06879767e-07, 0.00958874, 7.81568906e-06, 0.354254484, 0.00198251382, 0.634164929]]
-   }
 
 mlmodel stop
 ----------------------------------------------------------------------------------------------------
 
-서빙 중인 배포 모델을 더 이상 서빙 하지 않도록 중지합니다. 버전을 선택하지 않으면 마지막 버전을 중지합니다.
+서빙 중인 배포 모델을 더 이상 서빙 하지 않도록 중지합니다. 버전을 선택하지 않으면 마지막 버전을 중지합니다.(tf 모델만 사용 가능)
 
 Parameters
 ''''''''''
@@ -738,6 +725,6 @@ Examples
 .. list-table::
    :header-rows: 1
 
-   * - reslut
-   * - ok
+   * - result
+   * - off
 
