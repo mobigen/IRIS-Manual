@@ -16,7 +16,9 @@ eval 의 input 데이터는 predict 명령어의 결과입니다.
 학습 모델의 type(spark / tf) 과 유형(classification / regression) 에 따라 다른 통계량을 출력합니다.
 
     Spark ML 을 통한 학습 모델 / Classification 유형 -> 학습 모델의 정확도(accuracy) 를 출력합니다.
+    
     Spark ML 을 통한 학습 모델 / Regression 유형 ->  MSE(평균예측오차) , RMSE(root MSE) 를 출력합니다.
+    
     Tensorflow 2.0 을 이용한 deep learning 모델 / Classification 유형 -> 학습 모델의 정확도(accuracy) 를 출력합니다.
 
 Examples
