@@ -119,6 +119,7 @@ Examples
      - ...
 
 
+- IRIS Studio 에서 챠트(시계열분포) 객체를 이용하여 3개 군집별 4개 feature 분포를 그려서 분리가 잘 되었는지 시각적으로 확인해 봅니다. 
 
 .. image:: ../images/spark_Kmeans_02.png
   :scale: 40%
