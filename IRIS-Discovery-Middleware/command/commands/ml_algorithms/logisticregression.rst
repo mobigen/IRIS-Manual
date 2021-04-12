@@ -10,18 +10,157 @@ Logistic Regression 학습 알고리즘 파라미터 설명서 입니다.
 개요
 ----------------------------------------------------------------------------------------------------
 
-Logistic Regression 이진 분류에 많이 사용되는 학습 알고리즘입니다. 최적화 알고리즘은 LBFGS를 사용합니다.
+Logistic Regression 은 데이터가 특정 카테고리에 속할지를 0과 1사이의 연속적인 확률로 예측하는 회귀(regression) 알고리즘 중 하나입니다.
+일반적인 회귀 모형은 값(Y)을 예측할 때 사용하지만, Logistic Regression 은 확률에 기반하여 특정 데이터가 어떤 카테고리에 속할지를 결정하게 되어 결국에는 분류(classification) 문제를 해결하는데 사용됩니다.
 
-**현재 Binary 분류는 구현이 안되있는 상태입니다.**
-**LogisticRegression 멀티 클래스만 지원하는 상태입니다.**
+Logistic Regression 은 주로 0,1 을 구분하는 이진 분류에 많이 사용되지만, 현재(2021.04월) IRIS 에서는 3개 class 이상의 multi-class 분류만을 지원하고 있습니다.
 
-설명
-----------------------------------------------------------------------------------------------------
-
-이진분류에 주로 사용되지만 다중 분류에도 사용할수 있는 학습 알고리즘입니다. 최적화 알고리즘으로 SGD, LBFGS를 사용할 수 있지만 현재 저희가 제공하는 최적화 알고리즘 LBFGS를 사용합니다.
 
 Examples
 ----------------------------------------------------------------------------------------------------
+
+
+붓꽃 데이터의 Sepal_Length,Sepal_Width,Petal_Length,Petal_Width 4개의 feature 컬럼으로 setosa, vercicolor, virginica 3개의 종(Species) 을 분류하는 모델을 생성하고, 저장합니다.
+그리고 테스트 데이터로 생성한 분류 모델을 통해 예측을 해보고, 모델의 정확도를 검증해 보는 예제입니다.
+
+
+- 학습 데이터 : 붓꽃(iris) 데이터
+
+
+.. list-table::
+   :header-rows: 1
+
+   * - Sepal_Length
+     - Sepal_Width
+     - Petal_Length
+     - Petal_Width
+     - Species
+   * - 5.1
+     - 3.5
+     - 1.4
+     - 0.2
+     - setosa
+   * - 4.9
+     - 3.0
+     - 1.4
+     - 0.2
+     - setosa
+   * - 6.6
+     - 2.9
+     - 4.6
+     - 1.3
+     - vercicolor
+   * - ...
+     - ...
+     - ...
+     - ...
+     - ...
+
+
+- 데이터 정규화 및 전처리 과정
+    - Sepal_Length,Sepal_Width,Petal_Length,Petal_Width  4개 필드를 ``scaler minmax`` 명령어로 0 에서 1사이의 값으로 scaling 합니다.
+    - text 형인 Species 필드를 ``indexer``  명령어로 0 부터 시작하는 정수형 변수로 변환합니다. 
+
+.. code-block:: none
+
+   * | scaler minmax Sepal_Length to Sepal_Length_s, Sepal_Width to Sepal_Width_s, 
+                     Petal_Length to Petal_Length_s, Petal_Width to Petal_Width_s
+     | indexer Species to new_Species | typecast new_Species integer
+
+    
+- 학습 모델 생성 및 저장 
+    - 정규화 변환한 Sepal_Length_s,Sepal_Width_s,Petal_Length_s,Petal_Width_s  4개 필드 대상으로 3개의 종(Species)으로 분류하는 모델을 만듭니다.
+    - "LogisticRegression_model_iris"  라는 학습 모델 이름으로 ML 모델 저장소에 저장합니다.
+
+
+.. code-block:: none
+
+   ... | fit LogisticRegression FEATURES fields1,fields2,,  LABEL 라벨컬럼 maxIter=100 (regParam=0.1 fitIntercept=True) INTO LogisticRegression_model_iris 
+   
+   # example : iris 붓꽃데이터 예시
+   ... | fit LogisticRegression FEATURES Sepal_Length_s,Sepal_Width_s,Petal_Length_s,Petal_Width_s LABEL new_Species INTO LogisticRegression_model_iris
+
+
+- fit 결과 
+
+
+.. list-table::
+   :header-rows: 1
+
+   * - features
+     - space
+     - accurary
+     - precision
+     - f1
+     - recall
+   * - intercept
+     - \|
+     - 0.981
+     - 0.981
+     - 0.981
+     - 0.981
+   * - Sepal_Length_s
+     - \|
+     - 
+     - 
+     -
+     -
+   * - Sepal_Width_s
+     - \|
+     - 
+     -
+     -
+     -
+   * - Petal_Length_s
+     - \|
+     - 
+     -
+     -
+     -
+   * - Petal_Width_s
+     - \|
+     -
+     -
+     -
+     -
+
+
+
+ 
+
+
+- 테스트 데이터로 군집 예측 : predict
+
+
+.. code-block:: none
+
+   ... | predict LogisticRegression_model_iris Sepal_Length_s,Sepal_Width_s,Petal_Length_s,Petal_Width_s
+
+   #  예측 결과의 검증까지 하는 경우
+   ... | predict  LogisticRegression_0412 Sepal_Length_s, Sepal_Width_s, Petal_Length_s, Petal_Width_s
+       | eval classification new_Species prediction
+
+- predict 결과
+
+.. image:: ../images/Logistic_iris_1.png
+  :scale: 40%
+  :alt: Logistic Regression 1
+
+- eval 결과
+
+.. list-table::
+   :header-rows: 1
+
+   * - all_count
+     - correct_count
+     - wrong_count
+     - accuracy
+   * - 50
+     - 48
+     - 2
+     - 96
+
+
 
 Parameters
 ----------------------------------------------------------------------------------------------------
