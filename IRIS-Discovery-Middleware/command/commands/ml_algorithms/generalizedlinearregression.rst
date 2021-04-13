@@ -8,60 +8,37 @@ generalizedLinearRegression
 개요
 ----------------------------------------------------------------------------------------------------
 
-Linear Regression에서 각각의 column에 대한 중요도를 뽑아내지 못 하는 점을 보완하기 위해 일반화 선형 모델(generalized linear regression) 알고리즘을 사용합니다.
+generalizedLinearRegression(일반화선형회귀) 를 이용하여 예측 모델을 학습하는 알고리즘에 대한 설명서입니다.
+
 
 설명
 ----------------------------------------------------------------------------------------------------
 
-선형회귀 모델의 종속변수(=반응변수)는 정규 분포를 따릅니다. 일반화 선형 모델(generalized linear regression)은 선형회귀 모델을 확장하여 종속변수의 분포가 정규 분포외에 다른 확률분포(이항분포, 포아송 분포 등)도 고려한 확장 모델이라고 할 수 있습니다.
+선형회귀 모델의 종속변수(=Y)는 정규 분포를 따른다고 가정하여 만든 모델입니다.
+일반화 선형 모델(generalized linear regression)은 선형회귀 모델을 확장하여 종속변수의 분포가 정규 분포외에 다른 확률분포(이항분포, 포아송 분포 등)도 고려한 확장 모델이라고 할 수 있습니다.
 이 때 종속변수의 family 분포(gaussian, binomial, poisson, gamma and tweedie) 는 사용자가 결정해야합니다.
-
 
 
 Examples
 ----------------------------------------------------------------------------------------------------
 
-집값에 대한 샘플데이터 입니다.
+generalizedLinearRegression 알고리즘으로 주택 가격의 예측에 적용한 예제입니다. 
 
-.. list-table::
-   :header-rows: 1
+예제에 사용하는 데이터는 keras 의 dataset 중 하나인 boston housing 데이터입니다.
+보스턴 시 주택의 가격 데이터로 여러 개의 측정지표들 (예를 들어, 범죄율, 학생/교사 비율 등) 13개를 독립변수(X)로 포함하고, 보스턴 인근의 주택 가격의 중앙값(median value) 1개를 종속변수(Y)로 하여 총 14개의 변수로 구성 되어 있습니다.
 
-   * - indus
-     - rm
-     - dis
-     - tax
-     - lstat
-     - medv
-   * - 2.309999943
-     - 6.574999809
-     - 4.090000153
-     - 296
-     - 4.980000019
-     - 24
-   * - 7.070000172
-     - 6.421000004
-     - 4.967100143
-     - 242
-     - 9.140000343
-     - 21.60000038
-   * - 7.070000172
-     - 7.184999943
-     - 4.967100143
-     - 242
-     - 4.03000021
-     - 34.70000076
-   * - 2.180000067
-     - 6.998000145
-     - 6.062200069
-     - 222
-     - 2.940000057
-     - 33.40000153
-   * - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
+
+데이터 출처 : https://keras.io/api/datasets/#usage_6 
+
+
+- 데이터
+
+.. image:: ../images/GLM01.png
+  :scale: 40%
+  :alt: GLM 01
+
+
+| 필드 설명
 
 
 .. list-table::
@@ -69,174 +46,103 @@ Examples
 
    * - 속성
      - 설명
-   * - CRIM
+   * - crim
      - 마을별 범죄율
-   * - ZN
+   * - zn
      - 주거지의 비율
-   * - INDUS
+   * - indus
      - 공업 지의 비율
-   * - CHAS
+   * - chas
      - 강변 위치 여부
-   * - NOX
+   * - nox
      - 대기 중 질소 산화물 농도
-   * - RM
+   * - rm
      - 가구당 방의 개수
-   * - AGE
+   * - age
      - 1940년 전에 지어진 집의 비율
-   * - DIS
+   * - dis
      - 일터와의 평균 거리
-   * - RAD
+   * - rad
      - 고속도로 접근성
-   * - TAX
+   * - tax
      - 재산세율
-   * - PTRATIO
+   * - ptratio
      - 마을 별 학생-교사 비율
-   * - B
+   * - b
      - 흑인 주거 비율
-   * - LSTAT
+   * - lstat
      - 저소득층 주거 비율
-   * - MEDV
+   * - medv
      - 집값 중간값
 
 
-fit으로 generalized linear regression 적용해 분류 하는 모델을 생성하는 명령어 예제입니다.
+- 데이터 전처리
+    - 13개 변수중 범주형변수 chas(강의 경계일 때는 1,아닐 때는 0) 를 제외하고, 각각의 변수들은 측정값의 단위가 다르기 때문에 스케일링이 필요합니다.  
+    - 종속변수(Y) 인 주택가격 중간값인 medv 는 고가 주택일 수록 예측값과 실제값의 차이가 클 수 있습니다. 따라서 medv 는 ``로그변환`` 합니다.
 
 .. code-block:: none
 
-   * | fit GeneralizedLinearRegression FEATURES rm,tax,indus,lstat,dis LABEL medv maxIter=100 regParam=0.1 fitIntercept=True solver=irls INTO modelB
+    * | scaler standard crim to s_crim, zn to s_zn, indus to s_indus, nox to s_nox, rm to s_rm, age to s_age, dis to s_dis, rad to s_rad, tax to s_tax, ptratio to s_ptratio, b to s_b, lstat to s_lstat
+      | sql "select *, log(10, medv) as log10_medv from angora"
 
-.. list-table::
-   :header-rows: 1
-
-   * - features
-     - estimate
-     - coefficientStandardErrors
-     - tValues
-     - pValues
-     - space
-     - dispersion
-     - rmse
-     - r2
-     - mae
-   * - intercept
-     - 8.3766
-     - 3.431
-     - 2.4415
-     - 0.015
-     - |
-     - 28.2425
-     - 5.2828
-     - 0.6694
-     - 3.7289
-   * - rm
-     - 4.7425
-     - 0.432
-     - 10.9786
-     - 0
-     - |
-     - None
-     - None
-     - None
-     - None
-   * - tax
-     - -0.0078
-     - 0.002
-     - -3.8132
-     - 0.0002
-     - |
-     - None
-     - None
-     - None
-     - None
-   * - indus
-     - -0.1239
-     - 0.0612
-     - -2.0267
-     - 0.0432
-     - |
-     - None
-     - None
-     - None
-     - None
-   * - lstat
-     - -0.6136
-     - 0.0499
-     - -12.29
-     - 0
-     - |
-     - None
-     - None
-     - None
-     - None
-   * - dis
-     - -0.8767
-     - 0.161
-     - -5.4454
-     - 0
-     - |
-     - None
-     - None
-     - None
-     - None
+.. image:: ../images/GLM02.png
+  :scale: 40%
+  :alt: GLM 02
 
 
-predict로 modelB에 샘플 데이터를 다시 넣어 예측하는 명령어 예제입니다.
+
+- 모델 학습 1차 : fit GeneralizedLinearRegression
+    - 1차 모델은 scaling한 변수 12개 + 범주형 변수 chas 를 설명 변수(X) 총 13개로 GeneralizedLinearRegression 알고리즘의 예측모델을 생성합니다.  
+    - GeneralizedLinearRegression 은 13개 feature 변수들 중에서 종속 변수인 주택가격(log10_medv)에 영향을 주는 변수를 선택할 수 있도록 통계량(pValues)을 제공합니다.
+    - pValues 가 0.05 보다 작은 s_zn, s_indus, s_age, s_rad 를 FEATURE에서 제외해서 다시 모델링을 해봅니다.
+
 
 .. code-block:: none
 
-   * | predict modelB rm,tax,indus,lstat,dis
+   .. 데이터변환 ..| fit GeneralizedLinearRegression FEATURES s_crim, s_zn, s_indus, chas, s_nox, s_rm, s_age, 
+                                                           s_dis, s_rad, s_tax, s_ptratio, s_b, s_lstat 
+                        LABEL log10_medv maxIter=30 regParam=0.1 fitIntercept=True solver=irls  
+   
+   # family model 은 Gaussian(=default) 로 합니다.
 
-fit_predict로 generalized linear regression 적용해 분류 하는 모델을 생성하고 예측하는 명령어 예제입니다.
+
+.. image:: ../images/GLM03.png
+  :scale: 40%
+  :alt: GLM 03
+
+
+- 모델 학습 2차 
+    - 2차 모델은 s_zn, s_indus, s_age, s_rad  를 빼고 예측모델을 생성 / 저장합니다.
+
 
 .. code-block:: none
 
-   * | fit_predict GeneralizedLinearRegression FEATURES rm,tax,indus,lstat,dis LABEL medv maxIter=100 regParam=0.1 fitIntercept=True solver=irls INTO modelB
+   .. 데이터변환 .. | fit GeneralizedLinearRegression FEATURES s_crim, chas, s_nox, s_rm, s_dis, s_tax, s_ptratio, s_b, s_lstat
+                                LABEL log10_medv maxIter=30 regParam=0.1 fitIntercept=True solver=irls INTO model_GLM
 
-.. list-table::
-   :header-rows: 1
 
-   * - indus
-     - rm
-     - dis
-     - tax
-     - lstat
-     - medv
-     - prediction
-   * - 2.309999943
-     - 6.574999809
-     - 4.090000153
-     - 296
-     - 4.980000019
-     - 24
-     - 30.327170453
-   * - 7.070000172
-     - 6.421000004
-     - 4.967100143
-     - 242
-     - 9.140000343
-     - 21.60000038
-     - 26.105575673
-   * - 7.070000172
-     - 7.184999943
-     - 4.967100143
-     - 242
-     - 4.03000021
-     - 34.70000076
-     - 32.864401681
-   * - 2.180000067
-     - 6.998000145
-     - 6.062200069
-     - 222
-     - 2.940000057
-     - 33.40000153
-     - 34.881037647
-   * - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
+.. image:: ../images/GLM04.png
+  :scale: 40%
+  :alt: GLM 04
+
+
+- 테스트 데이터로 예측 : predict
+    - predict로 model_GLM 에 테스트 데이터를 입력받아 주택가격을 예측하는 명령어 예제입니다.
+    - 실제값 log10_medv 와 예측값 prediction 의 예측오차와 예측오차제곱근(RMSE)를 같이 구합니다.
+
+.. code-block:: none
+
+   .. 데이터변환 .. | predict model_GLM s_crim, chas, s_nox, s_rm, s_dis, s_tax, s_ptratio, s_b, s_lstat
+      | sql "select log10_medv, prediction, (log10_medv - prediction ) as estimateErr, 
+                    sqrt(log10_medv - prediction ) as sqrt_estimateErr from angora"
+
+
+
+.. image:: ../images/GLM06.png
+  :scale: 40%
+  :alt: GLM 06
+
+
 
 
 Parameters
@@ -334,93 +240,4 @@ Parameters BNF
    LBRACKET = \[
    RBRACKET = \]
    DOUBLE = [-+]?[0-9]+(\.([0-9]+)?([eE][-+]?[0-9]+)?|[eE][-+]?[0-9]+)
-
-Problems
-----------------------------------------------------------------------------------------------------
-
-
-* 
-  구현 문제인지, 다른 문제인지 확인 불가
-
-  .. code-block:: none
-
-     File"/Users/jungjunhwang/Desktop/work/code/fit_work/SparkGenerlizedLinearRegression.py", line 245, in modeling eval_dict['pValues'] = summary.pValues
-
-     File "/Users/jungjunhwang/spark-2.2.0-bin hadoop2.7/python/pyspark/ml/regression.py", line 1719, in pValues
-         return self._call_java("pValues")
-
-     IllegalArgumentException: u'requirement failed: degreesOfFreedom must be positive, but got -4.0'
-
-  로컬 테스트시 column의 갯수 혹은 column들의 관계에 따라 pValue 값을 계산하지 못함.
-
-  Data-Discovery-Service 서버 테스트 시 정상작동 그러나, 값이 정확한지 확인 불가.
-
-  .. code-block:: none
-
-     <angora Test Command>
-     ... | fit SparkGeneralizedLinearRegression features * LABEL medv maxIter=100 INTO modelD
-
-* 
-  값이 정확한지 확인 불가.
-
-  .. code-block:: none
-
-     <angora Test Command>
-     ... | fit SparkGeneralizedLinearRegression FEATURES rm,tax,indus,lstat,crim,age,b,rad LABEL medv maxIter=100 regParam=0.1 fitIntercept=True INTO modelD
-
-Data-Discovery-Service_TEST
-
-.. list-table::
-   :header-rows: 1
-
-   * - Coeffiecient
-     - estimate
-     - standError
-     - tValues
-     - pValues
-   * - intercept
-     - -3.3659
-     - 0.4538
-     - 11.2661
-     - 0.0
-   * - rm
-     - 5.1128
-     - 0.0041
-     - -3.5127
-     - 0.0005
-   * - tax
-     - -0.0144
-     - 0.0604
-     - 0.7848
-     - 0.433
-   * - indus
-     - 0.0474
-     - 0.057
-     - -9.8506
-     - 0.0
-   * - lstat
-     - -0.5619
-     - 0.0368
-     - -1.9531
-     - 0.0514
-   * - crim
-     - -0.0719
-     - 0.0123
-     - 1.3831
-     - 0.1673
-   * - age
-     - 0.017
-     - 0.003
-     - 3.1231
-     - 0.0019
-   * - b
-     - 0.0094
-     - 0.0717
-     - 2.8293
-     - 0.0049
-   * - rad
-     - 0.2028
-     - 3.6905
-     - -0.9121
-     - 0.3622
 
