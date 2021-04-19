@@ -70,18 +70,39 @@ Parameters
    * - version
      - 버전
      - 1
-   * - type
+   * - description
+     - 모델 설명
+     - 모델 설명입니다.
+   * - analysis_tool
      - 유형
      - spark, tf, sklearn, r 등
-   * - category
+   * - kind
      - 범주
      - classification, regression 등
    * - algorithm
      - 알고리즘
      - deep
+   * - feature
+     - 학습 피쳐
+     -
+   * - label
+     - 학습 라벨
+     -
    * - serving
      - 모델 서빙 상태
      - on / off
+   * - serving_name
+     - 모델 서빙 이름
+     - root_mnist_v1
+   * - state
+     -
+     -
+   * - data_model_name
+     - fit 명령어를 이용 할 때 학습에 사용한 데이터모델 명
+     -
+   * - query
+     - fit 명령어를 이용 할 때 학습에 사용한 쿼리
+     -
    * - create
      - 생성 시간
      - 20191001145628
@@ -105,20 +126,34 @@ Example
      - user
      - name
      - version
-     - type
-     - category
+     - description
+     - analysis_tool
+     - kind
      - algorithm
+     - feature
+     - label
      - serving
+     - serving_name
+     - state
+     - data_model_name
+     - query
      - create
      - modified
    * - 1
      - root
      - mnist_v1
      - 1
+     - 모델 설명입니다.
      - tf
      - classification
      - deep
+     -
+     -
      - off
+     - root_mnist_v1
+     -
+     -
+     -
      - 2019/11/19 00:11:22
      - 2019/11/19 00:11:33
    * - ...
@@ -131,7 +166,13 @@ Example
      - ...
      - ...
      - ...
-
+     - ...
+     - ...
+     - ...
+     - ...
+     - ...
+     - ...
+     - ...
 
 mlmodel summary
 ----------------------------------------------------------------------------------------------------
@@ -200,10 +241,10 @@ Parameters
    * - format
      - 포멧
      - h5 또는 saved_model
-   * - type
+   * - analysis_tool
      - 유형
      - spark 또는 tf
-   * - category
+   * - kind
      - 범주
      - classification, regression 등
    * - algorithm
@@ -278,9 +319,9 @@ Example
      - saved_model.pb
    * - format
      - saved_model
-   * - type
+   * - analysis_tool
      - tf
-   * - category
+   * - kind
      - deep
    * - algorithm
      - deep
@@ -316,7 +357,7 @@ Example
 mlmodel delete
 ----------------------------------------------------------------------------------------------------
 
-- IRIS Discovery의 ML 모델 저장소에서 특정 모델을 삭제합니다. 모델 meta정보와 객체저장소의 모델 파일들을 삭제합니다. 성공 시, ML 모델 저장소에서 관리 중인 모델목록을 보여줍니다.( spark 모델과 tf 모델 모두 사용 가능 )
+- IRIS Discovery의 ML 모델 저장소에서 특정 모델을 삭제합니다. 모델 meta정보와 객체저장소의 모델 파일들을 삭제합니다. ( spark 모델과 tf 모델 모두 사용 가능 )
 
 Parameters
 ''''''''''
@@ -367,42 +408,8 @@ Examples
 .. list-table::
    :header-rows: 1
 
-   * - id
-     - user
-     - name
-     - type
-     - category
-     - algorithm
-     - serving
-     - create
-     - modified
-   * - 1
-     - root
-     - multi_in_out
-     - tf
-     - classification
-     - deep
-     - on
-     - 2020/03/24 10:20:57
-     - 2020/03/24 10:21:19
-   * - 3
-     - root
-     - tf_clothes
-     - tf
-     - classification
-     - deep
-     - on
-     - 2020/03/25 07:51:30
-     - 2020/03/25 07:53:34
-   * - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
-     - ...
+   * - result
+   * - ok
 
 mlmodel import
 ----------------------------------------------------------------------------------------------------
@@ -417,7 +424,7 @@ Parameters
 
 .. code-block:: python
 
-   mlmodel import name=mnist_v1 type=tf category=classification algorithm=deep format=saved_model connector_id={CONNECTOR_ID} path={KEY}
+   mlmodel import name=mnist_v1 analysis_tool=tf kind=classification algorithm=deep format=saved_model connector_id={CONNECTOR_ID} path={KEY} description={'string' | base64(string)}
 
 .. list-table::
    :header-rows: 1
@@ -434,13 +441,13 @@ Parameters
      - mnist_v1
      - 문자열
      - True
-   * - type
+   * - analysis_tool
      - 유형
      -
      - tf
      - 문자열
      - True
-   * - category
+   * - kind
      - 범주
      -
      - classification
@@ -470,8 +477,14 @@ Parameters
      - USERS/root/model.tar
      - 문자열
      - True
+   * - description
+     - 데이터 모델을 설명하는 설명 문장, 두 가지 타입을 지원합니다. |br| 1. 문자열: single-quote 를 사용해서 문자열 입력 (single-quote 는 사용불가) (ex. ``'모델 설명 문장'`` ) |br| 2. base64 인코딩: base64로 인코딩 한 문자열 입력. ``base64(`` 와 ``)`` 로 감싸서 입력. (모든 문자 사용가능) (ex. ``base64(dGVzdA==)`` )
+     - None
+     - 모델 설명 스트링
+     - 문자열
+     - False
 
-- type 별 필수 포함 파일 명
+- analysis_tool 별 필수 포함 파일 명
 
 .. list-table::
    :header-rows: 1
@@ -490,7 +503,7 @@ Examples
 
 .. code-block:: python
 
-   mlmodel import name=tf_clothes type=tf category=classification algorithm=deep format=saved_model connector_id=aqef32-asdf23-sadf path=USERS/root/clothes/model.tar
+   mlmodel import name=tf_clothes analysis_tool=tf kind=classification algorithm=deep format=saved_model connector_id=aqef32-asdf23-sadf path=USERS/root/clothes/model.tar
 
 - 출력 결과
 
@@ -503,15 +516,16 @@ Examples
 mlmodel export
 ----------------------------------------------------------------------------------------------------
 
-먼저 IRIS Discovery 의 ML 모델 저장소에서 관리되고 있는 학습 모델을 파라미터로 입력한 연결정보의 개인 객체 저장소에 저장한 후, download url을 제공합니다.(tf 모델만 사용 가능)
+IRIS Discovery 의 ML 모델 저장소에서 관리되고 있는 학습 모델 디렉토리를 아카이브하여 download url을 제공합니다.
 
+관리되고 있는 학습모델은 fit명령으로 학습된 모델 혹은 mlmodel import로 적재된 모델을 의미합니다.
 
 Parameters
 ''''''''''
 
 .. code-block:: python
 
-   mlmodel export (user=<user>)? name=<model_name> (version=<version>)? connector_id={CONNECTOR_ID} path={KEY}
+   mlmodel export (user=<user>)? name=<model_name> (version=<version>)?
 
 .. list-table::
    :header-rows: 1
@@ -540,28 +554,16 @@ Parameters
      - 1
      - int
      - False
-   * - connector_id
-     - 객체 스토리지 연결정보 아이디
-     -
-     - 255
-     - 문자열
-     - True
-   * - path
-     - 객체 스토리지 내 모델 저장 경로, bucket은 생략해야 합니다.
-     -
-     - USERS/root/model.tar
-     - 문자열
-     - True
 
 
 Examples
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-- mnist_v1 모델을 개인 객체 저장소에 저장하고, 다운로드 받을 수 있는 url 을 통해 로컬PC 로 다운로드합니다.
+- mnist_v1 모델을 다운 받을 수 있는 링크를 반환합니다.
 
 .. code-block:: python
 
-   mlmodel export user=demo name=mnist_v1 connector_id=179 path=USERS/ROOT/mnist_v1_export.tar
+   mlmodel export user=demo name=mnist_v1 version=1
 
 - 출력 결과
 
@@ -589,7 +591,7 @@ Parameters
 
 .. code-block:: python
 
-   mlmodel deploy (user=<user>)? name=<model_name> (version=<version>)? label='stable'
+   mlmodel deploy (user=<user>)? name=<model_name> (version=<version>)? (label='stable')?
 
 .. list-table::
    :header-rows: 1
@@ -718,7 +720,7 @@ Examples
 
 .. code-block:: python
 
-   mlmodel stop mnist_v1
+   mlmodel stop name=mnist_v1 version=1
 
 - 결과
 
@@ -728,3 +730,7 @@ Examples
    * - result
    * - off
 
+
+.. |br| raw:: html
+
+  <br/>
