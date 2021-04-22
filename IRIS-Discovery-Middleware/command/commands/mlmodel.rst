@@ -417,7 +417,8 @@ Parameters
 
 .. code-block:: python
 
-   mlmodel import name=mnist_v1 type=tf category=classification algorithm=deep format=saved_model connector_id={CONNECTOR_ID} path={KEY}
+   .. | mlmodel import name=mnist_v1 analysis_tool=tf kind=classification algorithm=deep format=saved_model connector_id={CONNECTOR_ID} path={KEY}
+
 
 .. list-table::
    :header-rows: 1
@@ -434,14 +435,14 @@ Parameters
      - mnist_v1
      - 문자열
      - True
-   * - type
-     - 유형
+   * - analysis_tool
+     - 구현 tool
      -
      - tf
      - 문자열
      - True
-   * - category
-     - 범주
+   * - kind
+     - 기계학습 종류
      -
      - classification
      - 문자열
@@ -490,7 +491,8 @@ Examples
 
 .. code-block:: python
 
-   mlmodel import name=tf_clothes type=tf category=classification algorithm=deep format=saved_model connector_id=aqef32-asdf23-sadf path=USERS/root/clothes/model.tar
+   mlmodel import name=tf_clothes analysis_tool=tf kind=classification algorithm=deep format=saved_model connector_id=aqef32-asdf23-sadf path=USERS/root/clothes/model.tar
+   
 
 - 출력 결과
 
