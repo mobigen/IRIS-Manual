@@ -411,7 +411,7 @@
 '''''''''''''''''''''''''''''''''''''''
 
 | 지도 객체에서 기본으로 설정되어 있는 지도 레이어입니다.
-| 기본 지도 레이어로 Naver Web Map 과 Open Street Map 을 지도 API로 제공합니다.
+| 기본 지도 레이어로 Naver Web Map, Open Street Map 과 국토정보플랫폼 Map 을 지도 API로 제공합니다.
 | 데이터 탭의 ``레이어 선택`` 에서 "base map" 을 선택했을 때 메뉴 및 버튼에 관한 설명입니다.
 
 
@@ -457,7 +457,7 @@ base map 의 데이터tab
 
 **지도 API 선택**
 
-| Open Street Map에서 제공하는 API를 사용할지 Naver Web Map에서 제공하는 API를 사용할지를 선택합니다.
+| 다양한 지도 API중에서 어느 API를 사용할지를 선택합니다.
 
 .. image:: ./studio/images/map/map_03.png
     :alt: 지도 API 선택
