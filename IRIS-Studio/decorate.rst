@@ -65,15 +65,15 @@
 ..............................................................................
 
 .. image:: ./studio/images/label/visual_label_1.png
-    :scale: 60%
+    :scale: 40%
     :alt: 라벨 시각화 옵션 - 일반
     
 .. image:: ./studio/images/label/visual_label_2.png
-    :scale: 60%
+    :scale: 40%
     :alt: 라벨 시각화 옵션 - 표시형식
     
 .. image:: ./studio/images/label/visual_label_3.png
-    :scale: 60%
+    :scale: 40%
     :alt: 라벨 시각화 옵션 - 조건부 서식
 
     
@@ -97,6 +97,7 @@
 | 표시형식의 유형을 숫자로 설정하면 천단위로 콤마(,)를 적용할 수 있습니다.
 
 
+
 **조건부 서식**
 
 | 라벨의 글꼴과 배경 색상이 조건에 따라 변경되어 적용하도록 합니다.
@@ -104,7 +105,7 @@
 | 조건은 다음과 같이 설정할 수 있습니다.
 
 .. image:: ./studio/images/label/visual_label_4.png
-    :scale: 60%
+    :scale: 40%
     :alt: 라벨 시각화 옵션 - 조건부서식 예제
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
