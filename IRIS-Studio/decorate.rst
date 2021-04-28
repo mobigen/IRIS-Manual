@@ -65,15 +65,15 @@
 ..............................................................................
 
 .. image:: ./studio/images/label/visual_label_1.png
-    :scale: 40%
+    :scale: 60%
     :alt: 라벨 시각화 옵션 - 일반
     
 .. image:: ./studio/images/label/visual_label_2.png
-    :scale: 40%
+    :scale: 60%
     :alt: 라벨 시각화 옵션 - 표시형식
     
 .. image:: ./studio/images/label/visual_label_3.png
-    :scale: 40%
+    :scale: 60%
     :alt: 라벨 시각화 옵션 - 조건부 서식
 
     
@@ -105,7 +105,7 @@
 | 조건은 다음과 같이 설정할 수 있습니다.
 
 .. image:: ./studio/images/label/visual_label_4.png
-    :scale: 40%
+    :scale: 60%
     :alt: 라벨 시각화 옵션 - 조건부서식 예제
 
 ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
