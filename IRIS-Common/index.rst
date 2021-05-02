@@ -13,5 +13,5 @@ IRIS Bigdata solution 을 활용하기 위한 공통기능 메뉴에 대해 설�
 .. toctree::
     :hidden:
 
-    dashboard/index.rst
+    dashboard/tmp_dash.rst
     inquiry_management/index.rst
