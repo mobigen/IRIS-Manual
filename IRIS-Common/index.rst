@@ -8,4 +8,4 @@ IRIS Bigdata solution 을 활용하기 위한 IRIS 관리 기능 메뉴와 대�
     :hidden:
 
     dashboard/tmp_dash.rst
-    inquiry_management/index.rst
+    inquiry_management/user_management/IRIS_cont.rst
