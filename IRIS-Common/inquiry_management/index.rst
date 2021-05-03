@@ -12,8 +12,7 @@ IRIS의 관리기능에 대해 설명합니다.
 .. toctree::
     :hidden:
 
-    jobs_inquiry/index.rst
-    user_management/index.rst
+    user_management/IRIS_cont.rst
 
     
     
