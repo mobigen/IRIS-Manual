@@ -284,8 +284,4 @@ Command References
 
    commands/**
 
-.. toctree::
-   :hidden:
 
-   commands/TFDeep
-   commands/mymnist
