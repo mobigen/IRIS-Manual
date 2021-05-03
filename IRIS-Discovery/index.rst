@@ -16,4 +16,5 @@ IRIS Discovery
 
     file_browser.rst
     datamodel.rst
+    connect_info.rst
      
