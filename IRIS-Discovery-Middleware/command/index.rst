@@ -124,6 +124,9 @@ Command References
    * - `iris <commands/iris>`_
      - IRIS에 읽기를 하는 명령어 입니다.
      -
+   * - `job <commands/job>`_
+     - 현재 동작하고 있는 DSL 작업들을 관리 할 수 있습니다.
+     -
    * - `join <commands/join>`_
      - 이 명령어는 다른 데이터 모델과 join을 할 때 사용됩니다.
      -
