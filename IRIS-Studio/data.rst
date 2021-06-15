@@ -122,6 +122,8 @@
 | 변수 치환에 관한 문법은 `nunjucks <https://mozilla.github.io/nunjucks/>`_ 을 참조할 수 있습니다.
 |
 | 데이터모델 유형에서 사용하는 검색어 도움말 `Command Reference <http://docs.iris.tools/manual/IRIS-Manual/IRIS-Discovery-Middleware/command/index.html#command-references>`__ 을 참고하시기 바랍니다.
+| 컬럼명에 공백이 존재 할 경우, 백 쿼트로 감싸 주어야 합니다.
+
 
 
 **검색어 입력**
@@ -141,6 +143,12 @@
 .. image:: ./studio/images/common/data_tab_13.png
     :scale: 100 %
     :alt: 전체 변수명 보기
+
+**공백이 존재하는 컬럼명 사용**
+
+.. image:: ./studio/images/common/data_tab_15.png
+    :scale: 100 %
+    :alt: 공백이 존재하는 컬럼명 사용
 
 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
