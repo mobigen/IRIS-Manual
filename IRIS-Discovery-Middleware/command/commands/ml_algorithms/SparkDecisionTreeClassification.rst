@@ -121,7 +121,7 @@ Parameters
      - 각 트리의 instance 마다 cache node id를 사용할지 안할지 여부 결정합니다.
      - 옵션
    * - impurity
-     - 계산 결과에서 얻을 수 잇는 정보의 표준을 결정합니다. (Gini, Entorpy)
+     - 계산 결과에서 얻을 수 있는 정보의 표준을 결정합니다.(노드 분할 기준을 결정합니다.) (Gini, Entorpy)
      - 옵션
    * - checkpointInterval
      - cache 하는 checkpoint의 반복 주기를 설정합니다.
