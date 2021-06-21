@@ -115,6 +115,29 @@ Examples
      - f
      - 60
      - 95
+  
+`A` 필드의 값 중 ClassA와 ClassC를 포함하지 않는 값을 출력합니다.
+
+.. code-block:: none
+
+   ... | not A in ('ClassA', 'ClassC')
+   ... | A not in ('ClassA', 'ClassC')
+
+.. list-table::
+   :header-rows: 1
+
+   * - A
+     - B
+     - C
+     - D
+   * - ClassB
+     - b
+     - 80
+     - 90
+   * - ClassB
+     - c
+     - 70
+     - 100
 
 `A` 필드의 값 중 A 또는 C 로 끝나는 문자열을 포함하는 값을 출력합니다.
 
