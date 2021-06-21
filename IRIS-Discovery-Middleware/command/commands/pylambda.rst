@@ -31,7 +31,7 @@ Parameters
      - 설명
      - 필수/옵션
    * - lambda_expr
-     - Python 의 lambda expression을 의미합니다. 단, ``lambda`` 키워드는 포함하지 않습니다. 또한, 인자는 ``row`` 하나만 들어오게 됩니다.\ :raw-html-m2r:`<br />`\ 예 : row: row[0].replace('2018', '****') (O)\ :raw-html-m2r:`<br />`\ 예 : lambda row: row[0].replace('2018', '****') (X)
+     - Python 의 lambda expression을 의미합니다. 단, ``lambda`` 키워드는 포함하지 않습니다. 또한, 인자는 ``row`` 하나만 들어오게 됩니다.\ :raw-html-m2r:`<br />`\ 예 : row: row[0].replace('2018', '**** ') (O)\ :raw-html-m2r:`<br />`\ 예 : lambda row: row[0].replace('2018', '****') (X)
      - 필수
    * - WITH schema
      - ``WITH`` 는 스키마를 직접 지정하겠음을 지시하는 예약어이며, ``schema``\ 는 schema 표현으로 col_name: * data_type 포맷입니다.\ :raw-html-m2r:`<br />`\ 예 : WITH column1: string, column2: int
@@ -73,7 +73,7 @@ Examples
    * - YEAR
      - LEVEL
      - HOST
-   * - 1018id
+   * - 2018id
      - abc
      - 123
    * - 2019ac
@@ -127,7 +127,7 @@ Examples
      - _2
      - _3
      - _4
-   * - 1018id
+   * - 2018id
      - abc
      - 123
      - abc
@@ -155,7 +155,7 @@ Examples
      - b
      - c
      - d
-   * - 1018id
+   * - 2018id
      - abc
      - 123
      - abc
@@ -265,7 +265,7 @@ input 과 output 의 데이터프레임 컬럼수와 순서가 동일할 때 inp
    * - YEAR
      - LEVEL
      - HOST
-   * - 1018id
+   * - 2018id
      - abc
      - 123
    * - 2019ac
