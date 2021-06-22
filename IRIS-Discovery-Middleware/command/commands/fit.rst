@@ -153,6 +153,11 @@ LogisticRegression을 학습하는 예제 입니다.
 
 Fit으로 logicsticregression을 적용해 분류 하는 모델을 생성하는 명령어 예제입니다.
 
+| FEATURES : 입력 변수입니다. (단순 선형 회귀의 x 변수)
+| LABEL : 예측하는 항목입니다. (단순 션형 회귀의 y 변수)
+| INTO : 학습모델의 이름을 설정합니다. (이후에 모델 이름을 통해서 모델에 접근 가능합니다.)
+|  
+
 .. code-block:: none
 
    ... | fit LogisticRegression FEATURES minmax_a,minmax_b,minmax_c,minmax_d LABEL label maxIter=100 regParam=0.1 fitIntercept=True INTO modelA
@@ -190,6 +195,13 @@ Fit으로 logicsticregression을 적용해 분류 하는 모델을 생성하는 
      - 100
      - 5 sec
      - None
+
+| 저장된 모델은 아래 dsl을 이용하여 확인하실 수 있습니다.
+
+.. code-block:: none
+
+  * | mlmodel list | where name = 'modelA'
+
 
 TensorFlow
 ''''''''''
