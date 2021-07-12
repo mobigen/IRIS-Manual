@@ -145,6 +145,9 @@ Command References
    * - `metatron <commands/metatron>`_
      - metatron에 쓰기를 하는 명령어 입니다.
      -
+   * - `mkdata <commands/mkdata>`_
+     - DSL 에 작성한 데이터를 이용하여 DataFrame 을 만드는 명령어
+     -
    * - `mlmodel <commands/mlmodel>`_
      - Data-Discovery-Service ML 관련 명령어 이며, ML 명령어 중 fit 명령어를 통해 생성되는 모델 및 메타데이터를 관리하는 명령어 입니다.
      -
