@@ -307,11 +307,27 @@ Html뷰어 (Html Viewer)
 
 
 
-| 사용 예) 입력한 텍스트는 클릭버튼을 실행하면 변환된 값으로 출력됩니다.
+| **사용 예 1)**
+| 입력한 텍스트는 클릭버튼을 실행하면 변환된 값으로 출력됩니다.
 
 .. image:: ./studio/images/hidden/studio_hidden_19.png
   :alt: 텍스트 변환 객체 트리거 설정 2
 
+
+
+
+| **사용 예 2)**
+| `Nunjucks <https://mozilla.github.io/nunjucks/>`__ 의 IF 등을 이용하여 텍스트 변환에 조건을 넣을 수 있습니다.
+| 아래 예제는 텍스트 입력 객체에 입력된 값 (ID, PASSWORD)을 사전에 정의된 값과 비교하여
+| 라벨 객체에서 각각 다른 텍스트를 보여주는 예제입니다.
+
+.. image:: ./studio/images/hidden/studio_hidden_20.png
+  :scale: 60%
+  :alt: 텍스트 변환 객체 트리거 설정 3
+
+
+.. image:: ./studio/images/hidden/studio_hidden_21.png
+  :alt: 텍스트 변환 객체 트리거 설정 4
 
 
 '''''''''''''''''''''''''''''''''''
