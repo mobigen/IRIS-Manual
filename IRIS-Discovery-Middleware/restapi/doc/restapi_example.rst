@@ -46,7 +46,7 @@ Auth API 를 통해 Token 발행
     token = json.load(http_conn.getresponse())["token"]
     http_conn.close()
 
-Query API 를 통해 seesion id 발행 & 결과 도출
+Query API 를 통해 session id 발행 & 결과 도출
 """""""""""""""""""""""""""""""""""""""""""""""
 
 .. code-block:: none
