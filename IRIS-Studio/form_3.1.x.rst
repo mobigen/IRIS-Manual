@@ -11,6 +11,7 @@
 
 
 .. image:: ./studio/image_3_1_x/form_01.png
+    :scale: 30%
 
 
 텍스트 입력 객체는 사용자로부터 값을 입력받기 위한 객체입니다. 입력받는 값의 타입은 text, password, number 가 있습니다.
