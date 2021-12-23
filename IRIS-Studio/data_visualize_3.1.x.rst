@@ -185,9 +185,7 @@
 
 **조건부 서식**
 
-.. image:: ./studio/images/chart/chart_05.png
-    :scale: 40%
-    :alt: 시각화 옵션 조건부 서식
+| 주로 강조를 위해 특정 조건식에 해당하는 필드, 셀의 색상을 변경할 때 사용합니다.
 
 .. csv-table::
     :header: "옵션 명", "설명"
@@ -201,9 +199,6 @@
 
 **X축**
 
-.. image:: ./studio/images/chart/chart_06.png
-    :scale: 40%
-    :alt: 시각화 옵션 X축
 
 .. csv-table::
     :header: "옵션 명", "설명"
@@ -223,9 +218,6 @@
 
 **Y축**
 
-.. image:: ./studio/images/chart/chart_07.png
-    :scale: 40%
-    :alt: 시각화 옵션 Y축
 
 .. csv-table::
     :header: "옵션 명", "설명"
@@ -246,9 +238,6 @@
 
 **범례**
 
-.. image:: ./studio/images/chart/chart_08.png
-    :width: 300
-    :alt: 시각화 옵션 범례
 
 .. csv-table::
     :header: "옵션 명", "설명"
@@ -266,10 +255,6 @@
 
 **크기**
 
-.. image:: ./studio/images/chart/chart_09.png
-    :scale: 60%
-    :alt: 시각화 옵션 크기
-
 .. csv-table::
     :header: "옵션 명", "설명"
     :widths: 40, 150
@@ -281,10 +266,6 @@
 
 
 **정렬**
-
-.. image:: ./studio/images/chart/chart_10.png
-    :width: 300
-    :alt: 시각화 옵션 정렬
 
 .. csv-table::
     :header: "옵션 명", "설명"
