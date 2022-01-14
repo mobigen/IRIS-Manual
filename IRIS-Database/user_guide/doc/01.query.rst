@@ -101,19 +101,20 @@ IRIS 사용자는 IRIS에서 제공하는 .table 명령어를 이용하여 IRIS 
     0.0693 sec
 
 .. table:: .table 명령어
-    :widths: 20 80
+    :widths: 30 80
 
-    ==================  ===
-    명령어              설명
-    .table list         접근 가능한 테이블목록을 조회 합니다.
-    .table info         테이블의 보관주기, partitionrange, partitionkey, partitiondate 등의 정보를 조회합니다.
-    .table columns      테이블의 각 컬럼별 상세 정보를 조회합니다.
-    .table schema       테이블 스키마 정보를 조회 혹은 변경 합니다.
-    .table expire       각 테이블별 데이터의 보관 주기를 변경 합니다.
-    .table range        각 테이블의 range를 변경 합니다.
-    .table size         각 테이블의 용량 정보를 조회합니다.
-    .table index        각 테이블의 인덱스 정보를 조회합니다.
-    ==================  ===
+    =======================  ===
+    명령어                    설명
+    .table list              접근 가능한 테이블목록을 조회 합니다.
+    .table info              테이블의 보관주기, partitionrange, partitionkey, partitiondate 등의 정보를 조회합니다.
+    .table columns           테이블의 각 컬럼별 상세 정보를 조회합니다.
+    .table schema            테이블 스키마 정보를 조회 혹은 변경 합니다.
+    .table expire            각 테이블별 데이터의 보관 주기를 변경 합니다.
+    .table range             각 테이블의 range를 변경 합니다.
+    .table size              각 테이블의 용량 정보를 조회합니다.
+    .table index             각 테이블의 인덱스 정보를 조회합니다.
+    .table partition_info    local 테이블에 생성된 partition 정보를 조회하며, 테이블이름을 명시해야 합니다.
+    =======================  ===
 
 각 명령어는 다음과 같은 옵션이 존재합니다.
 
@@ -302,6 +303,60 @@ IRIS에 생성된 테이블의 컬럼 정보를 조회하는 명령어는 다음
 
 상기 예시에서와 같이 스키마 정보에는 ramexpire 등 옵션 정보는 출력되지 않습니다. 따라서, 테이블의 옵션 정보는 .table list 명령어를 통하여 확인하여야 합니다. 
 
+테이블 파티션 정보 조회하기
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+| 이 명령어는 LOCAL테이블의 파티션 정보를 조회하는 명령어입니다.
+| 사용할 때는 꼭 테이블이름을 명시해야 합니다.
+| 해당 명령어는 IRIS DB 의 부하를 줄 수 있으므로, ``--ignore-path`` 옵션을 사용하도록 권장합니다.
+
+| **주의사항**  : partition 리스트는 IP 별로 중복되어 출력됩니다.
+|
+
+- 테이블의 전체 파티션 가져오기
+
+.. code::
+ 
+    iplus> .table partition_info 테이블이름 --ignore-path  LOCATION(PARTITION >= '00000000000000')
+    
+ 
+- 일부 파티션 가져오기
+
+.. code::
+
+    iplus> .table partition_info 테이블이름 --ignore-path LOCATION(PARTITION >= '20210331000000' AND PARTITION < '20210401000000' )
+    
+
+- 명령어 예시
+
+.. code::
+
+    iplus> .table partition_info 테이블이름 --ignore-path  LOCATION(PARTITION >= '20210331000000')
+    Ret : +OK Success
+    
+    KEY    PARTITION         BLOCK_NUM    IP
+    ========================================================
+    P_K    20210331000000    1            192.168.107.4
+    P_K    20210331000000    1            192.168.107.3
+    ...
+    48 row in set
+
+    0.0832 sec
+
+    
+    iplus> .table partition_info LOCAL_TEST_HOST  LOCATION(PARTITION >= '20210331010000')
+    Ret : +OK Success
+
+    KEY    PARTITION         BLOCK_NUM    IP                PATH
+    ====================================================================================================================================================
+    P_K    20210331020000    1            192.168.107.12    /home/iris/IRIS/data/slave_disk/part00/T163/P_K/2021/03/31/T163_P_K_20210331020000_1.DAT
+    P_K    20210331030000    1            192.168.107.12    /home/iris/IRIS/data/slave_disk/part00/T163/P_K/2021/03/31/T163_P_K_20210331030000_1.DAT
+    ...
+
+
+
+
+
 테이블 스키마 변경하기
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 테이블의 스키마를 수정하는 방법은 글로벌 테이블과 로컬 테이블이 상이합니다. 
@@ -353,6 +408,7 @@ Dot Command를 사용하여 로컬 테이블의 스키마를 변경하면, 변�
     1 row in set
     
     0.1607 sec
+
 
 테이블의 데이터 보관주기 변경하기
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
