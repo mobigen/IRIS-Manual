@@ -91,6 +91,9 @@ Command References
    * - `geoconverter <commands/geoconverter>`_
      - gemotery / geojson 형태를 서로 바꿔주는 명령어 입니다.
      -
+   * - `geoflip <commands/geoflip>`_
+     - 공간 데이터의 경도/위도 <-> 위도/경도 의 순서를 변환 하는 명령어 입니다.
+     -
    * - `geoip <commands/geoip>`_
      - 이 명령어는 ip가 포함된 필드를 기반으로 위, 경도 등의 추가정보를 제공합니다.
      -
