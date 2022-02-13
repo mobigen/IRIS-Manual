@@ -62,10 +62,28 @@ Parameters
      - 옵션
 
 
+- intype/outtype 테이블
+.. list-table::
+   :header-rows: 1
+
+   * - 필터 함수
+     - 설명
+   * - WKT
+     - geocol로 설정하는 데이터의 포멧이 WKT형태인 경우
+   * - GEOJSON
+     - geocol로 설정하는 데이터의 포멧이 geojson인 경우
+   * - GEOMETRY
+     - geocol로 설정하는 데이터의 포멧이 geojson 내부에 존재하는 geometry 형태인 경우(geojson과의 변환만 가능)
+   
+
+Studio 지도객체의 도형유형에서 사용하기 위해서는 geometry 형식으로 변경하여야 한다.
+
+
 Examples
 --------
 
 - 인풋 데이터는 항상 ``(geometry/geojson 형식의 StringType 컬럼)`` 또는 ``(경위도 데이터)`` 를 포함한다.
+
 
 예제 1
 """"""""
