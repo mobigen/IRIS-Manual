@@ -7,11 +7,11 @@ IRIS Studio를 활용하여 데이터 탐색과 시각화 결과를 원하는 �
 .. toctree::
     :hidden:
 
-    Studio_start.rst
-    data.rst
-    data_visualize.rst
-    decorate.rst
-    form.rst
+    Start_studio_3.1.x.rst
+    data_3.1.x.rst
+    data_visualize_3.1.x.rst
+    decorate_3.1.x.rst
+    form_3.1.x.rst
     control.rst
-    special_etc.rst
+    special_etc_3.1.x.rst
      
