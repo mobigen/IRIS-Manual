@@ -25,3 +25,4 @@ IRIS Big Data Platform
     IRIS-Map-Analyzer/IRIS-Map-Analyzer.rst
     IRIS-Discovery-Middleware/IRIS-Discovery-Middleware.rst
     IRIS-Database/IRIS-Database.rst
+    IRIS-Data-Engine/index.rst
