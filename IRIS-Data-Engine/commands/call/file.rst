@@ -46,7 +46,7 @@ Parameters
       * 연결정보의 이름
       * 옵션
       * connector_name을 사용할 경우 connector_owner를 같이 입력해 주어야 함
-    - * connecotr_owner
+    - * connector_owner
       * 연결정보의 생성자
       * connector_name 사용시 필수
       *
