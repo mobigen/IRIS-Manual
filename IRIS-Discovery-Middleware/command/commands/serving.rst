@@ -9,7 +9,7 @@ tensorFlow 의 deep-learinig 알고리즘 기반의 학습 모델을 Tensorflow 
 - serving predict
 - serving status
 
-컬럼 타입
+타입
 ----------------------------------------------------------------------------------------------------
 
 
